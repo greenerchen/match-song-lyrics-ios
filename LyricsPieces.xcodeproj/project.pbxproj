@@ -453,7 +453,8 @@
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -483,7 +484,8 @@
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
