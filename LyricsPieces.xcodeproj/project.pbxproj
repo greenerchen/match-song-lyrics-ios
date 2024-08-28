@@ -14,6 +14,8 @@
 		AA9EEF882C7F1D8B008F4B6D /* LyricsPiecesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEF872C7F1D8B008F4B6D /* LyricsPiecesTests.swift */; };
 		AA9EEF922C7F1D8B008F4B6D /* LyricsPiecesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEF912C7F1D8B008F4B6D /* LyricsPiecesUITests.swift */; };
 		AA9EEF942C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEF932C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift */; };
+		AA9EEFA62C7F24EE008F4B6D /* ShazamStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */; };
+		AA9EEFAE2C7F2A3F008F4B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9EEFAD2C7F2A3F008F4B6D /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		AA9EEF8D2C7F1D8B008F4B6D /* LyricsPiecesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyricsPiecesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9EEF912C7F1D8B008F4B6D /* LyricsPiecesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPiecesUITests.swift; sourceTree = "<group>"; };
 		AA9EEF932C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPiecesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartView.swift; sourceTree = "<group>"; };
+		AA9EEFAD2C7F2A3F008F4B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				AA9EEFA22C7F1E51008F4B6D /* Data */,
 				AA9EEFA02C7F1E29008F4B6D /* App */,
 				AA9EEF7C2C7F1D8B008F4B6D /* Preview Content */,
+				AA9EEFAC2C7F2A29008F4B6D /* Resources */,
 				AA9EEFA12C7F1E38008F4B6D /* Views */,
 			);
 			path = LyricsPieces;
@@ -140,6 +145,7 @@
 		AA9EEFA12C7F1E38008F4B6D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +155,14 @@
 			children = (
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		AA9EEFAC2C7F2A29008F4B6D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA9EEFAD2C7F2A3F008F4B6D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9EEF7E2C7F1D8B008F4B6D /* Preview Assets.xcassets in Resources */,
+				AA9EEFAE2C7F2A3F008F4B6D /* Assets.xcassets in Resources */,
 				AA9EEF7B2C7F1D8B008F4B6D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9EEFA62C7F24EE008F4B6D /* ShazamStartView.swift in Sources */,
 				AA9EEF792C7F1D86008F4B6D /* ContentView.swift in Sources */,
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
 			);
