@@ -14,6 +14,7 @@
 		AA9EEF882C7F1D8B008F4B6D /* LyricsPiecesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEF872C7F1D8B008F4B6D /* LyricsPiecesTests.swift */; };
 		AA9EEF922C7F1D8B008F4B6D /* LyricsPiecesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEF912C7F1D8B008F4B6D /* LyricsPiecesUITests.swift */; };
 		AA9EEF942C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEF932C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift */; };
+		AA9EEFA42C7F1E8A008F4B6D /* PermissionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFA32C7F1E8A008F4B6D /* PermissionsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		AA9EEF8D2C7F1D8B008F4B6D /* LyricsPiecesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyricsPiecesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9EEF912C7F1D8B008F4B6D /* LyricsPiecesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPiecesUITests.swift; sourceTree = "<group>"; };
 		AA9EEF932C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPiecesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AA9EEFA32C7F1E8A008F4B6D /* PermissionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +96,10 @@
 		AA9EEF752C7F1D86008F4B6D /* LyricsPieces */ = {
 			isa = PBXGroup;
 			children = (
-				AA9EEF762C7F1D86008F4B6D /* LyricsPiecesApp.swift */,
-				AA9EEF782C7F1D86008F4B6D /* ContentView.swift */,
-				AA9EEF7A2C7F1D8B008F4B6D /* Assets.xcassets */,
+				AA9EEFA22C7F1E51008F4B6D /* Settings */,
+				AA9EEFA02C7F1E29008F4B6D /* App */,
 				AA9EEF7C2C7F1D8B008F4B6D /* Preview Content */,
+				AA9EEFA12C7F1E38008F4B6D /* Views */,
 			);
 			path = LyricsPieces;
 			sourceTree = "<group>";
@@ -125,6 +127,31 @@
 				AA9EEF932C7F1D8B008F4B6D /* LyricsPiecesUITestsLaunchTests.swift */,
 			);
 			path = LyricsPiecesUITests;
+			sourceTree = "<group>";
+		};
+		AA9EEFA02C7F1E29008F4B6D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA9EEF762C7F1D86008F4B6D /* LyricsPiecesApp.swift */,
+				AA9EEF782C7F1D86008F4B6D /* ContentView.swift */,
+				AA9EEF7A2C7F1D8B008F4B6D /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA9EEFA12C7F1E38008F4B6D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA9EEFA22C7F1E51008F4B6D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AA9EEFA32C7F1E8A008F4B6D /* PermissionsProvider.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +286,7 @@
 			files = (
 				AA9EEF792C7F1D86008F4B6D /* ContentView.swift in Sources */,
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
+				AA9EEFA42C7F1E8A008F4B6D /* PermissionsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +453,7 @@
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +483,7 @@
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
