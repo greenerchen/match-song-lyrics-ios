@@ -9,7 +9,17 @@ import SwiftUI
 
 struct ShazamStartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack {
+                NavigationLink {
+                    MatchView(matcher: ShazamMatcher())
+                } label: {
+                    Image("logo")
+                }
+            }
+            .navigationTitle("Tap Logo to Capture")
+            .background(.themeBackground)
+        }
     }
 }
 
