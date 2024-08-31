@@ -15,6 +15,8 @@ struct ProgressView: View {
     var body: some View {
         VStack {
             Image("logo")
+                .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.width - 40)
+                .clipShape(Circle())
                 .rotationEffect(.degrees(degreesRotating))
                 .onAppear(perform: {
                     withAnimation(.linear(duration: 1).speed(0.2).repeatForever(autoreverses: false)) {
@@ -23,6 +25,7 @@ struct ProgressView: View {
                 })
         }
         .navigationTitle(title)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.themeBackground)
     }
 }
