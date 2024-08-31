@@ -17,6 +17,7 @@ struct ShazamStartView: View {
                     Image("logo")
                         .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.width - 40)
                         .clipShape(Circle())
+                        .shadow(radius: 4)
                 }
             }
             .navigationTitle("Tap Logo to Capture")
