@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA4909D42C87073E00CFAD3B /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */; };
+		AA4909D82C8764C300CFAD3B /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA4909D72C8764C300CFAD3B /* OAuthSwift */; };
 		AA9D58922C81B90D008ABAEC /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58912C81B90D008ABAEC /* Stubs.swift */; };
 		AA9D58942C81B92E008ABAEC /* SHMatchCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */; };
 		AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58952C81C71C008ABAEC /* SHManagedSessionMock.swift */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4909D82C8764C300CFAD3B /* OAuthSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA4909D62C8764C300CFAD3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA9D588E2C81B8BB008ABAEC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +120,7 @@
 				AA9EEF862C7F1D8B008F4B6D /* LyricsPiecesTests */,
 				AA9EEF902C7F1D8B008F4B6D /* LyricsPiecesUITests */,
 				AA9EEF742C7F1D86008F4B6D /* Products */,
+				AA4909D62C8764C300CFAD3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +228,9 @@
 			dependencies = (
 			);
 			name = LyricsPieces;
+			packageProductDependencies = (
+				AA4909D72C8764C300CFAD3B /* OAuthSwift */,
+			);
 			productName = LyricsPieces;
 			productReference = AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */;
 			productType = "com.apple.product-type.application";
@@ -692,6 +705,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA4909D72C8764C300CFAD3B /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA4909D52C87080800CFAD3B /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA9EEF6B2C7F1D86008F4B6D /* Project object */;
 }
