@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct LyricsPiecesApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: MyAppDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

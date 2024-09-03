@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA4909D42C87073E00CFAD3B /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */; };
 		AA9D58922C81B90D008ABAEC /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58912C81B90D008ABAEC /* Stubs.swift */; };
 		AA9D58942C81B92E008ABAEC /* SHMatchCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */; };
 		AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58952C81C71C008ABAEC /* SHManagedSessionMock.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		AA4909D22C87021000CFAD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppDelegate.swift; sourceTree = "<group>"; };
 		AA9D58912C81B90D008ABAEC /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMatchCoder.swift; sourceTree = "<group>"; };
 		AA9D58952C81C71C008ABAEC /* SHManagedSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHManagedSessionMock.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				AA9EEF762C7F1D86008F4B6D /* LyricsPiecesApp.swift */,
+				AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */,
 				AA9EEF782C7F1D86008F4B6D /* ContentView.swift */,
 				AA9EEF7A2C7F1D8B008F4B6D /* Assets.xcassets */,
 			);
@@ -337,6 +340,7 @@
 				AA9EEFAB2C7F25E5008F4B6D /* ShazamMatcher.swift in Sources */,
 				AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */,
 				AA9EEF792C7F1D86008F4B6D /* ContentView.swift in Sources */,
+				AA4909D42C87073E00CFAD3B /* MyAppDelegate.swift in Sources */,
 				AA9EEFA82C7F25AE008F4B6D /* MatchView.swift in Sources */,
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
 				AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */,
@@ -510,8 +514,8 @@
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_FILE = LyricsPieces/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "LyricsPieces requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -541,7 +545,8 @@
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) requires permissions to listen to audio for appropriate songs";
+				INFOPLIST_FILE = LyricsPieces/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "LyricsPieces requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
