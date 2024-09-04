@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA4909D42C87073E00CFAD3B /* MyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */; };
-		AA4909D82C8764C300CFAD3B /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA4909D72C8764C300CFAD3B /* OAuthSwift */; };
 		AA9D58922C81B90D008ABAEC /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58912C81B90D008ABAEC /* Stubs.swift */; };
 		AA9D58942C81B92E008ABAEC /* SHMatchCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */; };
 		AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58952C81C71C008ABAEC /* SHManagedSessionMock.swift */; };
@@ -26,6 +24,7 @@
 		AA9EEFB02C7F2C19008F4B6D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFAF2C7F2C19008F4B6D /* ProgressView.swift */; };
 		AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */; };
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
+		AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B22C8824680011A39D /* GeniusLyricsAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		AA4909D22C87021000CFAD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppDelegate.swift; sourceTree = "<group>"; };
 		AA9D58912C81B90D008ABAEC /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMatchCoder.swift; sourceTree = "<group>"; };
 		AA9D58952C81C71C008ABAEC /* SHManagedSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHManagedSessionMock.swift; sourceTree = "<group>"; };
@@ -75,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA4909D82C8764C300CFAD3B /* OAuthSwift in Frameworks */,
+				AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				AA9EEF762C7F1D86008F4B6D /* LyricsPiecesApp.swift */,
-				AA4909D32C87073E00CFAD3B /* MyAppDelegate.swift */,
 				AA9EEF782C7F1D86008F4B6D /* ContentView.swift */,
 				AA9EEF7A2C7F1D8B008F4B6D /* Assets.xcassets */,
 			);
@@ -229,7 +226,7 @@
 			);
 			name = LyricsPieces;
 			packageProductDependencies = (
-				AA4909D72C8764C300CFAD3B /* OAuthSwift */,
+				AAA347B22C8824680011A39D /* GeniusLyricsAPI */,
 			);
 			productName = LyricsPieces;
 			productReference = AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */;
@@ -304,7 +301,7 @@
 			);
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
-				AA4909D52C87080800CFAD3B /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+				AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -353,7 +350,6 @@
 				AA9EEFAB2C7F25E5008F4B6D /* ShazamMatcher.swift in Sources */,
 				AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */,
 				AA9EEF792C7F1D86008F4B6D /* ContentView.swift in Sources */,
-				AA4909D42C87073E00CFAD3B /* MyAppDelegate.swift in Sources */,
 				AA9EEFA82C7F25AE008F4B6D /* MatchView.swift in Sources */,
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
 				AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */,
@@ -696,21 +692,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AA4909D52C87080800CFAD3B /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+		AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift.git";
+			repositoryURL = "git@github.com:greenerchen/GeniusLyricsAPI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AA4909D72C8764C300CFAD3B /* OAuthSwift */ = {
+		AAA347B22C8824680011A39D /* GeniusLyricsAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AA4909D52C87080800CFAD3B /* XCRemoteSwiftPackageReference "OAuthSwift" */;
-			productName = OAuthSwift;
+			package = AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */;
+			productName = GeniusLyricsAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
