@@ -32,7 +32,9 @@ final class ShazamMatcher: ObservableObject {
     }
     
     func match() async throws {
-        isMatching = true
+        Task { @MainActor in
+            isMatching = true
+        }
          
         // What if the matcher is deiniting during waiting?
         let result = await session.result()
@@ -58,8 +60,10 @@ final class ShazamMatcher: ObservableObject {
     
     func endSession() {
         session.cancel()
-        isMatching = false
-        currentMatchResult = ShazamMatchResult(match: nil)
+        Task { @MainActor in
+            isMatching = false
+            currentMatchResult = ShazamMatchResult(match: nil)
+        }
     }
 }
 
