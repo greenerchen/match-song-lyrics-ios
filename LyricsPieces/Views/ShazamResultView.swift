@@ -13,6 +13,8 @@ struct ShazamResultView: View {
     
     var result: ShazamMatchResult
     
+    @State private var isPresented: Bool = false
+    
     var body: some View {
         VStack {
             if let match = result.match,
@@ -35,7 +37,18 @@ struct ShazamResultView: View {
                     Text("by \(item.artist ?? "")")
                     Text("matched at \(item.matchTime)")
                     HStack {
-                        Text("Lyrics")
+                        Button(action: {
+                            fetchLyrics()
+                            isPresented.toggle()
+                        }, label: {
+                            Label("Read Lyrics", systemImage: "music.note.list")
+                        })
+                        .sheet(isPresented: $isPresented,
+                               content: {
+                            LyricsView()
+                                .presentationDetents([.medium, .large])
+                        })
+
                         Image("apple.music.badge")
                             .resizable()
                             .frame(width: 136, height: 40)
@@ -54,6 +67,10 @@ struct ShazamResultView: View {
         .navigationTitle("Captured Song")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.themeBackground)
+    }
+    
+    private func fetchLyrics() {
+        
     }
 }
 

@@ -25,6 +25,7 @@
 		AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */; };
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
 		AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B22C8824680011A39D /* GeniusLyricsAPI */; };
+		AAA347B52C8828C00011A39D /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347B42C8828C00011A39D /* LyricsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		AA9EEFAF2C7F2C19008F4B6D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamResultView.swift; sourceTree = "<group>"; };
 		AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissonRequestView.swift; sourceTree = "<group>"; };
+		AAA347B42C8828C00011A39D /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */,
 				AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */,
 				AA9EEFAF2C7F2C19008F4B6D /* ProgressView.swift */,
+				AAA347B42C8828C00011A39D /* LyricsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				AA9EEFA82C7F25AE008F4B6D /* MatchView.swift in Sources */,
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
 				AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */,
+				AAA347B52C8828C00011A39D /* LyricsView.swift in Sources */,
 				AA9EEFB02C7F2C19008F4B6D /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
