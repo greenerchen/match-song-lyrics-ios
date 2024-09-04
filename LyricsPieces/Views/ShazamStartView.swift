@@ -20,7 +20,7 @@ struct ShazamStartView: View {
                         .shadow(radius: 4)
                 }
             }
-            .navigationTitle("Tap Logo to Capture")
+            .navigationTitle("Tap to Capture")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.themeBackground)
         }
