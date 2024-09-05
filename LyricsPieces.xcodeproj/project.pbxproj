@@ -26,6 +26,7 @@
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
 		AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B22C8824680011A39D /* GeniusLyricsAPI */; };
 		AAA347B52C8828C00011A39D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347B42C8828C00011A39D /* WebView.swift */; };
+		AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */,
 				AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +232,7 @@
 			name = LyricsPieces;
 			packageProductDependencies = (
 				AAA347B22C8824680011A39D /* GeniusLyricsAPI */,
+				AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */,
 			);
 			productName = LyricsPieces;
 			productReference = AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */;
@@ -305,6 +308,7 @@
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
 				AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */,
+				AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -704,6 +708,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +723,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */;
 			productName = GeniusLyricsAPI;
+		};
+		AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
