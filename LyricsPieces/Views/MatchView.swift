@@ -25,13 +25,13 @@ struct MatchView: View {
     var body: some View {
         VStack {
             if matcher.isMatching {
-                ProgressView(title: "Listening")
+                MatchingView(title: "Listening")
             } else if let result = matcher.currentMatchResult {
                 ShazamResultView(result: result)
             } else if needPermissions {
                 PermissonRequestView()
             } else {
-                ProgressView(title: "Hold on.")
+                MatchingView(title: "Hold on.")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

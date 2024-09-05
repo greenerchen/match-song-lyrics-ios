@@ -1,5 +1,5 @@
 //
-//  ProgressView.swift
+//  MatchingView.swift
 //  LyricsPieces
 //
 //  Created by Greener Chen on 2024/8/28.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressView: View {
+struct MatchingView: View {
     var title: String
     
     @State private var degreesRotating = 0.0
@@ -32,5 +32,5 @@ struct ProgressView: View {
 }
 
 #Preview {
-    ProgressView(title: "Listening")
+    MatchingView(title: "Listening")
 }
