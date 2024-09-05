@@ -8,7 +8,7 @@
 import Foundation
 import ShazamKit
 
-let mediaItemsStub = [
+let mediaItemsStub: [SHMatchedMediaItem] = [
     SHMatchedMediaItem(properties: [
 //        "sh_album": "Better Word (Live)",
         SHMediaItemProperty.appleMusicID: 1474230008,
@@ -19,11 +19,11 @@ let mediaItemsStub = [
         SHMediaItemProperty.explicitContent: 0,
         SHMediaItemProperty.frequencySkew: 0,
         SHMediaItemProperty.genres: [
-            "Christian",
-            "Music"
+//            "Christian",
+//            "Music"
         ],
         SHMediaItemProperty.ISRC: "US25L1900253",
-        SHMediaItemProperty.matchOffset: "222.1854375",
+        SHMediaItemProperty.matchOffset: 222.1854375,
 //        "sh_releaseDate" : "2019-08-16 00:00:00 +0000",
         SHMediaItemProperty.shazamID: 479874710,
         SHMediaItemProperty.subtitle: "Leeland",

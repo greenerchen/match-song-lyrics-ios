@@ -24,7 +24,6 @@ struct ShazamResultView: View {
         VStack {
             if let match = result.match,
                let song = match.mediaItems.first {
-                
                 WebImage(url: song.artworkURL)
                     .scaledToFill()
                     .frame(height: 520)
@@ -36,9 +35,9 @@ struct ShazamResultView: View {
                                 .lineLimit(3)
                                 .font(.title)
                                 .fontWeight(.bold)
-                            Text("\(song.artist ?? "")")
+                            Text(song.artist ?? "")
                                 .lineLimit(3)
-                                .font(.title)
+                                .font(.title2)
                                 .fontWeight(.bold)
                             Text("Matched at \(song.matchTime)")
                                 .font(.body)
@@ -117,4 +116,5 @@ struct ShazamResultView: View {
 
 #Preview {
     ShazamResultView(result: ShazamMatchResult(match: nil))
+//    ShazamResultView(result: ShazamMatchResult(match: matchStub))
 }
