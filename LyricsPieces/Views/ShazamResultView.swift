@@ -9,6 +9,7 @@ import SwiftUI
 import ShazamKit
 import Combine
 import GeniusLyricsAPI
+import SDWebImageSwiftUI
 
 struct ShazamResultView: View {
     @Environment(\.openURL) var openURL
@@ -22,59 +23,52 @@ struct ShazamResultView: View {
     var body: some View {
         VStack {
             if let match = result.match,
-               let item = match.mediaItems.first {
-                ZStack(alignment: .bottomLeading) {
-                    AsyncImage(url: item.artworkURL) { image in
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
-                    } placeholder: {
-                        Image("songwork").resizable()
-                            .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 40 - 34)
+               let song = match.mediaItems.first {
+                
+                WebImage(url: song.artworkURL)
+                    .scaledToFill()
+                    .frame(height: 520)
+                    .edgesIgnoringSafeArea(.top)
+                    .overlay(alignment: .bottom) {
+                        Spacer()
+                        VStack(alignment: .leading) {
+                            Text(song.title ?? "")
+                                .lineLimit(3)
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("\(song.artist ?? "")")
+                                .lineLimit(3)
+                                .font(.title)
+                                .fontWeight(.bold)
+                            Text("Matched at \(song.matchTime)")
+                                .font(.body)
+                        }
+                        .frame(width: UIScreen.main.bounds.width)
+                        .background(
+                            LinearGradient(
+                                gradient: Gradient(
+                                    colors: [.themeBackground.opacity(0.2), .themeBackground]),
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        )
                     }
                     .onTapGesture(perform: {
-                        guard let shazamWebURL = item.webURL else {
+                        guard let shazamWebURL = song.webURL else {
                             return
                         }
                         openURL(shazamWebURL)
                     })
                     
-                    VStack(alignment: .leading) {
-                        Text(item.title ?? "")
-                            .lineLimit(3)
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                        Text("\(item.artist ?? "")")
-                            .lineLimit(3)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Text("Matched at \(item.matchTime)")
-                            .font(.subheadline)
-                    }
-                    .containerRelativeFrame(.horizontal){ size, axis in
-                        // FIXME: when the song title is long, size.significand is too big for this case
-                        size * size.significand
-                    }
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(
-                                colors: [.clear, .themeBackground]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                }
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.top)
-                
+                Spacer(minLength: 10)
                 HStack {
                     Button(action: {
                         fetchLyrics()
                     }, label: {
                         Label("Read Lyrics", systemImage: "music.note.list")
-                            .frame(height: 40)
-                            .clipShape(Capsule())
                     })
+                    .frame(height: 44)
+                    .buttonStyle(.borderedProminent)
                     .sheet(isPresented: $isPresented,
                            content: {
                         if let lyricsURL = lyricsURL {
@@ -88,16 +82,15 @@ struct ShazamResultView: View {
                     
                     Image("apple.music.badge")
                         .resizable()
-                        .frame(width: 136, height: 40)
+                        .frame(width: 140, height: 44)
                         .onTapGesture {
-                            guard let appleMusicURL = item.appleMusicURL else {
+                            guard let appleMusicURL = song.appleMusicURL else {
                                 return
                             }
                             openURL(appleMusicURL)
                         }
                 }
-                Spacer()
-//                Label("Powered by Shazam", systemImage: "shazam.logo")
+                Spacer(minLength: 80)
             } else {
                 Text("Uh oh. Nothing found.")
             }
@@ -120,6 +113,7 @@ struct ShazamResultView: View {
         }
     }
 }
+
 
 #Preview {
     ShazamResultView(result: ShazamMatchResult(match: nil))
