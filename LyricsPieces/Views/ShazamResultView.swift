@@ -46,7 +46,7 @@ struct ShazamResultView: View {
                         .background(
                             LinearGradient(
                                 gradient: Gradient(
-                                    colors: [.themeBackground.opacity(0.2), .themeBackground]),
+                                    colors: [.yellow.opacity(0.6), .themeBackground]),
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
