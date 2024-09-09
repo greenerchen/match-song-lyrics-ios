@@ -12,7 +12,7 @@ As an online user listening to a song recording in a cafe
 I want the app to find the song and its lyrics
 So I can sing along with the music in the air
 ```
-###Scenarios (Acceptance criteria)
+### Scenarios (Acceptance criteria)
 ```
 Given the user has connectivity and a song recording in the air
 When the user taps the button to shazam song
@@ -24,7 +24,7 @@ As an offline user listening to a song recording in a cafe
 I want the app to display no internet
 So I can know I should've be online
 ```
-###Scenarios (Acceptance criteria)
+### Scenarios (Acceptance criteria)
 ```
 Given the user has no connectivity
 When the user taps the button to shazam song
@@ -49,7 +49,7 @@ Then the app should display an error message of no connectivity
 ## Get Lyrics Use Case
 ### Data
 - The artist and song title 
-## Primary Course (happy path):
+### Primary Course (happy path):
 1. The app queries lyrics
 2. The app downloads lyrics
 3. The app creats a Song from valid data
