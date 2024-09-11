@@ -24,11 +24,11 @@
 		AA9EEFB02C7F2C19008F4B6D /* MatchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFAF2C7F2C19008F4B6D /* MatchingView.swift */; };
 		AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */; };
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
-		AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B22C8824680011A39D /* GeniusLyricsAPI */; };
 		AAA347B52C8828C00011A39D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347B42C8828C00011A39D /* WebView.swift */; };
 		AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */; };
 		AAA347B92C8A71E60011A39D /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58912C81B90D008ABAEC /* Stubs.swift */; };
 		AAA347BA2C8A71EA0011A39D /* SHMatchCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */; };
+		AAA347EE2C9181BF0011A39D /* MusixmatchAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347ED2C9181BF0011A39D /* MusixmatchAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA347EE2C9181BF0011A39D /* MusixmatchAPI in Frameworks */,
 				AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */,
-				AAA347B32C8824680011A39D /* GeniusLyricsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,8 +233,8 @@
 			);
 			name = LyricsPieces;
 			packageProductDependencies = (
-				AAA347B22C8824680011A39D /* GeniusLyricsAPI */,
 				AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */,
+				AAA347ED2C9181BF0011A39D /* MusixmatchAPI */,
 			);
 			productName = LyricsPieces;
 			productReference = AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */;
@@ -309,8 +309,8 @@
 			);
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
-				AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */,
 				AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				AAA347EC2C9181BF0011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -723,7 +723,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AAA347B22C8824680011A39D /* GeniusLyricsAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */;
 			productName = GeniusLyricsAPI;
