@@ -123,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				AA9EEF752C7F1D86008F4B6D /* LyricsPieces */,
-				AAA347EF2C9182340011A39D /* View Models */,
 				AA9EEF862C7F1D8B008F4B6D /* LyricsPiecesTests */,
 				AA9EEF902C7F1D8B008F4B6D /* LyricsPiecesUITests */,
 				AA9EEF742C7F1D86008F4B6D /* Products */,
@@ -150,6 +149,7 @@
 				AA9EEF7C2C7F1D8B008F4B6D /* Preview Content */,
 				AA9EEFAC2C7F2A29008F4B6D /* Resources */,
 				AA9EEFA12C7F1E38008F4B6D /* Views */,
+				AAA347EF2C9182340011A39D /* View Models */,
 			);
 			path = LyricsPieces;
 			sourceTree = "<group>";

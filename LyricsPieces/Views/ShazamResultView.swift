@@ -115,7 +115,6 @@ struct ShazamResultView: View {
                 lyricsViewModel?.lyricsBody = lyrics.body
                 lyricsViewModel?.lyricsCopyright = lyrics.copyright
                 lyricsViewModel?.scriptTrackingUrl = lyrics.scriptTrackingUrl
-                
             }
         }
         isPresented.toggle()
