@@ -109,7 +109,7 @@ struct ShazamResultView: View {
                 artistName: track.artistName,
                 hasLyrics: track.hasLyrics,
                 lyricsBody: track.lyricsBody,
-                lyricsCopyright: track.lyricsCopyright, backlinkUrl: track.backlineUrl, scriptTrackingUrl: nil)
+                lyricsCopyright: track.lyricsCopyright, backlinkUrl: track.backlinkUrl, scriptTrackingUrl: nil)
             if track.hasLyrics,
                let lyrics = try? await client.getLyrics(trackId: track.id) {
                 lyricsViewModel?.lyricsBody = lyrics.body
