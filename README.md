@@ -70,38 +70,121 @@ Then the app should display an error message of no connectivity
 | url | URL |
 | artistNames | String |
 
-## Payload Contract - Genius Lyrics API
+## Payload Contract - Musixmatch Lyrics API
+### Authentication
 ```
-Header
-Authorization: Bearer <Access Token>
+Parameters:
+- `apikey`: Your personal api key, you must use it in every API call. You can pass this parameter as `GET` parameter in your api call, like `track.get?apikey=xxx`
+```
 
-GET https://api.genius.com/search?q=keyword
+### track.search
+Search for track in musixmatch's database
+```
+GET track.search
+
+Parameters:
+- `q_track`: the song title
+- `q_artist`: the song artist
 
 200 RESPONSE
 
 {
-    meta: {
-        status: 200
-    },
-    response: {
-        hits: [
-            {
-                highlights: [...],
-                index: "song",
-                type: "song",
-                result: {
-                    artist_names: "Kendrick Lamar",
-                    title: "HUMBLE.",
-                    url: "https://genius.com/Kendrick-lamar-humble-lyrics",
+    "message": {
+        "header": {
+            "status_code": 200,
+            ...
+        },
+        "body": {
+            "track_list": [
+                {
+                    "track_id": 170323904,
+                    "commontrack_id": 93911869,
+                    "restricted": 0,
+                    "explicit": 0,
+                    "has_lyrics": 1,
+                    "has_subtitles": 1,
+                    "lyrics_id": 35772235,
+                    "subtitle_id": 3532383,
+                    "lyrics_copyright": "Lyrics powered by www.musixmatch.com",
                     ...
-                }
-            },
-            {...},
-            {...}
-        ]
+                },
+                ...
+            ]
+        }
+    }
+}
+```
+
+### track.lyrics.get
+Get the lyrics for a track. Make sure fulfill `country restriction` you receive within every copyrighted content.
+```
+GET track.lyrics.get
+
+Parameters:
+- `commontrack_id`: the musixmatch commontrack id
+- `track_isrc`: A valid ISRC identifier
+
+200 RESPONSE
+
+{
+    "message": {
+        "header": {
+            "status_code": 200,
+            ...
+        },
+        "body": {
+            "lyrics": {
+                "lyrics_id": 23904,
+                "restricted": 0,
+                "explicit": 0,
+                "lyrics_body": "I know I know ....",
+                "pixel_tracking_url": "https://tracking.musixmatch.com/t1.0/AMz6ed8EFA90DEsE",
+                "lyrics_copyright": "Lyrics powered by www.musixmatch.com",
+                "backlink_url": "https://www.musixmatch.com/lyrics/Lady-Gaga/.....",
+                ...
+            }
+        }
     }
 }
 
 ```
+
+### track.subtitle.get
+Get the subtitle for a track. Make sure to:
+- fulfill the `country restriction` you receive within every copyrighted content
+- apply the `tracking method` of your choice
+
+```
+GET track.subtitle.get
+
+Parameters:
+- `commontrack_id`: the musixmatch commontrack id
+- `subtitle_format`: the format of the subtitle (lrc, dfxp, stledu). Default to lrc
+- `f_subtitle_length`: the desired length of the subtitle (seconds)
+- `f_subtitle_length_max_deviation`: the maximum deviation allowed from the f_subtitle_length (seconds)
+
+GET track.subtitle.get?commontrack_id=10074988
+
+200 RESPONSE
+
+{
+    "message": {
+        "header": {
+            "status_code": 200,
+            ...
+        },
+        "body": {
+            "subtitle": {
+                "subtitle_id": 18117,
+                "restricted": 0,
+                "subtitle_body": "[00:20:51] Heart beats fast ...",
+                "pixel_tracking_url": "https://tracking.musixmatch.com/t1.0/AMz6ed8EFA90DEsE",
+                "lyrics_copyright": "Lyrics powered by www.musixmatch.com"
+            }
+        }
+    }
+}
+```
+
 # App Architecture
 [TBA]

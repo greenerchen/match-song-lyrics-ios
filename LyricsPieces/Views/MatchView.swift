@@ -27,7 +27,7 @@ struct MatchView: View {
             if matcher.isMatching {
                 MatchingView(title: "Listening")
             } else if let result = matcher.currentMatchResult {
-                ShazamResultView(result: result)
+                ShazamResultView(vm: ShazamResultViewModel(result: result))
             } else if needPermissions {
                 PermissonRequestView()
             } else {

@@ -25,10 +25,13 @@
 		AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */; };
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
 		AAA347B52C8828C00011A39D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347B42C8828C00011A39D /* WebView.swift */; };
-		AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */; };
 		AAA347B92C8A71E60011A39D /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58912C81B90D008ABAEC /* Stubs.swift */; };
 		AAA347BA2C8A71EA0011A39D /* SHMatchCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */; };
-		AAA347EE2C9181BF0011A39D /* MusixmatchAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347ED2C9181BF0011A39D /* MusixmatchAPI */; };
+		AAA347F12C9182510011A39D /* LyricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347F02C9182510011A39D /* LyricsViewModel.swift */; };
+		AAA347F82C9295F50011A39D /* MusixmatchAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347F72C9295F50011A39D /* MusixmatchAPI */; };
+		AACF4EA52C93E2370040C4D5 /* ShazamResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */; };
+		AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA62C93E4D70040C4D5 /* TrackView.swift */; };
+		AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,10 @@
 		AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamResultView.swift; sourceTree = "<group>"; };
 		AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissonRequestView.swift; sourceTree = "<group>"; };
 		AAA347B42C8828C00011A39D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		AAA347F02C9182510011A39D /* LyricsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewModel.swift; sourceTree = "<group>"; };
+		AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamResultViewModel.swift; sourceTree = "<group>"; };
+		AACF4EA62C93E4D70040C4D5 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackActionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAA347EE2C9181BF0011A39D /* MusixmatchAPI in Frameworks */,
-				AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */,
+				AAA347F82C9295F50011A39D /* MusixmatchAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +153,7 @@
 				AA9EEF7C2C7F1D8B008F4B6D /* Preview Content */,
 				AA9EEFAC2C7F2A29008F4B6D /* Resources */,
 				AA9EEFA12C7F1E38008F4B6D /* Views */,
+				AAA347EF2C9182340011A39D /* View Models */,
 			);
 			path = LyricsPieces;
 			sourceTree = "<group>";
@@ -192,6 +199,8 @@
 			children = (
 				AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */,
 				AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */,
+				AACF4EA62C93E4D70040C4D5 /* TrackView.swift */,
+				AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */,
 				AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */,
 				AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */,
 				AA9EEFAF2C7F2C19008F4B6D /* MatchingView.swift */,
@@ -216,6 +225,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		AAA347EF2C9182340011A39D /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAA347F02C9182510011A39D /* LyricsViewModel.swift */,
+				AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,8 +251,7 @@
 			);
 			name = LyricsPieces;
 			packageProductDependencies = (
-				AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */,
-				AAA347ED2C9181BF0011A39D /* MusixmatchAPI */,
+				AAA347F72C9295F50011A39D /* MusixmatchAPI */,
 			);
 			productName = LyricsPieces;
 			productReference = AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */;
@@ -309,8 +326,7 @@
 			);
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
-				AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				AAA347EC2C9181BF0011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
+				AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -357,15 +373,19 @@
 			files = (
 				AA9EEFA62C7F24EE008F4B6D /* ShazamStartView.swift in Sources */,
 				AA9EEFAB2C7F25E5008F4B6D /* ShazamMatcher.swift in Sources */,
+				AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */,
+				AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */,
 				AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */,
 				AA9EEF792C7F1D86008F4B6D /* ContentView.swift in Sources */,
 				AA9EEFA82C7F25AE008F4B6D /* MatchView.swift in Sources */,
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
+				AAA347F12C9182510011A39D /* LyricsViewModel.swift in Sources */,
 				AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */,
 				AAA347B52C8828C00011A39D /* WebView.swift in Sources */,
 				AA9EEFB02C7F2C19008F4B6D /* MatchingView.swift in Sources */,
 				AAA347BA2C8A71EA0011A39D /* SHMatchCoder.swift in Sources */,
 				AAA347B92C8A71E60011A39D /* Stubs.swift in Sources */,
+				AACF4EA52C93E2370040C4D5 /* ShazamResultViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,33 +724,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */ = {
+		AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:greenerchen/GeniusLyricsAPI.git";
+			repositoryURL = "git@github.com:greenerchen/musixmatch-api-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.2;
+				minimumVersion = 1.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AAA347F72C9295F50011A39D /* MusixmatchAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AAA347B12C8824680011A39D /* XCRemoteSwiftPackageReference "GeniusLyricsAPI" */;
-			productName = GeniusLyricsAPI;
-		};
-		AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
+			package = AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */;
+			productName = MusixmatchAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
