@@ -74,7 +74,7 @@ Then the app should display an error message of no connectivity
 ### Authentication
 ```
 Parameters:
-- `apiKey`: Your personal api key, you must use it in every API call. You can pass this parameter as `GET` parameter in your api call, like `track.get?apiKey=xxx`
+- `apikey`: Your personal api key, you must use it in every API call. You can pass this parameter as `GET` parameter in your api call, like `track.get?apikey=xxx`
 ```
 
 ### track.search
