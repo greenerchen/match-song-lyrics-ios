@@ -25,7 +25,6 @@
 		AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */; };
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
 		AAA347B52C8828C00011A39D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347B42C8828C00011A39D /* WebView.swift */; };
-		AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */; };
 		AAA347B92C8A71E60011A39D /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58912C81B90D008ABAEC /* Stubs.swift */; };
 		AAA347BA2C8A71EA0011A39D /* SHMatchCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */; };
 		AAA347F12C9182510011A39D /* LyricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347F02C9182510011A39D /* LyricsViewModel.swift */; };
@@ -87,7 +86,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAA347F82C9295F50011A39D /* MusixmatchAPI in Frameworks */,
-				AAA347B82C89829C0011A39D /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +251,6 @@
 			);
 			name = LyricsPieces;
 			packageProductDependencies = (
-				AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */,
 				AAA347F72C9295F50011A39D /* MusixmatchAPI */,
 			);
 			productName = LyricsPieces;
@@ -329,7 +326,6 @@
 			);
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
-				AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
@@ -728,14 +724,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.2;
-			};
-		};
 		AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:greenerchen/musixmatch-api-ios.git";
@@ -747,11 +735,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AAA347B72C89829C0011A39D /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AAA347B62C89829C0011A39D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
 		AAA347F72C9295F50011A39D /* MusixmatchAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */;
