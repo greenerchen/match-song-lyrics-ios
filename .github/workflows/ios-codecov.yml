@@ -16,7 +16,7 @@ jobs:
       - name: Checkout musixmatch-api-ios
         uses: actions/checkout@v4
         with:
-          repository: 'musixmatch-api-ios'
+          repository: 'greenerchen/musixmatch-api-ios'
       - name: Set Default Scheme
         run: |
           default='LyricsPieces.scheme'
