@@ -32,6 +32,7 @@
 		AACF4EA52C93E2370040C4D5 /* ShazamResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */; };
 		AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA62C93E4D70040C4D5 /* TrackView.swift */; };
 		AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */; };
+		AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		AACF4EA62C93E4D70040C4D5 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackActionsView.swift; sourceTree = "<group>"; };
 		AACF4EAC2C9573F40040C4D5 /* LyricsPiecesTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LyricsPiecesTestPlan.xctestplan; sourceTree = "<group>"; };
+		AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				AACF4EAC2C9573F40040C4D5 /* LyricsPiecesTestPlan.xctestplan */,
 				AA9D588E2C81B8BB008ABAEC /* Helpers */,
 				AACF4EAD2C959E680040C4D5 /* Data */,
+				AACF4EAE2C959E8A0040C4D5 /* Views */,
 			);
 			path = LyricsPiecesTests;
 			sourceTree = "<group>";
@@ -242,6 +245,14 @@
 				AA9EEF872C7F1D8B008F4B6D /* ShazamMatcherTests.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		AACF4EAE2C959E8A0040C4D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				AA9D58922C81B90D008ABAEC /* Stubs.swift in Sources */,
 				AA9D58942C81B92E008ABAEC /* SHMatchCoder.swift in Sources */,
 				AA9EEF882C7F1D8B008F4B6D /* ShazamMatcherTests.swift in Sources */,
+				AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */,
 				AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
