@@ -14,8 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set Default Scheme
+        run: |
+          default='LyricsPieces.scheme'
+          echo Using default scheme: $default
      - name: Build
         env:
+          scheme: ${{ 'default' }}
           platform: ${{ 'iOS Simulator' }}
         run: |
           scheme='LyricsPieces.scheme'
@@ -27,6 +32,7 @@ jobs:
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Test
         env:
+          scheme: ${{ 'default' }}
           platform: ${{ 'iOS Simulator' }}
           MUSIXMATCH_APIKEY: ${{ secrets.MUSIXMATCH_APIKEY }}
         run: |
