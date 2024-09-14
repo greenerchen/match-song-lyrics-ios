@@ -23,9 +23,9 @@ jobs:
           echo Using default scheme: $default
       - name: Build
         env:
-          scheme: ${{ default }}
           platform: ${{ 'iOS Simulator' }}
         run: |
+          scheme=$default
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
           if [ $scheme = default ]; then scheme=$(cat default); fi
@@ -34,10 +34,10 @@ jobs:
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Test
         env:
-          scheme: ${{ default }}
           platform: ${{ 'iOS Simulator' }}
           MUSIXMATCH_APIKEY: ${{ secrets.MUSIXMATCH_APIKEY }}
         run: |
+          scheme=$default
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
           if [ $scheme = default ]; then scheme=$(cat default); fi
