@@ -172,7 +172,7 @@
 			children = (
 				AACF4EAC2C9573F40040C4D5 /* LyricsPiecesTestPlan.xctestplan */,
 				AA9D588E2C81B8BB008ABAEC /* Helpers */,
-				AA9EEF872C7F1D8B008F4B6D /* ShazamMatcherTests.swift */,
+				AACF4EAD2C959E680040C4D5 /* Data */,
 			);
 			path = LyricsPiecesTests;
 			sourceTree = "<group>";
@@ -234,6 +234,14 @@
 				AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		AACF4EAD2C959E680040C4D5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA9EEF872C7F1D8B008F4B6D /* ShazamMatcherTests.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
