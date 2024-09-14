@@ -32,7 +32,6 @@
 		AACF4EA52C93E2370040C4D5 /* ShazamResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */; };
 		AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA62C93E4D70040C4D5 /* TrackView.swift */; };
 		AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */; };
-		AACF4EAB2C956CED0040C4D5 /* LyricsPieces.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = AACF4EAA2C956CED0040C4D5 /* LyricsPieces.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +78,7 @@
 		AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamResultViewModel.swift; sourceTree = "<group>"; };
 		AACF4EA62C93E4D70040C4D5 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackActionsView.swift; sourceTree = "<group>"; };
-		AACF4EAA2C956CED0040C4D5 /* LyricsPieces.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LyricsPieces.xctestplan; path = ../../LyricsPieces.xctestplan; sourceTree = "<group>"; };
+		AACF4EAC2C9573F40040C4D5 /* LyricsPieces.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LyricsPieces.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				AA9EEF752C7F1D86008F4B6D /* LyricsPieces */,
-				AACF4EAA2C956CED0040C4D5 /* LyricsPieces.xctestplan */,
 				AA9EEF862C7F1D8B008F4B6D /* LyricsPiecesTests */,
 				AA9EEF902C7F1D8B008F4B6D /* LyricsPiecesUITests */,
 				AA9EEF742C7F1D86008F4B6D /* Products */,
@@ -172,6 +170,7 @@
 		AA9EEF862C7F1D8B008F4B6D /* LyricsPiecesTests */ = {
 			isa = PBXGroup;
 			children = (
+				AACF4EAC2C9573F40040C4D5 /* LyricsPieces.xctestplan */,
 				AA9D588E2C81B8BB008ABAEC /* Helpers */,
 				AA9EEF872C7F1D8B008F4B6D /* ShazamMatcherTests.swift */,
 			);
@@ -349,7 +348,6 @@
 			files = (
 				AA9EEF7E2C7F1D8B008F4B6D /* Preview Assets.xcassets in Resources */,
 				AA9EEFAE2C7F2A3F008F4B6D /* Assets.xcassets in Resources */,
-				AACF4EAB2C956CED0040C4D5 /* LyricsPieces.xctestplan in Resources */,
 				AA9EEF7B2C7F1D8B008F4B6D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
