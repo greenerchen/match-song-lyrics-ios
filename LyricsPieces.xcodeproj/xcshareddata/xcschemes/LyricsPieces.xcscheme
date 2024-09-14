@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../../LyricsPieces.xctestplan"
+            reference = "container:LyricsPiecesTests/LyricsPiecesTestPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
