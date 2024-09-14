@@ -14,13 +14,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set Default Scheme
-        run: |
-          default='LyricsPieces.scheme'
-          echo Using default scheme: $default
-      - name: Build
+     - name: Build
         env:
-          scheme: ${{ 'default' }}
+          scheme: 'LyricsPieces.scheme'
           platform: ${{ 'iOS Simulator' }}
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
@@ -31,7 +27,7 @@ jobs:
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Test
         env:
-          scheme: ${{ 'default' }}
+          scheme: 'LyricsPieces.scheme'
           platform: ${{ 'iOS Simulator' }}
           MUSIXMATCH_APIKEY: ${{ secrets.MUSIXMATCH_APIKEY }}
         run: |
