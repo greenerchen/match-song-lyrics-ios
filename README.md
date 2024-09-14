@@ -1,3 +1,6 @@
+[![Build Status](https://app.bitrise.io/app/2f75c398-f9b3-440f-b394-2b611ad9a56b/status.svg?token=9KpNNYBnWEKVg--JWFL83A&branch=main)](https://app.bitrise.io/app/2f75c398-f9b3-440f-b394-2b611ad9a56b)
+[![codecov](https://codecov.io/gh/greenerchen/match-song-lyrics-ios/graph/badge.svg?token=H8LSDP6ADE)](https://codecov.io/gh/greenerchen/match-song-lyrics-ios)
+
 # match-song-lyrics-ios
 A side project to learn SwiftUI and maintain time management discipline
 

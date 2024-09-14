@@ -1,0 +1,53 @@
+{
+  "configurations" : [
+    {
+      "id" : "BC477936-9E5A-458E-8147-247523A37EE6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:LyricsPieces.xcodeproj",
+          "identifier" : "AA9EEF722C7F1D86008F4B6D",
+          "name" : "LyricsPieces"
+        }
+      ]
+    },
+    "environmentVariableEntries" : [
+      {
+        "key" : "MUSIXMATCH_APIKEY",
+        "value" : ""
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:LyricsPieces.xcodeproj",
+      "identifier" : "AA9EEF722C7F1D86008F4B6D",
+      "name" : "LyricsPieces"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:LyricsPieces.xcodeproj",
+        "identifier" : "AA9EEF822C7F1D8B008F4B6D",
+        "name" : "LyricsPiecesTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:LyricsPieces.xcodeproj",
+        "identifier" : "AA9EEF8C2C7F1D8B008F4B6D",
+        "name" : "LyricsPiecesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
