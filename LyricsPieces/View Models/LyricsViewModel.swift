@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import ShazamKit
 
 struct LyricsViewModel {
+    var isrc: String?
     var trackName: String
     var artistName: String
     var hasLyrics: Bool
@@ -15,6 +17,14 @@ struct LyricsViewModel {
     var lyricsCopyright: String?
     var backlinkUrl: String?
     var scriptTrackingUrl: String?
+    
+    init(song: SHMatchedMediaItem) {
+        isrc = song.isrc
+        trackName = song.title ?? ""
+        artistName = song.artist ?? ""
+        restricted = false
+        hasLyrics = false
+    }
     
     func makeHtmlString() -> String {
         let lyricsBodyHtml = lyricsBody?.replacingOccurrences(of: "\n", with: "<br/>") ?? ""

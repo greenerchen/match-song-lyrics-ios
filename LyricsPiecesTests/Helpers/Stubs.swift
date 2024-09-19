@@ -8,7 +8,7 @@
 import Foundation
 import ShazamKit
 
-let mediaItemsStub: [SHMatchedMediaItem] = [
+let matchedMediaItemStub: SHMatchedMediaItem =
     SHMatchedMediaItem(properties: [
 //        "sh_album": "Better Word (Live)",
         SHMediaItemProperty.appleMusicID: 1474230008,
@@ -30,7 +30,8 @@ let mediaItemsStub: [SHMatchedMediaItem] = [
         SHMediaItemProperty.title: "Way Maker (Live)",
         SHMediaItemProperty.webURL: "https://www.shazam.com/track/479874710/way-maker-live?co=TW&offsetInMilliseconds=222185&timeSkew=-6.454587E-4&trackLength=503239&startDate=2024-08-30T06:59:42.028Z"
     ])
-]
+
+let mediaItemsStub: [SHMatchedMediaItem] = [matchedMediaItemStub]
 
 let querySignatureStub = SHSignature()
 
