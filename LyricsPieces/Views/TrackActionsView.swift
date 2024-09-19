@@ -12,10 +12,16 @@ import MusixmatchAPI
 struct TrackActionsView: View {
     @Environment(\.openURL) var openURL
     
-    @State private var isPresented: Bool = false
-    @State private var lyricsViewModel: LyricsViewModel?
+    @State var isPresented: Bool = false
+    @State var networkingError: Bool = false
+    @State var vm: LyricsViewModel
     
     let song: SHMatchedMediaItem
+    
+    init(song: SHMatchedMediaItem) {
+        self.song = song
+        vm = LyricsViewModel(song: song)
+    }
     
     var body: some View {
         HStack {
@@ -31,13 +37,14 @@ struct TrackActionsView: View {
             .buttonStyle(.borderedProminent)
             .sheet(isPresented: $isPresented,
                    content: {
-                if let vm = lyricsViewModel, vm.hasLyrics {
-                    WebView(url: nil, htmlString: vm.makeHtmlString())
+                if vm.hasLyrics, !vm.restricted {
+                    WebView(url: nil, htmlString: vm.getMessage())
                         .presentationDetents([.medium, .large])
                 } else {
-                    Text("Lyrics Not Found")
+                    Text(vm.getMessage())
                         .presentationDetents([.medium, .large])
                 }
+                
             })
             
             // MARK: Action: Listen on Apple Music
@@ -53,24 +60,21 @@ struct TrackActionsView: View {
         }
     }
     
-    private func fetchLyrics() async {
-        let client = MusixmatchAPIClient()
-        if let tracklist = try? await client.searchTrack(song.title ?? "", artist: song.artist ?? ""),
-           let track = tracklist.first {
-            lyricsViewModel = LyricsViewModel(
-                trackName: track.trackName,
-                artistName: track.artistName,
-                hasLyrics: track.hasLyrics,
-                lyricsBody: track.lyricsBody,
-                lyricsCopyright: track.lyricsCopyright, backlinkUrl: track.backlinkUrl, scriptTrackingUrl: nil)
-            if track.hasLyrics,
-               let lyrics = try? await client.getLyrics(trackId: track.id) {
-                lyricsViewModel?.lyricsBody = lyrics.body
-                lyricsViewModel?.lyricsCopyright = lyrics.copyright
-                lyricsViewModel?.scriptTrackingUrl = lyrics.scriptTrackingUrl
+    func fetchLyrics() async {
+        Task {
+            var canFetchLyrics = true
+            await vm.fetchTrack { error in
+                if let _ = error {
+                    self.isPresented.toggle()
+                    canFetchLyrics = false
+                }
+            }
+            
+            guard canFetchLyrics else { return }
+            await vm.fetchLyrics { _ in
+                self.isPresented.toggle()
             }
         }
-        isPresented.toggle()
     }
 }
 
