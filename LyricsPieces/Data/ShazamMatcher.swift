@@ -31,8 +31,9 @@ final class ShazamMatcher: ObservableObject {
         self.session = session
     }
     
+    @MainActor
     func match() async throws {
-        Task { @MainActor in
+        Task {
             isMatching = true
         }
          
@@ -40,27 +41,33 @@ final class ShazamMatcher: ObservableObject {
         let result = await session.result()
         switch result {
         case .match(let match):
-            Task { @MainActor in
-                currentMatchResult = ShazamMatchResult(match: match)
-                stopMatching()
-                isMatching = false
-            }
+            await endSession(with: match)
         case .noMatch(_):
             debugPrint("No match")
-            endSession()
+            await endSession()
         case .error(let error, _):
             debugPrint("Error \(error.localizedDescription)")
-            endSession()
+            await endSession()
         }
     }
     
-    func stopMatching() {
-        session.cancel()
+    func stopMatching() async {
+        Task {
+            session.cancel()
+        }
     }
     
-    func endSession() {
-        session.cancel()
-        Task { @MainActor in
+    func endSession(with match: SHMatch) async {
+        Task {
+            currentMatchResult = ShazamMatchResult(match: match)
+            isMatching = false
+            await stopMatching()
+        }
+    }
+    
+    func endSession() async {
+        Task {
+            session.cancel()
             isMatching = false
             currentMatchResult = ShazamMatchResult(match: nil)
         }

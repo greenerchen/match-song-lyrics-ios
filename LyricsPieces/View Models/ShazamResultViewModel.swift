@@ -10,7 +10,7 @@ import ShazamKit
 import MusixmatchAPI
 
 class ShazamResultViewModel: ObservableObject {
-    enum TrackState {
+    enum TrackState: Equatable {
         case found
         case notFound
     }
