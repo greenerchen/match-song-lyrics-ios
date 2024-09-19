@@ -13,7 +13,6 @@ struct TrackActionsView: View {
     @Environment(\.openURL) var openURL
     
     @State var isPresented: Bool = false
-    @State var networkingError: Bool = false
     @State var vm: LyricsViewModel
     
     let song: SHMatchedMediaItem
