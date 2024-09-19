@@ -767,7 +767,7 @@
 			repositoryURL = "git@github.com:greenerchen/musixmatch-api-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
+				minimumVersion = 1.0.9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
