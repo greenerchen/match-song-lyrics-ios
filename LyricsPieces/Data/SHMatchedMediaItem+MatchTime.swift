@@ -9,13 +9,6 @@ import Foundation
 import ShazamKit
 
 extension SHMatchedMediaItem {
-    var predictedCurrentMatchTime: String {
-        let second = Int(predictedCurrentMatchOffset) % 60
-        let minute = Int(predictedCurrentMatchOffset) / 60
-        let hour = Int(predictedCurrentMatchOffset) / 60 / 60
-        return hour > 0 ? "\(hour):\(minute):\(second)" : "\(minute):\(second)"
-    }
-    
     var matchTime: String {
         let second = Int(matchOffset.rounded()) % 60
         let minute = Int(matchOffset.rounded()) / 60
