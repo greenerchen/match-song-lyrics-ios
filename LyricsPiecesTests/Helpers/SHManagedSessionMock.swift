@@ -15,13 +15,20 @@ final class SHManagedSessionMock: SHManagedSessionProtocol {
     
     var cancelCallCount: Int = 0
     
-    init(matchStub: SHMatch?) {
+    var errorStub: SHError?
+    
+    var signatureStub: SHSignature?
+    
+    init(matchStub: SHMatch? = nil, errorStub: SHError? = nil, signatureStub: SHSignature? = nil) {
         match = matchStub
     }
     
     func result() async -> SHSession.Result {
         guard let match = match else {
-            return .noMatch(SHSignature())
+            if let error = errorStub, let signature = signatureStub {
+                return .error(error, signature)
+            }
+            return .noMatch(signatureStub ?? SHSignature())
         }
         return .match(match)
     }

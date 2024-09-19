@@ -37,7 +37,19 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_match_whenNoMatched_isNotMatchingAndNoResult() async throws {
-        let session = SHManagedSessionMock(matchStub: nil)
+        let session = SHManagedSessionMock(matchStub: nil, signatureStub: querySignatureStub)
+        let matcher = ShazamMatcher(session: session)
+        
+        try await matcher.match()
+        
+        XCTAssertEqual(session.cancelCallCount, 1)
+        XCTAssertEqual(matcher.isMatching, false)
+        XCTAssertNil(matcher.currentMatchResult?.match)
+    }
+    
+    @MainActor
+    func test_match_whenError_isNotMatchingAndNoResult() async throws {
+        let session = SHManagedSessionMock(matchStub: nil, errorStub: SHError(SHError.audioDiscontinuity), signatureStub: querySignatureStub)
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
@@ -60,7 +72,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_deinit_whenNoMatched_sessionIsCanceled() async throws {
-        let session = SHManagedSessionMock(matchStub: nil)
+        let session = SHManagedSessionMock(matchStub: nil, signatureStub: querySignatureStub)
         var matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)
