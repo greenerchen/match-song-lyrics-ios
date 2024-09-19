@@ -10,9 +10,10 @@ import ShazamKit
 
 extension SHMatchedMediaItem {
     var matchTime: String {
-        let second = Int(matchOffset.rounded()) % 60
-        let minute = Int(matchOffset.rounded()) / 60
-        let hour = Int(matchOffset.rounded()) / 60 / 60
-        return hour > 0 ? String(format: "%02d:%02d:%02d", hour, minute, second) : String(format: "%02d:%02d", minute, second)
+        let duration = Duration.milliseconds(matchOffset * 1000)
+        let format = duration.formatted(
+            .time(pattern: .minuteSecond(padMinuteToLength: 2, fractionalSecondsLength: 3))
+        )
+        return format
     }
 }
