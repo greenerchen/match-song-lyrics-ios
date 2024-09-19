@@ -6,6 +6,7 @@ A side project to learn SwiftUI and maintain time management discipline
 
 # Project Timeline
 ![Timeline of Sprint 1](timeline-sprint1.png)
+![Timeline of Sprint 2](timeline-sprint2.png)
 
 # Feature Specs
 ## Story: Shazam song and get lyrics 
@@ -63,7 +64,7 @@ Then the app should display an error message of no connectivity
 1. The app displays no connectivity error
 
 # Flowchart
-[TBA]
+![Flowchart](flowchart.png)
 
 # Model Specs
 ## Song
