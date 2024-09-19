@@ -6,18 +6,53 @@
 //
 
 import Foundation
+import ShazamKit
+import MusixmatchAPI
 
 struct LyricsViewModel {
+    var isrc: String?
+    var trackId: Int?
     var trackName: String
     var artistName: String
+    var restricted: Bool
     var hasLyrics: Bool
     var lyricsBody: String?
     var lyricsCopyright: String?
     var backlinkUrl: String?
     var scriptTrackingUrl: String?
     
+    let client: MusixmatchAPIClient
+    
+    var error: Error?
+    
+    init(
+        song: SHMatchedMediaItem,
+        client: MusixmatchAPIClient = MusixmatchAPIClient(apiLimitStrategy: RequestQueuesStrategy(limitPerSecond: 2))
+    ) {
+        isrc = song.isrc
+        trackName = song.title ?? ""
+        artistName = song.artist ?? ""
+        restricted = false
+        hasLyrics = false
+        self.client = client
+    }
+    
+    func getMessage() -> String {
+        if hasLyrics, !restricted {
+            return makeHtmlString()
+        } else if hasLyrics, restricted {
+            return "Lyrics Restricted in your country"
+        } else if let _ = error {
+            return "Ooops. Something wrong. Please try again later."
+        } else {
+            return "Lyrics Not Found"
+        }
+    }
+    
     func makeHtmlString() -> String {
-        let lyricsBodyHtml = lyricsBody?.replacingOccurrences(of: "\n", with: "<br/>") ?? ""
+        guard let lyricsBodyHtml = lyricsBody?.replacingOccurrences(of: "\n", with: "<br/>") else {
+            return ""
+        }
         let html = lyricsHtmlTemplate
             .replacingOccurrences(of: "{{script_tracking_url}}", with: scriptTrackingUrl ?? "")
             .replacingOccurrences(of: "{{track_name}}", with: trackName)
@@ -26,6 +61,63 @@ struct LyricsViewModel {
             .replacingOccurrences(of: "{{track_copyright}}", with: lyricsCopyright ?? "")
             .replacingOccurrences(of: "{{backlink_url}}", with: backlinkUrl ?? "")
         return html
+    }
+}
+
+extension LyricsViewModel {
+    
+    mutating func setUp(track: Track) {
+        trackId = track.id
+        trackName = track.trackName
+        artistName = track.artistName
+        restricted = track.restricted
+        hasLyrics = track.hasLyrics
+        lyricsBody = track.lyricsBody
+        lyricsCopyright = track.lyricsCopyright
+        backlinkUrl = track.backlinkUrl
+        scriptTrackingUrl = nil
+    }
+    
+    mutating func setUp(lyrics: Lyrics) {
+        lyricsBody = lyrics.body
+        lyricsCopyright = lyrics.copyright
+        scriptTrackingUrl = lyrics.scriptTrackingUrl
+    }
+    
+    mutating func fetchTrack(_ completionHandler: (Error?) -> Void) async {
+        do {
+            let track: Track
+            if let isrc = isrc {
+                track = try await client.getTrack(isrc: isrc)
+                setUp(track: track)
+            } else {
+                let tracklist = try await client.searchTrack(trackName, artist: artistName)
+                guard let track = tracklist.first else { return }
+                setUp(track: track)
+            }
+        } catch {
+            debugPrint(error)
+            self.error = error
+        }
+        
+        completionHandler(error)
+    }
+    
+    mutating func fetchLyrics(_ completionHandler: (Error?) -> Void) async {
+        do {
+            if let isrc = isrc {
+                let lyrics = try await client.getLyrics(isrc: isrc)
+                setUp(lyrics: lyrics)
+            } else if let trackId = trackId {
+                let lyrics = try await client.getLyrics(trackId: trackId)
+                setUp(lyrics: lyrics)
+            }
+        } catch {
+            debugPrint(error)
+            self.error = error
+        }
+        
+        completionHandler(error)
     }
 }
 
