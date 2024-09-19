@@ -8,6 +8,7 @@
 import Foundation
 import ShazamKit
 import MusixmatchAPI
+@testable import LyricsPieces
 
 // MARK: - ShazamKit related
 
@@ -78,6 +79,9 @@ class SHMatchMock: SHMatch {
 }
 
 let matchStub = SHMatchMock(coder: SHMatchCoder())
+
+let shazamMatchResult = ShazamMatchResult(match: matchStub)
+let shazamNoMatchResult = ShazamMatchResult(match: nil)
 
 // MARK: MusixmatchAPI related
 

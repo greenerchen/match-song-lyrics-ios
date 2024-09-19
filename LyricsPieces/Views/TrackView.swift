@@ -62,8 +62,8 @@ struct TrackView: View {
     }
 }
 
-#Preview {
-    TrackView(song: song!)
-}
+//#Preview {
+//    TrackView(song: song!)
+//}
 
-let song: SHMatchedMediaItem? = matchStub?.mediaItems.first
+//let song: SHMatchedMediaItem? = matchStub?.mediaItems.first
