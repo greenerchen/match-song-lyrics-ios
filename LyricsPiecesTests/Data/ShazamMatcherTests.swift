@@ -53,6 +53,8 @@ final class ShazamMatcherTests: XCTestCase {
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
+        // Somehow it needs to wait a bit
+        try await Task.sleep(nanoseconds: 50)
         
         XCTAssertEqual(session.cancelCallCount, 1)
         XCTAssertEqual(matcher.isMatching, false)
