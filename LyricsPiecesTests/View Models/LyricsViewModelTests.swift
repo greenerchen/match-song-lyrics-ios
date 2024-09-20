@@ -264,4 +264,13 @@ final class LyricsViewModelTests: XCTestCase {
         
         XCTAssertEqual(msg, "Lyrics Not Found")
     }
+    
+    func test_makeHTMLString_hasNoLyricsBody() {
+        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        sut.lyricsBody = nil
+        
+        let msg = sut.makeHtmlString()
+        
+        XCTAssertEqual(msg, "")
+    }
 }
