@@ -49,7 +49,10 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_match_whenError_isNotMatchingAndNoResult() async throws {
-        let session = SHManagedSessionMock(matchStub: nil, errorStub: SHError(SHError.audioDiscontinuity), signatureStub: querySignatureStub)
+        let session = SHManagedSessionMock(
+            matchStub: nil,
+            errorStub: NSError(domain: "com.greenerchen.LyricsPieces", code: 101 /*SHError.audioDiscontinuity*/),
+            signatureStub: querySignatureStub)
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
@@ -75,6 +78,22 @@ final class ShazamMatcherTests: XCTestCase {
     @MainActor
     func test_deinit_whenNoMatched_sessionIsCanceled() async throws {
         let session = SHManagedSessionMock(matchStub: nil, signatureStub: querySignatureStub)
+        var matcher: ShazamMatcher? = ShazamMatcher(session: session)
+        
+        XCTAssertEqual(session.cancelCallCount, 0)
+        
+        try await matcher?.match()
+        matcher = nil
+        
+        XCTAssertEqual(session.cancelCallCount, 1)
+    }
+    
+    @MainActor
+    func test_deinit_whenError_sessionIsCanceled() async throws {
+        let session = SHManagedSessionMock(
+            matchStub: nil,
+            errorStub: NSError(domain: "com.greenerchen.LyricsPieces", code: 101 /*SHError.audioDiscontinuity*/),
+            signatureStub: querySignatureStub)
         var matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)
