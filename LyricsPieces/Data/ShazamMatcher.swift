@@ -57,6 +57,7 @@ final class ShazamMatcher: ObservableObject {
         }
     }
     
+    @MainActor
     func endSession(with match: SHMatch) async {
         Task {
             currentMatchResult = ShazamMatchResult(match: match)
@@ -65,6 +66,7 @@ final class ShazamMatcher: ObservableObject {
         }
     }
     
+    @MainActor
     func endSession() async {
         Task {
             session.cancel()
