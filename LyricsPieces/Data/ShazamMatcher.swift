@@ -9,8 +9,13 @@ import Foundation
 import ShazamKit
 
 struct ShazamMatchResult {
-    let id = UUID()
+    let id: UUID
     let match: SHMatch?
+    
+    init(id: UUID = UUID(), match: SHMatch?) {
+        self.id = id
+        self.match = match
+    }
 }
 
 protocol SHManagedSessionProtocol {
@@ -41,15 +46,12 @@ final class ShazamMatcher: ObservableObject {
         let result = await session.result()
         switch result {
         case .match(let match):
-            await stopMatching()
             await endSession(with: match)
         case .noMatch(_):
             debugPrint("No match")
-            await stopMatching()
             await endSession(with: nil)
         case .error(let error, _):
             debugPrint("Error \(error.localizedDescription)")
-            await stopMatching()
             await endSession(with: nil)
         }
     }
@@ -62,8 +64,10 @@ final class ShazamMatcher: ObservableObject {
     
     func endSession(with match: SHMatch?) async {
         Task {
+            await stopMatching()
             isMatching = false
             currentMatchResult = ShazamMatchResult(match: match)
+            debugPrint("Match result \(String(describing: currentMatchResult?.id))")
         }
     }
 }
