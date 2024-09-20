@@ -10,7 +10,8 @@ import ShazamKit
 
 extension SHMatchedMediaItem {
     var matchTime: String {
-        let duration = Duration.milliseconds(matchOffset * 1000)
+        let _matchOffset = self[SHMediaItemProperty(rawValue: "sh_matchOffset")] as! TimeInterval
+        let duration = Duration.milliseconds(_matchOffset * 1000)
         let format = duration.formatted(
             .time(pattern: .minuteSecond(padMinuteToLength: 2, fractionalSecondsLength: 3))
         )
