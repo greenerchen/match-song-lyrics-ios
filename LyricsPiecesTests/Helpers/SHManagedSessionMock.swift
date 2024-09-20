@@ -15,12 +15,14 @@ final class SHManagedSessionMock: SHManagedSessionProtocol {
     
     var cancelCallCount: Int = 0
     
-    var errorStub: SHError?
+    var errorStub: NSError?
     
     var signatureStub: SHSignature?
     
-    init(matchStub: SHMatch? = nil, errorStub: SHError? = nil, signatureStub: SHSignature? = nil) {
-        match = matchStub
+    init(matchStub: SHMatch? = nil, errorStub: NSError? = nil, signatureStub: SHSignature? = nil) {
+        self.match = matchStub
+        self.errorStub = errorStub
+        self.signatureStub = signatureStub
     }
     
     func result() async -> SHSession.Result {

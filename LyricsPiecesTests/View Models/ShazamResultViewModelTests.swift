@@ -22,4 +22,9 @@ final class ShazamResultViewModelTests: XCTestCase {
         XCTAssertEqual(sut.trackState, ShazamResultViewModel.TrackState.notFound)
     }
 
+    func test_init_uuidCreation() throws {
+        let sut = shazamMatchResult
+        
+        XCTAssertNotNil(sut.id)
+    }
 }
