@@ -70,8 +70,9 @@ final class ShazamMatcherTests: XCTestCase {
         var matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         try await matcher?.match()
-        matcher = nil
+        XCTAssertEqual(session.cancelCallCount, 1)
         
+        matcher = nil
         XCTAssertNil(matcher)
     }
     
@@ -83,9 +84,10 @@ final class ShazamMatcherTests: XCTestCase {
         XCTAssertEqual(session.cancelCallCount, 0)
         
         try await matcher?.match()
-        matcher = nil
-        
         XCTAssertEqual(session.cancelCallCount, 1)
+        
+        matcher = nil
+        XCTAssertNil(matcher)
     }
     
     @MainActor
@@ -99,8 +101,9 @@ final class ShazamMatcherTests: XCTestCase {
         XCTAssertEqual(session.cancelCallCount, 0)
         
         try await matcher?.match()
-        matcher = nil
-        
         XCTAssertEqual(session.cancelCallCount, 1)
+        
+        matcher = nil
+        XCTAssertNil(matcher)
     }
 }
