@@ -41,13 +41,16 @@ final class ShazamMatcher: ObservableObject {
         let result = await session.result()
         switch result {
         case .match(let match):
+            await stopMatching()
             await endSession(with: match)
         case .noMatch(_):
             debugPrint("No match")
-            await endSession()
+            await stopMatching()
+            await endSession(with: nil)
         case .error(let error, _):
             debugPrint("Error \(error.localizedDescription)")
-            await endSession()
+            await stopMatching()
+            await endSession(with: nil)
         }
     }
     
@@ -57,19 +60,10 @@ final class ShazamMatcher: ObservableObject {
         }
     }
     
-    func endSession(with match: SHMatch) async {
+    func endSession(with match: SHMatch?) async {
         Task {
+            isMatching = false
             currentMatchResult = ShazamMatchResult(match: match)
-            isMatching = false
-            await stopMatching()
-        }
-    }
-    
-    func endSession() async {
-        Task {
-            session.cancel()
-            isMatching = false
-            currentMatchResult = ShazamMatchResult(match: nil)
         }
     }
 }
