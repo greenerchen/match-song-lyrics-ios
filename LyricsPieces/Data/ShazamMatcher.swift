@@ -25,6 +25,7 @@ protocol SHManagedSessionProtocol {
 
 extension SHManagedSession: SHManagedSessionProtocol {}
 
+@MainActor
 final class ShazamMatcher: ObservableObject {
     
     @Published var isMatching = false
@@ -36,7 +37,6 @@ final class ShazamMatcher: ObservableObject {
         self.session = session
     }
     
-    @MainActor
     func match() async throws {
         Task {
             isMatching = true
@@ -46,28 +46,23 @@ final class ShazamMatcher: ObservableObject {
         let result = await session.result()
         switch result {
         case .match(let match):
-            await endSession(with: match)
+            endSession(with: match)
         case .noMatch(_):
             debugPrint("No match")
-            await endSession(with: nil)
+            endSession(with: nil)
         case .error(let error, _):
             debugPrint("Error \(error.localizedDescription)")
-            await endSession(with: nil)
+            endSession(with: nil)
         }
     }
     
-    func stopMatching() async {
-        Task {
-            session.cancel()
-        }
+    func stopMatching() {
+        session.cancel()
     }
     
-    func endSession(with match: SHMatch?) async {
-        Task {
-            await stopMatching()
-            isMatching = false
-            currentMatchResult = ShazamMatchResult(match: match)
-            debugPrint("Match result \(String(describing: currentMatchResult?.id))")
-        }
+    func endSession(with match: SHMatch?) {
+        stopMatching()
+        isMatching = false
+        currentMatchResult = ShazamMatchResult(match: match)
     }
 }
