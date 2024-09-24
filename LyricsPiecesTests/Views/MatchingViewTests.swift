@@ -6,22 +6,27 @@
 //
 
 import XCTest
+import ViewInspector
 @testable import LyricsPieces
 
 final class MatchingViewTests: XCTestCase {
 
-    func test_display_withTitle() throws {
+    @MainActor
+    func test_init_expectLogoShown() async throws {
         let title = "Listening"
         let sut = MatchingView(title: title)
         
-        XCTAssertEqual(sut.title, title)
-    }
-    
-    func test_display_withEmptyTitle() throws {
-        let title = ""
-        let sut = MatchingView(title: title)
-        
-        XCTAssertEqual(sut.title, title)
+        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "matching_view_logo"), "Expected to find the logo image")
+        XCTAssertEqual(sut.degreesRotating, 0, "\(sut.degreesRotating)")
     }
 
+    @MainActor
+    func test_onAppear_expectRotatingLogoShown() async throws {
+        let title = "Listening"
+        let sut = MatchingView(title: title)
+        
+        let logoImage = try sut.inspect().find(viewWithAccessibilityIdentifier: "matching_view_logo")
+        try logoImage.callOnAppear()
+        XCTAssertEqual(sut.degreesRotating, 0, "\(sut.degreesRotating)")
+    }
 }
