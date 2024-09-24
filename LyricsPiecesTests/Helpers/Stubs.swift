@@ -94,6 +94,8 @@ let trackGetResponseStringStub = "{\"message\":{\"body\":{\"track\":{\"track_id\
 
 let trackSearchResponseStringStub = "{\"message\":{\"header\":{\"status_code\":200},\"body\":{\"track_list\":[{\"track\":{\"has_lyrics\":1,\"lyrics_body\":\"You are here, moving in our midst\",\"subtitle_id\":234567,\"commontrack_id\":200001,\"lyrics_id\":123456,\"has_subtitles\":1,\"explicit\":0,\"track_name\":\"Way Maker\",\"track_id\":100001,\"lyrics_copyright\":\"Copyright\",\"restricted\":0,\"track_share_url\":\"link\",\"artist_name\":\"Leeland\"}}]}}}"
 
+let trackSearchNoTrackResponseStringStub = "{\"message\":{\"header\":{\"status_code\":200},\"body\":{\"track_list\":[]}}}"
+
 let trackLyricsGetResponseStringStub = "{\"message\":{\"header\":{\"status_code\":200},\"body\":{\"lyrics\":{\"lyrics_body\":\"Heart beats fast\",\"lyrics_copyright\":\"Copyright powered by musixmatch\",\"script_tracking_url\":\"http:\\/\\/a.com\",\"lyrics_id\":1001,\"explicit\":0}}}}"
 
 let trackStub = Track(

@@ -11,6 +11,7 @@ import MusixmatchAPI
 
 final class LyricsViewModelTests: XCTestCase {
 
+    @MainActor
     func test_init_expectIsrcTrackArtistSet() throws {
         let sut = LyricsViewModel(song: matchedMediaItemStub)
         
@@ -19,6 +20,7 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.artistName, "Leeland")
     }
     
+    @MainActor
     func test_init_noTrackTitleAndArticst_expectIsrcTrackArtistSet() throws {
         let sut = LyricsViewModel(song: matchedMediaItemNoTitleArtistStub)
         
@@ -27,6 +29,7 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.artistName, "")
     }
 
+    @MainActor
     func test_init_expectTrackTitleAndArtistSetup() {
         let sut = LyricsViewModel(song: matchedMediaItemStub, client: MusixmatchAPIClient())
         
@@ -36,8 +39,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.hasLyrics, false)
     }
 
+    @MainActor
     func test_setUpTrack_expectTrackInfoSetup() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub, client: MusixmatchAPIClient())
+        let sut = LyricsViewModel(song: matchedMediaItemStub, client: MusixmatchAPIClient())
         
         sut.setUp(track: trackStub)
         
@@ -52,8 +56,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.scriptTrackingUrl, nil)
     }
     
+    @MainActor
     func test_setUpLyrics_expectLyricsInfoSetup() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub, client: MusixmatchAPIClient())
+        let sut = LyricsViewModel(song: matchedMediaItemStub, client: MusixmatchAPIClient())
         
         sut.setUp(lyrics: lyricsStub)
         
@@ -62,10 +67,11 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.lyricsCopyright, "Copyright powered by musixmatch")
     }
     
+    @MainActor
     func test_fetchTrack_byISRC_succeeded() async {
         let dataStub = trackGetResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -73,16 +79,15 @@ final class LyricsViewModelTests: XCTestCase {
             )
         )
         
-        await sut.fetchTrack { error in
-            XCTAssertNil(error)
-            
-        }
+        await sut.fetchTrack()
+        XCTAssertNil(sut.error)
     }
     
+    @MainActor
     func test_fetchTrack_byISRC_failed() async {
         let dataStub = trackSearchResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -90,16 +95,15 @@ final class LyricsViewModelTests: XCTestCase {
             )
         )
         
-        await sut.fetchTrack { error in
-            XCTAssertNotNil(error)
-            
-        }
+        await sut.fetchTrack()
+        XCTAssertNotNil(sut.error)
     }
     
+    @MainActor
     func test_fetchTrack_byTrackAndArtist_succeeded() async {
         let dataStub = trackSearchResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -107,16 +111,31 @@ final class LyricsViewModelTests: XCTestCase {
             )
         )
         
-        await sut.fetchTrack { error in
-            XCTAssertNil(error)
-            
-        }
+        await sut.fetchTrack()
+        XCTAssertNil(sut.error)
     }
     
+    @MainActor
+    func test_fetchTrack_byTrackAndArtist_failedDueToNoTrack() async {
+        let dataStub = trackSearchNoTrackResponseStringStub.data(using: .utf8)!
+        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sut = LyricsViewModel(
+            song: matchedMediaItemNoISRCStub,
+            client: MusixmatchAPIClient(
+                session: sessionMock,
+                apiLimitStrategy: RequestQueuesStrategy(limitPerSecond: 2)
+            )
+        )
+        
+        await sut.fetchTrack()
+        XCTAssertNotNil(sut.error)
+    }
+    
+    @MainActor
     func test_fetchTrack_byTrackAndArtist_failed() async {
         let dataStub = trackGetResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -124,16 +143,15 @@ final class LyricsViewModelTests: XCTestCase {
             )
         )
         
-        await sut.fetchTrack { error in
-            XCTAssertNotNil(error)
-            
-        }
+        await sut.fetchTrack()
+        XCTAssertNotNil(sut.error)
     }
     
+    @MainActor
     func test_fetchLyrics_byISRC_succeeded() async {
         let dataStub = trackLyricsGetResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -141,16 +159,15 @@ final class LyricsViewModelTests: XCTestCase {
             )
         )
         
-        await sut.fetchLyrics { error in
-            XCTAssertNil(error)
-            
-        }
+        await sut.fetchLyrics()
+        XCTAssertNil(sut.error)
     }
     
+    @MainActor
     func test_fetchLyrics_byISRC_failed() async {
         let dataStub = trackSearchResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -158,16 +175,15 @@ final class LyricsViewModelTests: XCTestCase {
             )
         )
         
-        await sut.fetchLyrics { error in
-            XCTAssertNotNil(error)
-            
-        }
+        await sut.fetchLyrics()
+        XCTAssertNotNil(sut.error)
     }
     
+    @MainActor
     func test_fetchLyrics_byTrackAndArtist_succeeded() async {
         let dataStub = trackLyricsGetResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -176,16 +192,15 @@ final class LyricsViewModelTests: XCTestCase {
         )
         sut.trackId = 1234
         
-        await sut.fetchLyrics { error in
-            XCTAssertNil(error)
-            
-        }
+        await sut.fetchLyrics()
+        XCTAssertNil(sut.error)
     }
     
+    @MainActor
     func test_fetchLyrics_byTrackAndArtist_failed() async {
         let dataStub = trackGetResponseStringStub.data(using: .utf8)!
         let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
-        var sut = LyricsViewModel(
+        let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
                 session: sessionMock,
@@ -194,14 +209,13 @@ final class LyricsViewModelTests: XCTestCase {
         )
         sut.trackId = 1234
         
-        await sut.fetchLyrics { error in
-            XCTAssertNotNil(error)
-            
-        }
+        await sut.fetchLyrics()
+        XCTAssertNotNil(sut.error)
     }
     
+    @MainActor
     func test_getMessage_hasLyricsIrrestricted() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        let sut = LyricsViewModel(song: matchedMediaItemStub)
         sut.setUp(track: trackStub)
         sut.setUp(lyrics: lyricsStub)
         
@@ -218,8 +232,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertTrue(msg.contains(sut.backlinkUrl!))
     }
     
+    @MainActor
     func test_getMessage_hasLyricsIrrestricted_lackPartialTrackInfo() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        let sut = LyricsViewModel(song: matchedMediaItemStub)
         sut.setUp(track: trackStub)
         sut.setUp(lyrics: lyricsStub)
         sut.lyricsBody! += "\n"
@@ -237,8 +252,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertTrue(msg.contains("You are here, moving in our midst<br/>")) // lyrics body
     }
     
+    @MainActor
     func test_getMessage_hasLyricsRestricted() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        let sut = LyricsViewModel(song: matchedMediaItemStub)
         sut.hasLyrics = true
         sut.restricted = true
         
@@ -247,8 +263,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(msg, "Lyrics Restricted in your country")
     }
     
+    @MainActor
     func test_getMessage_hasError() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        let sut = LyricsViewModel(song: matchedMediaItemStub)
         sut.error = MusixmatchAPIClient.Error.exceedAPIRateLimit
         
         let msg = sut.getMessage()
@@ -256,8 +273,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(msg, "Ooops. Something wrong. Please try again later.")
     }
     
+    @MainActor
     func test_getMessage_hasNoLyricsBody() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        let sut = LyricsViewModel(song: matchedMediaItemStub)
         sut.lyricsBody = nil
         
         let msg = sut.getMessage()
@@ -265,8 +283,9 @@ final class LyricsViewModelTests: XCTestCase {
         XCTAssertEqual(msg, "Lyrics Not Found")
     }
     
+    @MainActor
     func test_makeHTMLString_hasNoLyricsBody() {
-        var sut = LyricsViewModel(song: matchedMediaItemStub)
+        let sut = LyricsViewModel(song: matchedMediaItemStub)
         sut.lyricsBody = nil
         
         let msg = sut.makeHtmlString()

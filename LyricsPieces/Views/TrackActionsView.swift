@@ -13,13 +13,13 @@ struct TrackActionsView: View {
     @Environment(\.openURL) var openURL
     
     @State var isPresented: Bool = false
-    @State var vm: LyricsViewModel
+    let vm: LyricsViewModel
     
     let song: SHMatchedMediaItem
     
     init(song: SHMatchedMediaItem) {
         self.song = song
-        vm = LyricsViewModel(song: song)
+        self.vm = LyricsViewModel(song: song)
     }
     
     var body: some View {
@@ -60,23 +60,12 @@ struct TrackActionsView: View {
     }
     
     func fetchLyrics() async {
-        Task {
-            var canFetchLyrics = true
-            await vm.fetchTrack { error in
-                if let _ = error {
-                    self.isPresented.toggle()
-                    canFetchLyrics = false
-                }
-            }
-            
-            guard canFetchLyrics else { return }
-            await vm.fetchLyrics { _ in
-                self.isPresented.toggle()
-            }
-        }
+        await vm.fetchTrack()
+        await vm.fetchLyrics()
+        self.isPresented.toggle()
     }
 }
 
 //#Preview {
-//    TrackActionsView(song: song!)
+//    TrackActionsView(song: songStub)
 //}
