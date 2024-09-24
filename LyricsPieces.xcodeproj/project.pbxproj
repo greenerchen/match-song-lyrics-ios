@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA098C2D2CA305DF00A0F63E /* ShazamStartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */; };
 		AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */; };
 		AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */; };
 		AA54563D2C9C247F00003647 /* ShazamResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563C2C9C247F00003647 /* ShazamResultViewModelTests.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartViewTests.swift; sourceTree = "<group>"; };
 		AA4909D22C87021000CFAD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewModelTests.swift; sourceTree = "<group>"; };
 		AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixmatchAPISessionMock.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */,
+				AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA098C2D2CA305DF00A0F63E /* ShazamStartViewTests.swift in Sources */,
 				AA5456442C9C709B00003647 /* SHMatchedMediaItemMatchTimeTests.swift in Sources */,
 				AA9D58922C81B90D008ABAEC /* Stubs.swift in Sources */,
 				AA9D58942C81B92E008ABAEC /* SHMatchCoder.swift in Sources */,
