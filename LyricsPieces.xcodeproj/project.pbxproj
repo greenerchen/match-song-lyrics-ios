@@ -104,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA098C292CA2F99200A0F63E /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +370,7 @@
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
 				AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
+				AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -770,6 +772,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 		AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:greenerchen/musixmatch-api-ios.git";
@@ -781,6 +791,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AA098C282CA2F99200A0F63E /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
 		AAA347F72C9295F50011A39D /* MusixmatchAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */;
