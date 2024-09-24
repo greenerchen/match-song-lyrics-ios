@@ -70,7 +70,7 @@ let mediaItemsStub: [SHMatchedMediaItem] = [matchedMediaItemStub]
 
 let querySignatureStub = SHSignature()
 
-class SHMatchMock: SHMatch {
+class SHMatchMock: SHMatch, @unchecked Sendable {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

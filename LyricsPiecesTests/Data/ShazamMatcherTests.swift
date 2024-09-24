@@ -76,7 +76,7 @@ final class ShazamMatcherTests: XCTestCase {
     @MainActor
     func test_deinit_whenNoMatched_sessionIsCanceled() async throws {
         let session = SHManagedSessionMock(matchStub: nil, signatureStub: querySignatureStub)
-        var matcher: ShazamMatcher? = ShazamMatcher(session: session)
+        let matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)
         
@@ -91,7 +91,7 @@ final class ShazamMatcherTests: XCTestCase {
             matchStub: nil,
             errorStub: NSError(domain: "com.greenerchen.LyricsPieces", code: 101 /*SHError.audioDiscontinuity*/),
             signatureStub: querySignatureStub)
-        var matcher: ShazamMatcher? = ShazamMatcher(session: session)
+        let matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)
         
