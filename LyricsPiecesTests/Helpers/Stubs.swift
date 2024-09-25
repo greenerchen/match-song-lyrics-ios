@@ -17,7 +17,7 @@ let matchedMediaItemStub: SHMatchedMediaItem =
         SHMediaItemProperty.appleMusicID: 1474230008,
         SHMediaItemProperty.appleMusicURL: "https://music.apple.com/tw/album/way-maker-live/1474229914?i=1474230008&l=en-GB&itscg=30201&itsct=bglsk",
         SHMediaItemProperty.artist: "Leeland",
-        SHMediaItemProperty.artworkURL: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8a/c0/9c/8ac09cfb-b243-fa27-35e7-0cf49cf49f46/0000768724453.jpg/800x800bb.jpg",
+        SHMediaItemProperty.artworkURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8a/c0/9c/8ac09cfb-b243-fa27-35e7-0cf49cf49f46/0000768724453.jpg/800x800bb.jpg")!,
         SHMediaItemProperty.creationDate: "2024-08-30 06:59:42 +0000",
         SHMediaItemProperty.explicitContent: 0,
         SHMediaItemProperty.frequencySkew: 0,
