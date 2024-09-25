@@ -12,6 +12,7 @@
 		AA098C2B2CA2FD6E00A0F63E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2A2CA2FD6E00A0F63E /* ErrorView.swift */; };
 		AA098C2D2CA305DF00A0F63E /* ShazamStartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */; };
 		AA098C2F2CA39B0200A0F63E /* MatchViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2E2CA39B0100A0F63E /* MatchViewTests.swift */; };
+		AA098C312CA3AEAB00A0F63E /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C302CA3AEAB00A0F63E /* ContentViewTests.swift */; };
 		AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */; };
 		AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */; };
 		AA54563D2C9C247F00003647 /* ShazamResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563C2C9C247F00003647 /* ShazamResultViewModelTests.swift */; };
@@ -65,6 +66,7 @@
 		AA098C2A2CA2FD6E00A0F63E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartViewTests.swift; sourceTree = "<group>"; };
 		AA098C2E2CA39B0100A0F63E /* MatchViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewTests.swift; sourceTree = "<group>"; };
+		AA098C302CA3AEAB00A0F63E /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
 		AA4909D22C87021000CFAD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewModelTests.swift; sourceTree = "<group>"; };
 		AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixmatchAPISessionMock.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */,
 				AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */,
 				AA098C2E2CA39B0100A0F63E /* MatchViewTests.swift */,
+				AA098C302CA3AEAB00A0F63E /* ContentViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				AA54563D2C9C247F00003647 /* ShazamResultViewModelTests.swift in Sources */,
 				AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */,
 				AA9EEF882C7F1D8B008F4B6D /* ShazamMatcherTests.swift in Sources */,
+				AA098C312CA3AEAB00A0F63E /* ContentViewTests.swift in Sources */,
 				AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */,
 				AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */,
 				AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */,

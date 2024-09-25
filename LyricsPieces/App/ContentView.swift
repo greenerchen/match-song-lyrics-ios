@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    var matcher: ShazamMatcher = ShazamMatcher()
+    
     var body: some View {
-        ShazamStartView()
+        MatchView(matcher: matcher)
     }
 }
 
