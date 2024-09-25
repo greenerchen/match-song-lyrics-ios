@@ -31,6 +31,8 @@ struct TrackActionsView: View {
                 }
             }, label: {
                 Label("Read Lyrics", systemImage: "music.note.list")
+                    .accessibilityIdentifier("track_actions_read_lyrics")
+                    .accessibilityLabel("Read Lyrics")
             })
             .frame(height: 44)
             .buttonStyle(.borderedProminent)
@@ -38,9 +40,11 @@ struct TrackActionsView: View {
                    content: {
                 if vm.hasLyrics, !vm.restricted {
                     WebView(url: nil, htmlString: vm.getMessage())
+                        .accessibilityIdentifier("sheet_lyrics")
                         .presentationDetents([.medium, .large])
                 } else {
                     Text(vm.getMessage())
+                        .accessibilityIdentifier("sheet_error_message")
                         .presentationDetents([.medium, .large])
                 }
                 
@@ -56,6 +60,8 @@ struct TrackActionsView: View {
                     }
                     openURL(appleMusicURL)
                 }
+                .accessibilityIdentifier("track_actions_listen_on_apple_music")
+                .accessibilityLabel("Listen On Apple Music")
         }
     }
     
