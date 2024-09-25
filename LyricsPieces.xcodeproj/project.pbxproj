@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA098C292CA2F99200A0F63E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = AA098C282CA2F99200A0F63E /* ViewInspector */; };
 		AA098C2D2CA305DF00A0F63E /* ShazamStartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */; };
 		AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */; };
 		AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */; };
