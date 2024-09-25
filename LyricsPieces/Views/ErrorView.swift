@@ -14,10 +14,10 @@ struct ErrorView: View {
     
     var body: some View {
         Text(errorDescription)
-        Spacer()
         Button(action: action) {
             Text(actionTitle)
         }
+        .buttonStyle(.borderedProminent)
     }
 }
 
