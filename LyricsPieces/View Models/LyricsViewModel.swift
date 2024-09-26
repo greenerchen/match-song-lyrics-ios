@@ -9,7 +9,8 @@ import Foundation
 import ShazamKit
 import MusixmatchAPI
 
-struct LyricsViewModel {
+@MainActor
+class LyricsViewModel: ObservableObject {
     var isrc: String?
     var trackId: Int?
     var trackName: String
@@ -24,6 +25,11 @@ struct LyricsViewModel {
     let client: MusixmatchAPIClient
     
     var error: Error?
+    
+    enum FetchError: Swift.Error {
+        case noTrackFound
+        case error(_ error: Error)
+    }
     
     init(
         song: SHMatchedMediaItem,
@@ -66,7 +72,7 @@ struct LyricsViewModel {
 
 extension LyricsViewModel {
     
-    mutating func setUp(track: Track) {
+    func setUp(track: Track) {
         trackId = track.id
         trackName = track.trackName
         artistName = track.artistName
@@ -78,32 +84,31 @@ extension LyricsViewModel {
         scriptTrackingUrl = nil
     }
     
-    mutating func setUp(lyrics: Lyrics) {
+    func setUp(lyrics: Lyrics) {
         lyricsBody = lyrics.body
         lyricsCopyright = lyrics.copyright
         scriptTrackingUrl = lyrics.scriptTrackingUrl
     }
     
-    mutating func fetchTrack(_ completionHandler: (Error?) -> Void) async {
+    func fetchTrack() async {
         do {
-            let track: Track
             if let isrc = isrc {
-                track = try await client.getTrack(isrc: isrc)
+                let track = try await client.getTrack(isrc: isrc)
                 setUp(track: track)
             } else {
                 let tracklist = try await client.searchTrack(trackName, artist: artistName)
-                guard let track = tracklist.first else { return }
+                guard let track = tracklist.first else {
+                    error = FetchError.noTrackFound
+                    return
+                }
                 setUp(track: track)
             }
         } catch {
-            debugPrint(error)
             self.error = error
         }
-        
-        completionHandler(error)
     }
     
-    mutating func fetchLyrics(_ completionHandler: (Error?) -> Void) async {
+    func fetchLyrics() async {
         do {
             if let isrc = isrc {
                 let lyrics = try await client.getLyrics(isrc: isrc)
@@ -113,11 +118,8 @@ extension LyricsViewModel {
                 setUp(lyrics: lyrics)
             }
         } catch {
-            debugPrint(error)
             self.error = error
         }
-        
-        completionHandler(error)
     }
 }
 

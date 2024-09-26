@@ -9,8 +9,6 @@ import SwiftUI
 import ShazamKit
 
 struct ShazamResultView: View {
-    @Environment(\.openURL) var openURL
-    
     @ObservedObject var vm: ShazamResultViewModel
     
     var body: some View {
@@ -18,6 +16,7 @@ struct ShazamResultView: View {
             switch vm.trackState {
             case .found:
                 TrackView(song: vm.song!)
+                    .accessibilityIdentifier("result_track_view")
             case .notFound:
                 Text("Uh oh. Nothing found.")
             }

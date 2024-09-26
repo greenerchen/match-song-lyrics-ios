@@ -13,13 +13,13 @@ struct TrackActionsView: View {
     @Environment(\.openURL) var openURL
     
     @State var isPresented: Bool = false
-    @State var vm: LyricsViewModel
+    let vm: LyricsViewModel
     
     let song: SHMatchedMediaItem
     
     init(song: SHMatchedMediaItem) {
         self.song = song
-        vm = LyricsViewModel(song: song)
+        self.vm = LyricsViewModel(song: song)
     }
     
     var body: some View {
@@ -31,6 +31,8 @@ struct TrackActionsView: View {
                 }
             }, label: {
                 Label("Read Lyrics", systemImage: "music.note.list")
+                    .accessibilityIdentifier("track_actions_read_lyrics")
+                    .accessibilityLabel("Read Lyrics")
             })
             .frame(height: 44)
             .buttonStyle(.borderedProminent)
@@ -38,9 +40,11 @@ struct TrackActionsView: View {
                    content: {
                 if vm.hasLyrics, !vm.restricted {
                     WebView(url: nil, htmlString: vm.getMessage())
+                        .accessibilityIdentifier("sheet_lyrics")
                         .presentationDetents([.medium, .large])
                 } else {
                     Text(vm.getMessage())
+                        .accessibilityIdentifier("sheet_error_message")
                         .presentationDetents([.medium, .large])
                 }
                 
@@ -56,27 +60,18 @@ struct TrackActionsView: View {
                     }
                     openURL(appleMusicURL)
                 }
+                .accessibilityIdentifier("track_actions_listen_on_apple_music")
+                .accessibilityLabel("Listen On Apple Music")
         }
     }
     
     func fetchLyrics() async {
-        Task {
-            var canFetchLyrics = true
-            await vm.fetchTrack { error in
-                if let _ = error {
-                    self.isPresented.toggle()
-                    canFetchLyrics = false
-                }
-            }
-            
-            guard canFetchLyrics else { return }
-            await vm.fetchLyrics { _ in
-                self.isPresented.toggle()
-            }
-        }
+        await vm.fetchTrack()
+        await vm.fetchLyrics()
+        self.isPresented.toggle()
     }
 }
 
 //#Preview {
-//    TrackActionsView(song: song!)
+//    TrackActionsView(song: songStub)
 //}

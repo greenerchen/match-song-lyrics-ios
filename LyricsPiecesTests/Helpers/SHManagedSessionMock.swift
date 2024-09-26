@@ -26,8 +26,12 @@ final class SHManagedSessionMock: SHManagedSessionProtocol {
     }
     
     func result() async -> SHSession.Result {
+        guard let signature = signatureStub else {
+            try? await Task.sleep(nanoseconds: 1000)
+            return .noMatch(signatureStub ?? SHSignature())
+        }
         guard let match = match else {
-            if let error = errorStub, let signature = signatureStub {
+            if let error = errorStub {
                 return .error(error, signature)
             }
             return .noMatch(signatureStub ?? SHSignature())

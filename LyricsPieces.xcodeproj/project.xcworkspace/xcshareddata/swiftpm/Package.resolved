@@ -1,5 +1,5 @@
 {
-  "originHash" : "f4ad9ccd42ca0f6a521feda0e071c145de88fcd04d94dd5617b931e23970ce8e",
+  "originHash" : "995332a9b6d44c7e70aa2ceba795d1b39e68b03b76f220084a7d026ee99b0689",
   "pins" : [
     {
       "identity" : "musixmatch-api-ios",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "2df6b3b9f49f3a533a5fb9c8a868c2dcc04b246d",
         "version" : "1.0.9"
+      }
+    },
+    {
+      "identity" : "viewinspector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nalexn/ViewInspector",
+      "state" : {
+        "revision" : "5acfa0a3c095ac9ad050abe51c60d1831e8321da",
+        "version" : "0.10.0"
       }
     }
   ],

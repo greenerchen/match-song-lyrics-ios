@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA098C262CA2BE1400A0F63E /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C252CA2BE1400A0F63E /* XCTestCase+MemoryLeakTracking.swift */; };
+		AA098C292CA2F99200A0F63E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = AA098C282CA2F99200A0F63E /* ViewInspector */; };
+		AA098C2B2CA2FD6E00A0F63E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2A2CA2FD6E00A0F63E /* ErrorView.swift */; };
+		AA098C2D2CA305DF00A0F63E /* ShazamStartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */; };
+		AA098C2F2CA39B0200A0F63E /* MatchViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C2E2CA39B0100A0F63E /* MatchViewTests.swift */; };
+		AA098C312CA3AEAB00A0F63E /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C302CA3AEAB00A0F63E /* ContentViewTests.swift */; };
+		AA098C332CA3B1D600A0F63E /* ShazamResultViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C322CA3B1D600A0F63E /* ShazamResultViewTests.swift */; };
+		AA098C352CA3B5E300A0F63E /* PermissonRequestViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C342CA3B5E300A0F63E /* PermissonRequestViewTests.swift */; };
+		AA098C372CA3B6B000A0F63E /* TrackActionsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA098C362CA3B6B000A0F63E /* TrackActionsViewTests.swift */; };
 		AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */; };
 		AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */; };
 		AA54563D2C9C247F00003647 /* ShazamResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54563C2C9C247F00003647 /* ShazamResultViewModelTests.swift */; };
@@ -56,6 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA098C252CA2BE1400A0F63E /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		AA098C2A2CA2FD6E00A0F63E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartViewTests.swift; sourceTree = "<group>"; };
+		AA098C2E2CA39B0100A0F63E /* MatchViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewTests.swift; sourceTree = "<group>"; };
+		AA098C302CA3AEAB00A0F63E /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
+		AA098C322CA3B1D600A0F63E /* ShazamResultViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamResultViewTests.swift; sourceTree = "<group>"; };
+		AA098C342CA3B5E300A0F63E /* PermissonRequestViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissonRequestViewTests.swift; sourceTree = "<group>"; };
+		AA098C362CA3B6B000A0F63E /* TrackActionsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackActionsViewTests.swift; sourceTree = "<group>"; };
 		AA4909D22C87021000CFAD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AA5456382C9BCBD300003647 /* LyricsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsViewModelTests.swift; sourceTree = "<group>"; };
 		AA54563A2C9BCF2300003647 /* MusixmatchAPISessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusixmatchAPISessionMock.swift; sourceTree = "<group>"; };
@@ -104,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA098C292CA2F99200A0F63E /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +158,7 @@
 				AA9D58952C81C71C008ABAEC /* SHManagedSessionMock.swift */,
 				AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */,
 				AA9D58912C81B90D008ABAEC /* Stubs.swift */,
+				AA098C252CA2BE1400A0F63E /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -226,6 +245,7 @@
 				AACF4EA62C93E4D70040C4D5 /* TrackView.swift */,
 				AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */,
 				AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */,
+				AA098C2A2CA2FD6E00A0F63E /* ErrorView.swift */,
 				AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */,
 				AA9EEFAF2C7F2C19008F4B6D /* MatchingView.swift */,
 				AAA347B42C8828C00011A39D /* WebView.swift */,
@@ -272,6 +292,12 @@
 			isa = PBXGroup;
 			children = (
 				AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */,
+				AA098C322CA3B1D600A0F63E /* ShazamResultViewTests.swift */,
+				AA098C2C2CA305DF00A0F63E /* ShazamStartViewTests.swift */,
+				AA098C2E2CA39B0100A0F63E /* MatchViewTests.swift */,
+				AA098C302CA3AEAB00A0F63E /* ContentViewTests.swift */,
+				AA098C342CA3B5E300A0F63E /* PermissonRequestViewTests.swift */,
+				AA098C362CA3B6B000A0F63E /* TrackActionsViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,7 +369,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					AA9EEF722C7F1D86008F4B6D = {
 						CreatedOnToolsVersion = 15.4;
@@ -369,6 +395,7 @@
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
 				AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
+				AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -423,6 +450,7 @@
 				AA9EEF772C7F1D86008F4B6D /* LyricsPiecesApp.swift in Sources */,
 				AAA347F12C9182510011A39D /* LyricsViewModel.swift in Sources */,
 				AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */,
+				AA098C2B2CA2FD6E00A0F63E /* ErrorView.swift in Sources */,
 				AAA347B52C8828C00011A39D /* WebView.swift in Sources */,
 				AA9EEFB02C7F2C19008F4B6D /* MatchingView.swift in Sources */,
 				AA5456402C9C50D400003647 /* SHMatchedMediaItem+MatchTime.swift in Sources */,
@@ -434,12 +462,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA098C262CA2BE1400A0F63E /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				AA098C2D2CA305DF00A0F63E /* ShazamStartViewTests.swift in Sources */,
 				AA5456442C9C709B00003647 /* SHMatchedMediaItemMatchTimeTests.swift in Sources */,
+				AA098C332CA3B1D600A0F63E /* ShazamResultViewTests.swift in Sources */,
 				AA9D58922C81B90D008ABAEC /* Stubs.swift in Sources */,
+				AA098C352CA3B5E300A0F63E /* PermissonRequestViewTests.swift in Sources */,
+				AA098C2F2CA39B0200A0F63E /* MatchViewTests.swift in Sources */,
 				AA9D58942C81B92E008ABAEC /* SHMatchCoder.swift in Sources */,
 				AA54563D2C9C247F00003647 /* ShazamResultViewModelTests.swift in Sources */,
 				AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */,
+				AA098C372CA3B6B000A0F63E /* TrackActionsViewTests.swift in Sources */,
 				AA9EEF882C7F1D8B008F4B6D /* ShazamMatcherTests.swift in Sources */,
+				AA098C312CA3AEAB00A0F63E /* ContentViewTests.swift in Sources */,
 				AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */,
 				AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */,
 				AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */,
@@ -655,7 +690,6 @@
 		AA9EEF9B2C7F1D8B008F4B6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -675,7 +709,6 @@
 		AA9EEF9C2C7F1D8B008F4B6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -695,7 +728,6 @@
 		AA9EEF9E2C7F1D8B008F4B6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
@@ -713,7 +745,6 @@
 		AA9EEF9F2C7F1D8B008F4B6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
@@ -770,6 +801,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 		AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:greenerchen/musixmatch-api-ios.git";
@@ -781,6 +820,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AA098C282CA2F99200A0F63E /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
 		AAA347F72C9295F50011A39D /* MusixmatchAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */;

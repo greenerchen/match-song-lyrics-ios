@@ -17,7 +17,7 @@ let matchedMediaItemStub: SHMatchedMediaItem =
         SHMediaItemProperty.appleMusicID: 1474230008,
         SHMediaItemProperty.appleMusicURL: "https://music.apple.com/tw/album/way-maker-live/1474229914?i=1474230008&l=en-GB&itscg=30201&itsct=bglsk",
         SHMediaItemProperty.artist: "Leeland",
-        SHMediaItemProperty.artworkURL: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8a/c0/9c/8ac09cfb-b243-fa27-35e7-0cf49cf49f46/0000768724453.jpg/800x800bb.jpg",
+        SHMediaItemProperty.artworkURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8a/c0/9c/8ac09cfb-b243-fa27-35e7-0cf49cf49f46/0000768724453.jpg/800x800bb.jpg")!,
         SHMediaItemProperty.creationDate: "2024-08-30 06:59:42 +0000",
         SHMediaItemProperty.explicitContent: 0,
         SHMediaItemProperty.frequencySkew: 0,
@@ -70,7 +70,7 @@ let mediaItemsStub: [SHMatchedMediaItem] = [matchedMediaItemStub]
 
 let querySignatureStub = SHSignature()
 
-class SHMatchMock: SHMatch {
+class SHMatchMock: SHMatch, @unchecked Sendable {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -90,9 +90,16 @@ let responseOKStub = HTTPURLResponse(
     headerFields: nil
 )!
 
+// MARK: Shared stubs
+
+func anyNSError() -> NSError {
+    NSError(domain: "com.any.error", code: 101)
+}
 let trackGetResponseStringStub = "{\"message\":{\"body\":{\"track\":{\"track_id\":100001,\"commontrack_id\":200001,\"artist_name\":\"Leeland\",\"track_name\":\"Way Maker\",\"explicit\":0,\"subtitle_id\":234567,\"has_lyrics\":1,\"has_subtitles\":1,\"lyrics_id\":123456,\"lyrics_copyright\":\"Copyright\",\"track_share_url\":\"link\",\"lyrics_body\":\"You are here, moving in our midst\",\"restricted\":0}},\"header\":{\"status_code\":200}}}"
 
 let trackSearchResponseStringStub = "{\"message\":{\"header\":{\"status_code\":200},\"body\":{\"track_list\":[{\"track\":{\"has_lyrics\":1,\"lyrics_body\":\"You are here, moving in our midst\",\"subtitle_id\":234567,\"commontrack_id\":200001,\"lyrics_id\":123456,\"has_subtitles\":1,\"explicit\":0,\"track_name\":\"Way Maker\",\"track_id\":100001,\"lyrics_copyright\":\"Copyright\",\"restricted\":0,\"track_share_url\":\"link\",\"artist_name\":\"Leeland\"}}]}}}"
+
+let trackSearchNoTrackResponseStringStub = "{\"message\":{\"header\":{\"status_code\":200},\"body\":{\"track_list\":[]}}}"
 
 let trackLyricsGetResponseStringStub = "{\"message\":{\"header\":{\"status_code\":200},\"body\":{\"lyrics\":{\"lyrics_body\":\"Heart beats fast\",\"lyrics_copyright\":\"Copyright powered by musixmatch\",\"script_tracking_url\":\"http:\\/\\/a.com\",\"lyrics_id\":1001,\"explicit\":0}}}}"
 

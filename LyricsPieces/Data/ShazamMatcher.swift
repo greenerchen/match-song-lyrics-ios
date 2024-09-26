@@ -28,41 +28,51 @@ extension SHManagedSession: SHManagedSessionProtocol {}
 @MainActor
 final class ShazamMatcher: ObservableObject {
     
-    @Published var isMatching = false
+    enum State: Equatable {
+        case idle
+        case matching
+        case matched
+        case noMatched
+        case error
+    }
+    
+    @Published var state: State = .idle
     @Published var currentMatchResult: ShazamMatchResult?
     
     let session: SHManagedSessionProtocol
     
     init(session: SHManagedSessionProtocol = SHManagedSession()) {
         self.session = session
+        
     }
     
     func match() async throws {
         Task {
-            isMatching = true
+            state = .matching
         }
          
         // What if the matcher is deiniting during waiting?
         let result = await session.result()
         switch result {
         case .match(let match):
-            endSession(with: match)
+            endSession(with: match, state: .matched)
         case .noMatch(_):
             debugPrint("No match")
-            endSession(with: nil)
+            endSession(with: nil, state: .noMatched)
         case .error(let error, _):
             debugPrint("Error \(error.localizedDescription)")
-            endSession(with: nil)
+            endSession(with: nil, state: .error)
         }
     }
     
     func stopMatching() {
         session.cancel()
+        state = .idle
     }
     
-    func endSession(with match: SHMatch?) {
-        stopMatching()
-        isMatching = false
+    func endSession(with match: SHMatch?, state: State) {
+        session.cancel()
+        self.state = state
         currentMatchResult = ShazamMatchResult(match: match)
     }
 }

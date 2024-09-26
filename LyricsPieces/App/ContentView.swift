@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import ShazamKit
 
 struct ContentView: View {
+    var matcher: ShazamMatcher = ShazamMatcher(session: SHManagedSession())
+    
     var body: some View {
-        ShazamStartView()
+        MatchView(matcher: matcher)
     }
 }
 

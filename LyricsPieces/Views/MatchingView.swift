@@ -10,7 +10,7 @@ import SwiftUI
 struct MatchingView: View {
     var title: String
     
-    @State private var degreesRotating = 0.0
+    @State var degreesRotating = 0.0
     
     var body: some View {
         VStack {
@@ -19,6 +19,7 @@ struct MatchingView: View {
                 .clipShape(Circle())
                 .shadow(radius: 4)
                 .rotationEffect(.degrees(degreesRotating))
+                .accessibilityIdentifier("matching_view_logo")
                 .onAppear(perform: {
                     withAnimation(.linear(duration: 1).speed(0.2).repeatForever(autoreverses: false)) {
                         degreesRotating = 360
