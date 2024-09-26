@@ -17,7 +17,7 @@ final class SHMatchCoder: NSCoder {
             return mediaItemsStub
         }
         if key == "querySignature" {
-            return querySignatureStub
+            return signatureStub
         }
         return nil
     }
