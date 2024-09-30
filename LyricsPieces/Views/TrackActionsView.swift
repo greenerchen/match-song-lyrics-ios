@@ -12,7 +12,7 @@ import MusixmatchAPI
 struct TrackActionsView: View {
     @Environment(\.openURL) var openURL
     
-    @State var isPresented: Bool = false
+    @State private(set) var isPresented: Bool = false
     let vm: LyricsViewModel
     
     let song: SHMatchedMediaItem

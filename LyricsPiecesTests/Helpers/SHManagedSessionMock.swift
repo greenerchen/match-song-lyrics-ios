@@ -43,3 +43,5 @@ final class SHManagedSessionMock: SHManagedSessionProtocol {
         cancelCallCount += 1
     }
 }
+
+let matchedSession = SHManagedSessionMock(matchStub: matchStub, errorStub: nil, signatureStub: signatureStub)
