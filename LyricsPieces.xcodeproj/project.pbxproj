@@ -47,6 +47,8 @@
 		AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA62C93E4D70040C4D5 /* TrackView.swift */; };
 		AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */; };
 		AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */; };
+		AAF504672CAB09CF00707CEC /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF504662CAB09CF00707CEC /* Inspection.swift */; };
+		AAF504692CAB0A1F00707CEC /* Inspection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF504682CAB0A1F00707CEC /* Inspection+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackActionsView.swift; sourceTree = "<group>"; };
 		AACF4EAC2C9573F40040C4D5 /* LyricsPiecesTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LyricsPiecesTestPlan.xctestplan; sourceTree = "<group>"; };
 		AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewTests.swift; sourceTree = "<group>"; };
+		AAF504662CAB09CF00707CEC /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
+		AAF504682CAB0A1F00707CEC /* Inspection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inspection+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				AA9D58932C81B92E008ABAEC /* SHMatchCoder.swift */,
 				AA9D58912C81B90D008ABAEC /* Stubs.swift */,
 				AA098C252CA2BE1400A0F63E /* XCTestCase+MemoryLeakTracking.swift */,
+				AAF504682CAB0A1F00707CEC /* Inspection+Ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				AA4909D22C87021000CFAD3B /* Info.plist */,
 				AA9EEFA02C7F1E29008F4B6D /* App */,
 				AA9EEFA22C7F1E51008F4B6D /* Data */,
+				AAF504652CAB09BD00707CEC /* Helpers */,
 				AA9EEF7C2C7F1D8B008F4B6D /* Preview Content */,
 				AA9EEFAC2C7F2A29008F4B6D /* Resources */,
 				AA9EEFA12C7F1E38008F4B6D /* Views */,
@@ -305,6 +311,14 @@
 				AA098C362CA3B6B000A0F63E /* TrackActionsViewTests.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AAF504652CAB09BD00707CEC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AAF504662CAB09CF00707CEC /* Inspection.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9EEFA62C7F24EE008F4B6D /* ShazamStartView.swift in Sources */,
+				AAF504672CAB09CF00707CEC /* Inspection.swift in Sources */,
 				AA9EEFAB2C7F25E5008F4B6D /* ShazamMatcher.swift in Sources */,
 				AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */,
 				AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */,
@@ -484,6 +499,7 @@
 				AA54563B2C9BCF2300003647 /* MusixmatchAPISessionMock.swift in Sources */,
 				AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */,
 				AA9D58962C81C71C008ABAEC /* SHManagedSessionMock.swift in Sources */,
+				AAF504692CAB0A1F00707CEC /* Inspection+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
