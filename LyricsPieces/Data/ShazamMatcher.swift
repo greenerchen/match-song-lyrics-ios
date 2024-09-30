@@ -47,11 +47,9 @@ final class ShazamMatcher: ObservableObject {
     }
     
     func match() async throws {
-        Task {
-            state = .matching
-        }
+        state = .matching
+        currentMatchResult = nil
          
-        // What if the matcher is deiniting during waiting?
         let result = await session.result()
         switch result {
         case .match(let match):
@@ -65,7 +63,7 @@ final class ShazamMatcher: ObservableObject {
         }
     }
     
-    func stopMatching() {
+    func reset() {
         session.cancel()
         state = .idle
     }
