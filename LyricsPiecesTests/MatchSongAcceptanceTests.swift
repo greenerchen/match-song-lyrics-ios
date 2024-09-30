@@ -31,8 +31,21 @@ final class MatchSongAcceptanceTests: XCTestCase {
         await fulfillment(of: [exp])
     }
 
-    func test_shazam_whenAUserHasNoConnectivityAndASongRecording_gotNoConnectivityError() throws {
+    @MainActor
+    func test_shazam_whenAUserHasNoConnectivity_getNoConnectivityError() async throws {
+        var sut = makeSUT(session: noConnectivitySession)
         
+        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
+        
+        try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
+        
+        let exp = sut.on(\.errorViewDidAppear) { view in
+            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
+            ViewHosting.expel()
+        }
+        ViewHosting.host(view: sut)
+        await fulfillment(of: [exp])
     }
     
     func test_shazam_whenAUserHasConnectivityButNoSongMatched_gotNoSongMatchedError() throws {

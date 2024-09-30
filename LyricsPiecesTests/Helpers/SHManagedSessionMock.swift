@@ -45,3 +45,5 @@ final class SHManagedSessionMock: SHManagedSessionProtocol {
 }
 
 let matchedSession = SHManagedSessionMock(matchStub: matchStub, errorStub: nil, signatureStub: signatureStub)
+
+let noConnectivitySession = SHManagedSessionMock(matchStub: nil, errorStub: noConnectivityNSError(), signatureStub: signatureStub)

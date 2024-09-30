@@ -14,6 +14,7 @@ struct MatchView: View {
     @State private(set) var showResult: Bool = false
     
     internal var resultViewDidAppear: ((Self) -> Void)?
+    internal var errorViewDidAppear: ((Self) -> Void)?
     
     var isAuthorized: Bool {
         get async {
@@ -71,6 +72,9 @@ struct MatchView: View {
                         }
                     }
                     .accessibilityIdentifier("match_error_state_view")
+                    .onAppear {
+                        errorViewDidAppear?(self)
+                    }
                 }
                 
             }
