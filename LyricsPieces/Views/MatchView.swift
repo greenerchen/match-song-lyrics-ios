@@ -14,6 +14,7 @@ struct MatchView: View {
     @State private(set) var showResult: Bool = false
     
     internal var resultViewDidAppear: ((Self) -> Void)?
+    internal var noMatchViewDidAppear: ((Self) -> Void)?
     internal var errorViewDidAppear: ((Self) -> Void)?
     
     var isAuthorized: Bool {
@@ -65,6 +66,9 @@ struct MatchView: View {
                         }
                     }
                     .accessibilityIdentifier("match_noMatch_state_view")
+                    .onAppear {
+                        noMatchViewDidAppear?(self)
+                    }
                 case .error:
                     ErrorView(errorDescription: "Uh-oh, Something wrong", actionTitle: "Try again") {
                         Task {

@@ -48,7 +48,28 @@ final class MatchSongAcceptanceTests: XCTestCase {
         await fulfillment(of: [exp])
     }
     
-    func test_shazam_whenAUserHasConnectivityButNoSongMatched_gotNoSongMatchedError() throws {
+    @MainActor
+    func test_shazam_whenAUserHasConnectivityButNoSongMatched_getNoSongMatchedError() async throws {
+        var sut = makeSUT(session: noMatchedSession)
         
+        try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
+        
+        let exp = sut.on(\.noMatchViewDidAppear) { view in
+            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
+            ViewHosting.expel()
+        }
+        ViewHosting.host(view: sut)
+        await fulfillment(of: [exp])
+    }
+    
+    // MARK: - Helpers
+    
+    @MainActor
+    private func makeSUT(session: SHManagedSessionProtocol = SHManagedSessionMock()) -> MatchView {
+        let matcher = ShazamMatcher(session: session)
+        let sut = MatchView(matcher: matcher)
+        trackForMemoryLeaks(matcher)
+        return sut
     }
 }
