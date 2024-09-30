@@ -11,6 +11,9 @@ import AVFoundation
 struct MatchView: View {
     @ObservedObject var matcher: ShazamMatcher
     @State private var needPermissions: Bool = false
+    @State private(set) var showResult: Bool = false
+    
+    internal var resultViewDidAppear: ((Self) -> Void)?
     
     var isAuthorized: Bool {
         get async {
@@ -23,7 +26,7 @@ struct MatchView: View {
     }
     
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack {
                 switch matcher.state {
                 case .idle:
@@ -43,11 +46,17 @@ struct MatchView: View {
                             .accessibilityIdentifier("match_matching_state_view")
                     }
                 case .matched:
-                    // TODO: push a new view
-                    if let result = matcher.currentMatchResult {
-                        ShazamResultView(vm: ShazamResultViewModel(result: result))
-                            .accessibilityIdentifier("match_matched_state_view")
-                    }
+                    ShazamStartView()
+                        .accessibilityIdentifier("match_idle_state_view")
+                        .onTapGesture {
+                            Task {
+                                try await matcher.match()
+                            }
+                        }
+                        .onAppear {
+                            showResult = matcher.state == .matched
+                            resultViewDidAppear?(self)
+                        }
                 case .noMatched:
                     ErrorView(errorDescription: "No song matched", actionTitle: "Try again") {
                         Task {
@@ -67,6 +76,15 @@ struct MatchView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.themeBackground)
+            .navigationDestination(isPresented: $showResult, destination: {
+                if let result = matcher.currentMatchResult {
+                    ShazamResultView(vm: ShazamResultViewModel(result: result))
+                        .onAppear(perform: {
+                            matcher.reset()
+                        })
+                        .accessibilityIdentifier("match_matched_state_view")
+                }
+            })
             .task {
                 if await !isAuthorized {
                     needPermissions = true
