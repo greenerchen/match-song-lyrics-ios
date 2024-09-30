@@ -42,6 +42,7 @@
 		AAA347F12C9182510011A39D /* LyricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA347F02C9182510011A39D /* LyricsViewModel.swift */; };
 		AAA347F82C9295F50011A39D /* MusixmatchAPI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA347F72C9295F50011A39D /* MusixmatchAPI */; };
 		AAB68FCD2CA56E48009ADCF4 /* MatchSongAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB68FCC2CA56E48009ADCF4 /* MatchSongAcceptanceTests.swift */; };
+		AAB68FD32CA5CA5F009ADCF4 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = AAB68FD22CA5CA5F009ADCF4 /* ViewInspector */; };
 		AACF4EA52C93E2370040C4D5 /* ShazamResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA42C93E2370040C4D5 /* ShazamResultViewModel.swift */; };
 		AACF4EA72C93E4D70040C4D5 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA62C93E4D70040C4D5 /* TrackView.swift */; };
 		AACF4EA92C93F27F0040C4D5 /* TrackActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EA82C93F27F0040C4D5 /* TrackActionsView.swift */; };
@@ -124,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA098C292CA2F99200A0F63E /* ViewInspector in Frameworks */,
+				AAB68FD32CA5CA5F009ADCF4 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +400,7 @@
 			mainGroup = AA9EEF6A2C7F1D86008F4B6D;
 			packageReferences = (
 				AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */,
-				AA098C272CA2F99200A0F63E /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				AAB68FD12CA5CA5F009ADCF4 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = AA9EEF742C7F1D86008F4B6D /* Products */;
 			projectDirPath = "";
@@ -821,6 +823,14 @@
 				minimumVersion = 1.0.9;
 			};
 		};
+		AAB68FD12CA5CA5F009ADCF4 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -833,6 +843,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AAA347F62C9295F50011A39D /* XCRemoteSwiftPackageReference "musixmatch-api-ios" */;
 			productName = MusixmatchAPI;
+		};
+		AAB68FD22CA5CA5F009ADCF4 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAB68FD12CA5CA5F009ADCF4 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
