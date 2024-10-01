@@ -39,14 +39,15 @@ final class MatchViewTests: XCTestCase {
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
-        let exp: XCTestExpectation = sut.inspection.inspect(after: 0.15) { view in
-            XCTAssertTrue(try view.actualView().showResult)
-            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
+        try await ViewHosting.host(sut) { hostedView in
+            try await hostedView.inspection.inspect { view in
+                XCTAssertTrue(try view.actualView().showResult)
+                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
+                ViewHosting.expel()
+            }
         }
-        ViewHosting.host(view: sut)
-        await fulfillment(of: [exp])
     }
     
     @MainActor
