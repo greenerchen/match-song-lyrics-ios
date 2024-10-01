@@ -32,14 +32,14 @@ final class MatchViewTests: XCTestCase {
     
     @MainActor
     func test_state_matched() async throws {
-        var sut = makeSUT()
+        let sut = makeSUT()
         
         sut.matcher.state = .matched
         sut.matcher.currentMatchResult = ShazamMatchResult(match: matchStub)
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
-        let exp = sut.on(\.resultViewDidAppear) { view in
+        let exp = sut.inspection.inspect(after: 0.1) { view in
             XCTAssertTrue(try view.actualView().showResult)
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))

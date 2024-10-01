@@ -13,12 +13,12 @@ final class MatchSongAcceptanceTests: XCTestCase {
 
     @MainActor
     func test_shazam_whenAUserHasConnectivityAndASongRecording_getSongInfoAndReadLyricsActions() async throws {
-        var sut = makeSUT(session: matchedSession)
+        let sut = makeSUT(session: matchedSession)
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.on(\.resultViewDidAppear) { view in
+        let exp = sut.inspection.inspect(after: 0.1) { view in
             XCTAssertTrue(try view.actualView().showResult)
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
@@ -33,13 +33,13 @@ final class MatchSongAcceptanceTests: XCTestCase {
 
     @MainActor
     func test_shazam_whenAUserHasNoConnectivity_getNoConnectivityError() async throws {
-        var sut = makeSUT(session: noConnectivitySession)
+        let sut = makeSUT(session: noConnectivitySession)
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.on(\.errorViewDidAppear) { view in
+        let exp = sut.inspection.inspect(after: 0.1) { view in
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
             ViewHosting.expel()
@@ -50,11 +50,11 @@ final class MatchSongAcceptanceTests: XCTestCase {
     
     @MainActor
     func test_shazam_whenAUserHasConnectivityButNoSongMatched_getNoSongMatchedError() async throws {
-        var sut = makeSUT(session: noMatchedSession)
+        let sut = makeSUT(session: noMatchedSession)
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.on(\.noMatchViewDidAppear) { view in
+        let exp = sut.inspection.inspect(after: 1) { view in
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
             ViewHosting.expel()

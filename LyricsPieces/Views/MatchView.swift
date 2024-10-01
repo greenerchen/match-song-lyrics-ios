@@ -13,9 +13,7 @@ struct MatchView: View {
     @State private var needPermissions: Bool = false
     @State private(set) var showResult: Bool = false
     
-    internal var resultViewDidAppear: ((Self) -> Void)?
-    internal var noMatchViewDidAppear: ((Self) -> Void)?
-    internal var errorViewDidAppear: ((Self) -> Void)?
+    internal let inspection = Inspection<Self>()
     
     var isAuthorized: Bool {
         get async {
@@ -39,6 +37,7 @@ struct MatchView: View {
                                 try await matcher.match()
                             }
                         }
+                        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .matching:
                     if needPermissions {
                         PermissonRequestView()
@@ -57,8 +56,8 @@ struct MatchView: View {
                         }
                         .onAppear {
                             showResult = matcher.state == .matched
-                            resultViewDidAppear?(self)
                         }
+                        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .noMatched:
                     ErrorView(errorDescription: "No song matched", actionTitle: "Try again") {
                         Task {
@@ -66,9 +65,7 @@ struct MatchView: View {
                         }
                     }
                     .accessibilityIdentifier("match_noMatch_state_view")
-                    .onAppear {
-                        noMatchViewDidAppear?(self)
-                    }
+                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .error:
                     ErrorView(errorDescription: "Uh-oh, Something wrong", actionTitle: "Try again") {
                         Task {
@@ -76,11 +73,8 @@ struct MatchView: View {
                         }
                     }
                     .accessibilityIdentifier("match_error_state_view")
-                    .onAppear {
-                        errorViewDidAppear?(self)
-                    }
+                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 }
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.themeBackground)
