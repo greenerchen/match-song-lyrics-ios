@@ -18,14 +18,13 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.inspection.inspect(after: 0.1) { view in
+        let exp = sut.inspection.inspect(after: 0.15) { view in
             XCTAssertTrue(try view.actualView().showResult)
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
             XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
-            ViewHosting.expel()
         }
         ViewHosting.host(view: sut)
         await fulfillment(of: [exp])
@@ -39,10 +38,9 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.inspection.inspect(after: 0.1) { view in
+        let exp = sut.inspection.inspect(after: 0.15) { view in
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
-            ViewHosting.expel()
         }
         ViewHosting.host(view: sut)
         await fulfillment(of: [exp])
@@ -57,7 +55,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
         let exp = sut.inspection.inspect(after: 1) { view in
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
-            ViewHosting.expel()
         }
         ViewHosting.host(view: sut)
         await fulfillment(of: [exp])
@@ -69,7 +66,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
     private func makeSUT(session: SHManagedSessionProtocol = SHManagedSessionMock()) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
-//        trackForMemoryLeaks(matcher)
+        trackForMemoryLeaks(matcher)
         return sut
     }
 }
