@@ -13,7 +13,7 @@ final class ShazamMatcherTests: XCTestCase {
 
     @MainActor 
     func test_init_isNotMatchingAndNoResult() {
-        let session = SHManagedSessionMock(matchStub: matchStub, signatureStub: signatureStub)
+        let session = FakeSHManagedSessionSpy(matchStub: matchStub, signatureStub: dummySignature)
         let matcher = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)
@@ -23,7 +23,7 @@ final class ShazamMatcherTests: XCTestCase {
 
     @MainActor
     func test_match_whenMatched_isNotMatchingAndGotResult() async throws {
-        let session = SHManagedSessionMock(matchStub: matchStub, signatureStub: signatureStub)
+        let session = FakeSHManagedSessionSpy(matchStub: matchStub, signatureStub: dummySignature)
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
@@ -37,7 +37,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_match_whenNoMatched_isNotMatchingAndNoResult() async throws {
-        let session = SHManagedSessionMock(matchStub: nil, signatureStub: signatureStub)
+        let session = FakeSHManagedSessionSpy(matchStub: nil, signatureStub: dummySignature)
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
@@ -49,10 +49,10 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_match_whenError_isNotMatchingAndNoResult() async throws {
-        let session = SHManagedSessionMock(
+        let session = FakeSHManagedSessionSpy(
             matchStub: nil,
             errorStub: anyNSError(),
-            signatureStub: signatureStub)
+            signatureStub: dummySignature)
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
@@ -64,7 +64,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_stopMatching_whenGotResult_expectCancelSucceessfully() async throws {
-        let session = SHManagedSessionMock(matchStub: matchStub, signatureStub: signatureStub)
+        let session = FakeSHManagedSessionSpy(matchStub: matchStub, signatureStub: dummySignature)
         let matcher = ShazamMatcher(session: session)
         
         try await matcher.match()
@@ -81,7 +81,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_stopMatching_whenIdle_expectCancelSucceessfully() async throws {
-        let session = SHManagedSessionMock(matchStub: nil, signatureStub: nil)
+        let session = FakeSHManagedSessionSpy(matchStub: nil, signatureStub: nil)
         let matcher = ShazamMatcher(session: session)
         
         Task.detached {
@@ -99,7 +99,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_stopMatching_whenWaitingResult_expectCancelSucceessfully() async throws {
-        let session = SHManagedSessionMock(matchStub: nil, signatureStub: nil)
+        let session = FakeSHManagedSessionSpy(matchStub: nil, signatureStub: nil)
         let matcher = ShazamMatcher(session: session)
         
         matcher.state = .matching
@@ -117,7 +117,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_deinit_whenMatchingOrMatched_matcherDestroyed() async throws {
-        let session = SHManagedSessionMock(matchStub: matchStub)
+        let session = FakeSHManagedSessionSpy(matchStub: matchStub)
         var matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         try await matcher?.match()
@@ -129,7 +129,7 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_deinit_whenNoMatched_sessionIsCanceled() async throws {
-        let session = SHManagedSessionMock(matchStub: nil, signatureStub: signatureStub)
+        let session = FakeSHManagedSessionSpy(matchStub: nil, signatureStub: dummySignature)
         let matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)
@@ -141,10 +141,10 @@ final class ShazamMatcherTests: XCTestCase {
     
     @MainActor
     func test_deinit_whenError_sessionIsCanceled() async throws {
-        let session = SHManagedSessionMock(
+        let session = FakeSHManagedSessionSpy(
             matchStub: nil,
             errorStub: anyNSError(),
-            signatureStub: signatureStub)
+            signatureStub: dummySignature)
         let matcher: ShazamMatcher? = ShazamMatcher(session: session)
         
         XCTAssertEqual(session.cancelCallCount, 0)

@@ -71,7 +71,7 @@ final class MatchViewTests: XCTestCase {
     // MARK: - Helpers
     
     @MainActor
-    private func makeSUT(session: SHManagedSessionProtocol = SHManagedSessionMock()) -> MatchView {
+    private func makeSUT(session: SHManagedSessionProtocol = FakeSHManagedSessionSpy()) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
         trackForMemoryLeaks(matcher)

@@ -9,7 +9,7 @@ import Foundation
 import ShazamKit
 @testable import LyricsPieces
 
-final class SHManagedSessionMock: SHManagedSessionProtocol {
+final class FakeSHManagedSessionSpy: SHManagedSessionProtocol {
     
     let match: SHMatch?
     
@@ -44,8 +44,8 @@ final class SHManagedSessionMock: SHManagedSessionProtocol {
     }
 }
 
-let matchedSession = SHManagedSessionMock(matchStub: matchStub, errorStub: nil, signatureStub: signatureStub)
+let matchedSession = FakeSHManagedSessionSpy(matchStub: matchStub, errorStub: nil, signatureStub: dummySignature)
 
-let noMatchedSession = SHManagedSessionMock(matchStub: nil, errorStub: nil, signatureStub: signatureStub)
+let noMatchedSession = FakeSHManagedSessionSpy(matchStub: nil, errorStub: nil, signatureStub: dummySignature)
 
-let noConnectivitySession = SHManagedSessionMock(matchStub: nil, errorStub: noConnectivityNSError(), signatureStub: signatureStub)
+let noConnectivitySession = FakeSHManagedSessionSpy(matchStub: nil, errorStub: noConnectivityNSError(), signatureStub: dummySignature)

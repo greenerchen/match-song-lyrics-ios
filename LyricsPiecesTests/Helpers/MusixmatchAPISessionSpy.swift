@@ -8,9 +8,9 @@
 import Foundation
 import MusixmatchAPI
 
-final class MusixmatchAPISessionMock: URLSessionProtocol {
+final class MusixmatchAPISessionSpy: URLSessionProtocol {
     
-    static var trackGetOKSession: MusixmatchAPISessionMock = MusixmatchAPISessionMock(getUrlResultStub: (Data(trackGetResponseStringStub.utf8), responseOKStub))
+    static var trackGetOKSession: MusixmatchAPISessionSpy = MusixmatchAPISessionSpy(getUrlResultStub: (Data(trackGetResponseStringStub.utf8), responseOKStub))
     
     var getUrlCallCount: Int = 0
     

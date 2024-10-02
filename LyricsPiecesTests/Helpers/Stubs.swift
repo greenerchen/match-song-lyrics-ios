@@ -68,18 +68,12 @@ let matchedMediaItemNoISRCStub: SHMatchedMediaItem =
 
 let mediaItemsStub: [SHMatchedMediaItem] = [matchedMediaItemStub]
 
-let signatureStub = SHSignature()
+let dummySignature = SHSignature()
 
-class SHMatchMock: SHMatch, @unchecked Sendable {
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-}
+let matchStub = FakeSHMatch(coder: FakeSHMatchCoder())
 
-let matchStub = SHMatchMock(coder: SHMatchCoder())
-
-let shazamMatchResult = ShazamMatchResult(match: matchStub)
-let shazamNoMatchResult = ShazamMatchResult(match: nil)
+let matchedShazamResultStub = ShazamMatchResult(match: matchStub)
+let noMatchedShazamResultStub = ShazamMatchResult(match: nil)
 
 // MARK: MusixmatchAPI related
 

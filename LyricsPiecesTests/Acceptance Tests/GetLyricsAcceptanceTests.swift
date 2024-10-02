@@ -21,7 +21,7 @@ final class GetLyricsAcceptanceTests: XCTestCase {
 
     // MARK: - Helpers
     
-    private func makeSUT(_ session: MusixmatchAPISessionMock) -> MusixmatchAPIClient {
+    private func makeSUT(_ session: MusixmatchAPISessionSpy) -> MusixmatchAPIClient {
         let sut = MusixmatchAPIClient(session: session)
         trackForMemoryLeaks(sut)
         return sut
