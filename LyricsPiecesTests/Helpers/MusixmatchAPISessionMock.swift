@@ -10,6 +10,8 @@ import MusixmatchAPI
 
 final class MusixmatchAPISessionMock: URLSessionProtocol {
     
+    static var trackGetOKSession: MusixmatchAPISessionMock = MusixmatchAPISessionMock(getUrlResultStub: (Data(trackGetResponseStringStub.utf8), responseOKStub))
+    
     var getUrlCallCount: Int = 0
     
     var getUrlResultStub: (data: Data, response: URLResponse)
@@ -23,3 +25,4 @@ final class MusixmatchAPISessionMock: URLSessionProtocol {
         return getUrlResultStub
     }
 }
+

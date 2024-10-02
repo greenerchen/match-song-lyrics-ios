@@ -49,6 +49,7 @@
 		AACF4EB02C959EA20040C4D5 /* MatchingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */; };
 		AAF504672CAB09CF00707CEC /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF504662CAB09CF00707CEC /* Inspection.swift */; };
 		AAF504692CAB0A1F00707CEC /* Inspection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF504682CAB0A1F00707CEC /* Inspection+Ext.swift */; };
+		AAF504722CAD66E400707CEC /* GetLyricsAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF504712CAD66E400707CEC /* GetLyricsAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		AACF4EAF2C959EA20040C4D5 /* MatchingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewTests.swift; sourceTree = "<group>"; };
 		AAF504662CAB09CF00707CEC /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
 		AAF504682CAB0A1F00707CEC /* Inspection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inspection+Ext.swift"; sourceTree = "<group>"; };
+		AAF504712CAD66E400707CEC /* GetLyricsAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLyricsAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				AACF4EAC2C9573F40040C4D5 /* LyricsPiecesTestPlan.xctestplan */,
-				AAB68FCC2CA56E48009ADCF4 /* MatchSongAcceptanceTests.swift */,
+				AAF504702CAD66AE00707CEC /* Acceptance Tests */,
 				AA9D588E2C81B8BB008ABAEC /* Helpers */,
 				AACF4EAD2C959E680040C4D5 /* Data */,
 				AACF4EAE2C959E8A0040C4D5 /* Views */,
@@ -319,6 +321,15 @@
 				AAF504662CAB09CF00707CEC /* Inspection.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AAF504702CAD66AE00707CEC /* Acceptance Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AAB68FCC2CA56E48009ADCF4 /* MatchSongAcceptanceTests.swift */,
+				AAF504712CAD66E400707CEC /* GetLyricsAcceptanceTests.swift */,
+			);
+			path = "Acceptance Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +504,7 @@
 				AAB68FCD2CA56E48009ADCF4 /* MatchSongAcceptanceTests.swift in Sources */,
 				AA54563D2C9C247F00003647 /* ShazamResultViewModelTests.swift in Sources */,
 				AA5456392C9BCBD300003647 /* LyricsViewModelTests.swift in Sources */,
+				AAF504722CAD66E400707CEC /* GetLyricsAcceptanceTests.swift in Sources */,
 				AA098C372CA3B6B000A0F63E /* TrackActionsViewTests.swift in Sources */,
 				AA9EEF882C7F1D8B008F4B6D /* ShazamMatcherTests.swift in Sources */,
 				AA098C312CA3AEAB00A0F63E /* ContentViewTests.swift in Sources */,
