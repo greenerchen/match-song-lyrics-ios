@@ -18,7 +18,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.inspection.inspect(after: 0.1) { view in
+        let exp = sut.inspection.inspect(onReceive: sut.inspection.notice, after: 0.1) { view in
             XCTAssertTrue(try view.actualView().showResult)
             XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
             XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))

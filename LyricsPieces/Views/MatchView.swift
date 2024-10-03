@@ -52,6 +52,7 @@ struct MatchView: View {
                         .onTapGesture {
                             Task {
                                 try await matcher.match()
+                                inspection.notice.send(1)
                             }
                         }
                         .onAppear {
