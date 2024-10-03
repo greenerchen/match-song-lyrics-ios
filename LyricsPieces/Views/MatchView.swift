@@ -56,6 +56,7 @@ struct MatchView: View {
                         }
                         .onAppear {
                             showResult = matcher.state == .matched
+                            inspection.notice.send(1)
                         }
                         .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .noMatched:
