@@ -19,9 +19,14 @@ class ShazamResultViewModel: ObservableObject {
     
     @Published var trackState: TrackState
     
-    private let result: ShazamMatchResult
+    private let result: ShazamMatchResult?
     
-    init(result: ShazamMatchResult) {
+    init(result: ShazamMatchResult?) {
+        guard let result = result else {
+            self.result = nil
+            trackState = .notFound
+            return
+        }
         self.result = result
         if let match = result.match,
            let song = match.mediaItems.first {

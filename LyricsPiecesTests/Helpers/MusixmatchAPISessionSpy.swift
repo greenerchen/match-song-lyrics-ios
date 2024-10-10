@@ -12,6 +12,10 @@ final class MusixmatchAPISessionSpy: URLSessionProtocol {
     
     static var trackGetOKSession: MusixmatchAPISessionSpy = MusixmatchAPISessionSpy(getUrlResultStub: (Data(trackGetResponseStringStub.utf8), responseOKStub))
     
+    static var trackSearchOKSession: MusixmatchAPISessionSpy = MusixmatchAPISessionSpy(getUrlResultStub: (Data(trackSearchResponseStringStub.utf8), responseOKStub))
+    
+    static var trackSearchNotFoundSession: MusixmatchAPISessionSpy = MusixmatchAPISessionSpy(getUrlResultStub: (Data(trackSearchNoTrackResponseStringStub.utf8), responseOKStub))
+    
     var getUrlCallCount: Int = 0
     
     var getUrlResultStub: (data: Data, response: URLResponse)

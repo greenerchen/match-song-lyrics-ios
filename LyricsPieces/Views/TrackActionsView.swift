@@ -26,8 +26,11 @@ struct TrackActionsView: View {
         HStack {
             // MARK: Action: Read Lyrics
             Button(action: {
-                Task {
-                    await fetchLyrics()
+                Task { [weak vm] in
+                    guard let vm = vm else { return }
+                    await vm.fetchTrack()
+                    await vm.fetchLyrics()
+                    self.isPresented.toggle()
                 }
             }, label: {
                 Label("Read Lyrics", systemImage: "music.note.list")
@@ -37,17 +40,18 @@ struct TrackActionsView: View {
             .frame(height: 44)
             .buttonStyle(.borderedProminent)
             .sheet(isPresented: $isPresented,
-                   content: {
-                if vm.hasLyrics, !vm.restricted {
-                    WebView(url: nil, htmlString: vm.getMessage())
-                        .accessibilityIdentifier("sheet_lyrics")
-                        .presentationDetents([.medium, .large])
-                } else {
-                    Text(vm.getMessage())
-                        .accessibilityIdentifier("sheet_error_message")
-                        .presentationDetents([.medium, .large])
+                   content: { [weak vm] in
+                if let vm = vm {
+                    if vm.hasLyrics, !vm.restricted {
+                        WebView(url: nil, htmlString: vm.getMessage())
+                            .accessibilityIdentifier("sheet_lyrics")
+                            .presentationDetents([.medium, .large])
+                    } else {
+                        Text(vm.getMessage())
+                            .accessibilityIdentifier("sheet_error_message")
+                            .presentationDetents([.medium, .large])
+                    }
                 }
-                
             })
             
             // MARK: Action: Listen on Apple Music
@@ -63,12 +67,6 @@ struct TrackActionsView: View {
                 .accessibilityIdentifier("track_actions_listen_on_apple_music")
                 .accessibilityLabel("Listen On Apple Music")
         }
-    }
-    
-    func fetchLyrics() async {
-        await vm.fetchTrack()
-        await vm.fetchLyrics()
-        self.isPresented.toggle()
     }
 }
 

@@ -68,9 +68,9 @@ let matchedMediaItemNoISRCStub: SHMatchedMediaItem =
 
 let mediaItemsStub: [SHMatchedMediaItem] = [matchedMediaItemStub]
 
-let dummySignature = SHSignature()
-
 let matchStub = FakeSHMatch(coder: FakeSHMatchCoder())
+
+let dummySignature = SHSignature()
 
 let matchedShazamResultStub = ShazamMatchResult(match: matchStub)
 let noMatchedShazamResultStub = ShazamMatchResult(match: nil)
@@ -91,7 +91,10 @@ func anyNSError() -> NSError {
 }
 
 func noConnectivityNSError() -> NSError {
-    NSError(domain: URLError.errorDomain, code: URLError.notConnectedToInternet.rawValue)
+    NSError(
+        domain: URLError.errorDomain,
+        code: URLError.notConnectedToInternet.rawValue
+    )
 }
 
 let trackGetResponseStringStub = "{\"message\":{\"body\":{\"track\":{\"track_id\":100001,\"commontrack_id\":200001,\"artist_name\":\"Leeland\",\"track_name\":\"Way Maker\",\"explicit\":0,\"subtitle_id\":234567,\"has_lyrics\":1,\"has_subtitles\":1,\"lyrics_id\":123456,\"lyrics_copyright\":\"Copyright\",\"track_share_url\":\"link\",\"lyrics_body\":\"You are here, moving in our midst\",\"restricted\":0}},\"header\":{\"status_code\":200}}}"

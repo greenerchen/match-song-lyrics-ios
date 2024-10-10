@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import AVFoundation
 
 struct MatchView: View {
@@ -14,6 +15,7 @@ struct MatchView: View {
     @State private(set) var showResult: Bool = false
     
     internal let inspection = Inspection<Self>()
+    internal let publisher = PassthroughSubject<Void, Never>()
     
     var isAuthorized: Bool {
         get async {
@@ -33,61 +35,59 @@ struct MatchView: View {
                     ShazamStartView()
                         .accessibilityIdentifier("match_idle_state_view")
                         .onTapGesture {
-                            Task {
-                                try await matcher.match()
+                            Task { [weak matcher] in
+                                try await matcher?.match()
                             }
                         }
-                        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .matching:
                     if needPermissions {
                         PermissonRequestView()
                             .accessibilityIdentifier("match_permission_request_view")
                     } else {
-                        MatchingView(title: "Listening")
+                        MatchingView(title: "Spotting")
                             .accessibilityIdentifier("match_matching_state_view")
+                            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+                            .onReceive(publisher) {}
                     }
                 case .matched:
                     ShazamStartView()
                         .accessibilityIdentifier("match_idle_state_view")
                         .onTapGesture {
-                            Task {
-                                try await matcher.match()
-                                inspection.notice.send(1)
+                            Task { [weak matcher] in
+                                try await matcher?.match()
                             }
                         }
                         .onAppear {
-                            showResult = matcher.state == .matched
-                            inspection.notice.send(1)
+                            showResult = true
                         }
-                        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+                        
                 case .noMatched:
                     ErrorView(errorDescription: "No song matched", actionTitle: "Try again") {
-                        Task {
-                            try await matcher.match()
+                        Task { [weak matcher] in
+                            try await matcher?.match()
                         }
                     }
                     .accessibilityIdentifier("match_noMatch_state_view")
-                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .error:
                     ErrorView(errorDescription: "Uh-oh, Something wrong", actionTitle: "Try again") {
-                        Task {
-                            try await matcher.match()
+                        Task { [weak matcher] in
+                            try await matcher?.match()
                         }
                     }
                     .accessibilityIdentifier("match_error_state_view")
-                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.themeBackground)
             .navigationDestination(isPresented: $showResult, destination: {
-                if let result = matcher.currentMatchResult {
-                    ShazamResultView(vm: ShazamResultViewModel(result: result))
-                        .onAppear(perform: {
-                            matcher.reset()
-                        })
-                        .accessibilityIdentifier("match_matched_state_view")
-                }
+                let vm = ShazamResultViewModel(result: matcher.currentMatchResult)
+                ShazamResultView(vm: vm)
+                    .onAppear(perform: { [weak matcher] in
+                        matcher?.reset()
+                    })
+                    .accessibilityIdentifier("match_matched_state_view")
+                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+                    .onReceive(publisher) {}
             })
             .task {
                 if await !isAuthorized {

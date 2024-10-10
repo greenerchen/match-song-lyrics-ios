@@ -70,7 +70,7 @@ final class ShazamMatcher: ObservableObject {
     
     func endSession(with match: SHMatch?, state: State) {
         session.cancel()
-        self.state = state
         currentMatchResult = ShazamMatchResult(match: match)
+        self.state = state
     }
 }
