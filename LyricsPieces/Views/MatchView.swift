@@ -15,7 +15,6 @@ struct MatchView: View {
     @State private(set) var showResult: Bool = false
     
     internal let inspection = Inspection<Self>()
-    internal let publisher = PassthroughSubject<Void, Never>()
     
     var isAuthorized: Bool {
         get async {
@@ -47,7 +46,6 @@ struct MatchView: View {
                         MatchingView(title: "Spotting")
                             .accessibilityIdentifier("match_matching_state_view")
                             .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
-                            .onReceive(publisher) {}
                     }
                 case .matched:
                     ShazamStartView()
@@ -68,6 +66,7 @@ struct MatchView: View {
                         }
                     }
                     .accessibilityIdentifier("match_noMatch_state_view")
+                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .error:
                     ErrorView(errorDescription: "Uh-oh, Something wrong", actionTitle: "Try again") {
                         Task { [weak matcher] in
@@ -75,6 +74,7 @@ struct MatchView: View {
                         }
                     }
                     .accessibilityIdentifier("match_error_state_view")
+                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -87,7 +87,6 @@ struct MatchView: View {
                     })
                     .accessibilityIdentifier("match_matched_state_view")
                     .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
-                    .onReceive(publisher) {}
             })
             .task {
                 if await !isAuthorized {

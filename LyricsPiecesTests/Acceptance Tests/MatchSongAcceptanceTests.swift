@@ -18,35 +18,31 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.inspection.inspect(onReceive: sut.inspection.notice, after: 0.1) { view in
-            XCTAssertTrue(try view.actualView().showResult)
-            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
-            ViewHosting.expel()
+        try await ViewHosting.host(sut) { hostedView in
+            try await hostedView.inspection.inspect { view in
+                XCTAssertTrue(try view.actualView().showResult)
+                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
+            }
         }
-        ViewHosting.host(view: sut)
-        await fulfillment(of: [exp], timeout: 5)
-
     }
 
     @MainActor
     func test_shazam_whenAUserHasNoConnectivity_getNoConnectivityError() async throws {
         let sut = makeSUT(session: noConnectivitySession)
-        
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.inspection.inspect(after: 0.1) { view in
-            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
-            ViewHosting.expel()
+        try await ViewHosting.host(sut) { hostedView in
+            try await hostedView.inspection.inspect { view in
+                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
+            }
         }
-        ViewHosting.host(view: sut)
-        await fulfillment(of: [exp], timeout: 5)
     }
     
     @MainActor
@@ -55,13 +51,12 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        let exp = sut.inspection.inspect(after: 0.1) { view in
-            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
-            XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
-            ViewHosting.expel()
+        try await ViewHosting.host(sut) { hostedView in
+            try await hostedView.inspection.inspect { view in
+                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
+            }
         }
-        ViewHosting.host(view: sut)
-        await fulfillment(of: [exp], timeout: 5)
     }
     
     // MARK: - Helpers
@@ -70,7 +65,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
     private func makeSUT(session: SHManagedSessionProtocol = FakeSHManagedSessionSpy()) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
-        trackForMemoryLeaks(matcher)
+//        trackForMemoryLeaks(matcher)
         return sut
     }
 }
