@@ -33,19 +33,13 @@
   "testTargets" : [
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "MatchSongAcceptanceTests"
+      ],
       "target" : {
         "containerPath" : "container:LyricsPieces.xcodeproj",
         "identifier" : "AA9EEF822C7F1D8B008F4B6D",
         "name" : "LyricsPiecesTests"
-      }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:LyricsPieces.xcodeproj",
-        "identifier" : "AA9EEF8C2C7F1D8B008F4B6D",
-        "name" : "LyricsPiecesUITests"
       }
     }
   ],
