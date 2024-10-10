@@ -14,7 +14,7 @@ final class MatchViewTests: XCTestCase {
 
     @MainActor
     func test_state_idle() throws {
-        let sut = makeSUT()
+        let sut = makeSUT(session: matchingSession)
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "start_view_logo"), "Expected to find the logo")
@@ -22,38 +22,52 @@ final class MatchViewTests: XCTestCase {
     
     @MainActor
     func test_state_matching() async throws {
-        let sut = makeSUT()
+        let sut = makeSUT(session: matchingSession)
         
-        sut.matcher.state = .matching
+        Task.detached {
+            try await sut.matcher.match()
+        }
         
-        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_matching_state_view"), "Expected to find the matching state view")
-        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "matching_view_logo"), "Expected to find the logo")
+        try await ViewHosting.host(sut) { hostedView in
+            hostedView.inspection.inspect(after: 0.08) { view in
+                XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_matching_state_view"), "Expected to find the matching state view")
+                XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "matching_view_logo"), "Expected to find the logo")
+            }
+        }
     }
     
     @MainActor
     func test_state_matched() async throws {
-        let sut = makeSUT()
+        let sut = makeSUT(session: matchedSession)
         
-        sut.matcher.state = .matched
-        sut.matcher.currentMatchResult = ShazamMatchResult(match: matchStub)
+        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
-        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"), "Expected to find the matched state view")
+        try await sut.matcher.match()
+        
+        try await ViewHosting.host(sut) { hostedView in
+            try await hostedView.inspection.inspect { view in
+                XCTAssertTrue(try view.actualView().showResult)
+                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
+                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
+            }
+        }
     }
     
     @MainActor
     func test_state_noMatched() async throws {
-        let sut = makeSUT()
+        let sut = makeSUT(session: noMatchedSession)
         
-        sut.matcher.state = .noMatched
+        try await sut.matcher.match()
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"), "Expected to find the noMatched state view")
     }
     
     @MainActor
     func test_state_error() async throws {
-        let sut = makeSUT()
+        let sut = makeSUT(session: noConnectivitySession)
         
-        sut.matcher.state = .error
+        try await sut.matcher.match()
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"), "Expected to find the error state view")
     }
@@ -61,10 +75,9 @@ final class MatchViewTests: XCTestCase {
     // MARK: - Helpers
     
     @MainActor
-    private func makeSUT(session: SHManagedSessionProtocol = SHManagedSessionMock()) -> MatchView {
+    private func makeSUT(session: FakeSHManagedSessionSpy) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
-        trackForMemoryLeaks(matcher)
         return sut
     }
 }

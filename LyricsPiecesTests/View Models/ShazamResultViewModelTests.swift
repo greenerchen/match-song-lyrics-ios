@@ -11,19 +11,19 @@ import XCTest
 final class ShazamResultViewModelTests: XCTestCase {
 
     func test_init_withMatchResult_expectFoundState() throws {
-        let sut = ShazamResultViewModel(result: shazamMatchResult)
+        let sut = ShazamResultViewModel(result: matchedShazamResultStub)
         
         XCTAssertEqual(sut.trackState, ShazamResultViewModel.TrackState.found)
     }
 
     func test_init_withNoMatchResult_expectNotFoundState() throws {
-        let sut = ShazamResultViewModel(result: shazamNoMatchResult)
+        let sut = ShazamResultViewModel(result: noMatchedShazamResultStub)
         
         XCTAssertEqual(sut.trackState, ShazamResultViewModel.TrackState.notFound)
     }
 
     func test_init_uuidCreation() throws {
-        let sut = shazamMatchResult
+        let sut = matchedShazamResultStub
         
         XCTAssertNotNil(sut.id)
     }

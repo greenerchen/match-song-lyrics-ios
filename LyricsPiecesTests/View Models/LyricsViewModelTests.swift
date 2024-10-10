@@ -70,7 +70,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchTrack_byISRC_succeeded() async {
         let dataStub = trackGetResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
@@ -86,7 +86,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchTrack_byISRC_failed() async {
         let dataStub = trackSearchResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
@@ -102,7 +102,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchTrack_byTrackAndArtist_succeeded() async {
         let dataStub = trackSearchResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
@@ -118,7 +118,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchTrack_byTrackAndArtist_failedDueToNoTrack() async {
         let dataStub = trackSearchNoTrackResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
@@ -134,7 +134,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchTrack_byTrackAndArtist_failed() async {
         let dataStub = trackGetResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
@@ -150,7 +150,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchLyrics_byISRC_succeeded() async {
         let dataStub = trackLyricsGetResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
@@ -166,7 +166,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchLyrics_byISRC_failed() async {
         let dataStub = trackSearchResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemStub,
             client: MusixmatchAPIClient(
@@ -182,7 +182,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchLyrics_byTrackAndArtist_succeeded() async {
         let dataStub = trackLyricsGetResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(
@@ -199,7 +199,7 @@ final class LyricsViewModelTests: XCTestCase {
     @MainActor
     func test_fetchLyrics_byTrackAndArtist_failed() async {
         let dataStub = trackGetResponseStringStub.data(using: .utf8)!
-        let sessionMock = MusixmatchAPISessionMock(getUrlResultStub: (dataStub, responseOKStub))
+        let sessionMock = MusixmatchAPISessionSpy(getUrlResultStub: (dataStub, responseOKStub))
         let sut = LyricsViewModel(
             song: matchedMediaItemNoISRCStub,
             client: MusixmatchAPIClient(

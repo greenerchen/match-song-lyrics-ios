@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SHMatchCoder: NSCoder {
+final class FakeSHMatchCoder: NSCoder {
     override var allowsKeyedCoding: Bool {
         true
     }
@@ -17,7 +17,7 @@ final class SHMatchCoder: NSCoder {
             return mediaItemsStub
         }
         if key == "querySignature" {
-            return querySignatureStub
+            return dummySignature
         }
         return nil
     }
