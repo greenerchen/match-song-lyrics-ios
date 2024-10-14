@@ -18,6 +18,8 @@ struct ErrorView: View {
             Text(actionTitle)
         }
         .buttonStyle(.borderedProminent)
+        .accessibilityIdentifier("error_view_action_button")
+        .accessibilityLabel(actionTitle)
     }
 }
 
