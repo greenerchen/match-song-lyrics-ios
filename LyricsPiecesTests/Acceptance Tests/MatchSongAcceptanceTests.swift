@@ -70,7 +70,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
     private func makeSUT(session: SHManagedSessionProtocol = FakeSHManagedSessionSpy()) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
-        // FIXME: ViewInspector doesn't support to expel NavigationStack
         trackForMemoryLeaks(matcher)
         return sut
     }
