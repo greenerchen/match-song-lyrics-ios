@@ -27,7 +27,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
                 
                 ViewHosting.expel()
-                ViewHosting.expel()
             }
         }
     }
@@ -45,7 +44,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
             
                 ViewHosting.expel()
-                ViewHosting.expel()
             }
         }
     }
@@ -61,7 +59,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
                 
-                ViewHosting.expel()
                 ViewHosting.expel()
             }
         }
