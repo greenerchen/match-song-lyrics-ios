@@ -25,6 +25,8 @@ final class MatchSongAcceptanceTests: XCTestCase {
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
+                
+                ViewHosting.expel()
             }
         }
     }
@@ -40,6 +42,8 @@ final class MatchSongAcceptanceTests: XCTestCase {
             try await hostedView.inspection.inspect { view in
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
+            
+                ViewHosting.expel()
             }
         }
     }
@@ -54,6 +58,8 @@ final class MatchSongAcceptanceTests: XCTestCase {
             try await hostedView.inspection.inspect { view in
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
+                
+                ViewHosting.expel()
             }
         }
     }
@@ -65,7 +71,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
         // FIXME: ViewInspector doesn't support to expel NavigationStack
-//        trackForMemoryLeaks(matcher)
+        trackForMemoryLeaks(matcher)
         return sut
     }
 }
