@@ -21,6 +21,7 @@ struct ShazamResultView: View {
                 Text("Uh oh. Nothing found.")
             }
         }
+        .background(.themeBackground)
     }
 }
 
