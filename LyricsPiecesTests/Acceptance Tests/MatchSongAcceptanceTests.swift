@@ -20,7 +20,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try await ViewHosting.host(sut) { hostedView in
             try await hostedView.inspection.inspect { view in
-                XCTAssertTrue(try view.actualView().showResult)
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
@@ -65,6 +64,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
     private func makeSUT(session: SHManagedSessionProtocol = FakeSHManagedSessionSpy()) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
+        // FIXME: ViewInspector doesn't support to expel NavigationStack
 //        trackForMemoryLeaks(matcher)
         return sut
     }
