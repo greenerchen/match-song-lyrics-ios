@@ -12,7 +12,7 @@ import ViewInspector
 final class MatchSongAcceptanceTests: XCTestCase {
 
     @MainActor
-    func test_shazam_whenAUserHasConnectivityAndASongRecording_getSongInfoAndReadLyricsActions() async throws {
+    func test_whenAUserHasASongRecording_getSongInfoAndReadLyricsActions() async throws {
         let sut = makeSUT(session: matchedSession)
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
@@ -20,7 +20,6 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try await ViewHosting.host(sut) { hostedView in
             try await hostedView.inspection.inspect { view in
-                XCTAssertTrue(try view.actualView().showResult)
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
@@ -31,7 +30,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
     }
 
     @MainActor
-    func test_shazam_whenAUserHasNoConnectivity_getNoConnectivityError() async throws {
+    func test_whenAUserHasNoConnectivity_getNoConnectivityError() async throws {
         let sut = makeSUT(session: noConnectivitySession)
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         
@@ -46,7 +45,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
     }
     
     @MainActor
-    func test_shazam_whenAUserHasConnectivityButNoSongMatched_getNoSongMatchedError() async throws {
+    func test_whenAUserHasNoSongMatched_getNoSongMatchedError() async throws {
         let sut = makeSUT(session: noMatchedSession)
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
@@ -65,6 +64,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
     private func makeSUT(session: SHManagedSessionProtocol = FakeSHManagedSessionSpy()) -> MatchView {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
+        // FIXME: ViewInspector doesn't support to expel NavigationStack
 //        trackForMemoryLeaks(matcher)
         return sut
     }

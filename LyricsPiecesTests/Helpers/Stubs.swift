@@ -68,7 +68,7 @@ let matchedMediaItemNoISRCStub: SHMatchedMediaItem =
 
 let mediaItemsStub: [SHMatchedMediaItem] = [matchedMediaItemStub]
 
-let matchStub = FakeSHMatch(coder: FakeSHMatchCoder())
+let matchStub = SHMatch(coder: FakeSHMatchCoder())
 
 let dummySignature = SHSignature()
 

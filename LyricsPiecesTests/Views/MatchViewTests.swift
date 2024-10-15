@@ -46,7 +46,6 @@ final class MatchViewTests: XCTestCase {
         
         try await ViewHosting.host(sut) { hostedView in
             try await hostedView.inspection.inspect { view in
-                XCTAssertTrue(try view.actualView().showResult)
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))

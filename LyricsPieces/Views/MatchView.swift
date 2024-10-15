@@ -12,7 +12,7 @@ import AVFoundation
 struct MatchView: View {
     @ObservedObject var matcher: ShazamMatcher
     @State private var needPermissions: Bool = false
-    @State private(set) var showResult: Bool = false
+    @State private var isMatchedResultPresented: Bool = false
     
     internal let inspection = Inspection<Self>()
     
@@ -56,7 +56,7 @@ struct MatchView: View {
                             }
                         }
                         .onAppear {
-                            showResult = true
+                            isMatchedResultPresented.toggle()
                         }
                         
                 case .noMatched:
@@ -79,9 +79,8 @@ struct MatchView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.themeBackground)
-            .navigationDestination(isPresented: $showResult, destination: {
-                let vm = ShazamResultViewModel(result: matcher.currentMatchResult)
-                ShazamResultView(vm: vm)
+            .navigationDestination(isPresented: $isMatchedResultPresented, destination: {
+                ShazamResultView(vm: ShazamResultViewModel(result: matcher.currentMatchResult))
                     .onAppear(perform: { [weak matcher] in
                         matcher?.reset()
                     })
@@ -94,6 +93,7 @@ struct MatchView: View {
                 }
             }
         }
+        .accessibilityIdentifier("match_navigation_stack")
     }
 }
 
