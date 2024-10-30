@@ -8,7 +8,7 @@
 import Foundation
 import ShazamKit
 import MusixmatchAPI
-@testable import LyricsPieces
+@testable import TuneSpotter
 
 // MARK: - ShazamKit related
 

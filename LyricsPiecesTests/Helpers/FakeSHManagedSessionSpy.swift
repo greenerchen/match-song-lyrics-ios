@@ -7,7 +7,7 @@
 
 import Foundation
 import ShazamKit
-@testable import LyricsPieces
+@testable import TuneSpotter
 
 final class FakeSHManagedSessionSpy: SHManagedSessionProtocol {
     

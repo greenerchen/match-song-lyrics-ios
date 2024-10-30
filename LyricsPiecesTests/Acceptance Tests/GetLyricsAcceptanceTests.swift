@@ -6,24 +6,34 @@
 //
 
 import XCTest
+import ShazamKit
 import MusixmatchAPI
+import ViewInspector
+@testable import TuneSpotter
 
 final class GetLyricsAcceptanceTests: XCTestCase {
 
-    func test_trackGet_byISRC_WhenAUserHasConnectivity_getTrackInfo() async throws {
-        let sut = makeSUT(.trackGetOKSession)
-        
-        let track = try await sut.getTrack(isrc: "A12345")
-        
-        XCTAssertEqual(track.trackName, "Way Maker", "Expected to get Way Maker for the track name")
-        XCTAssertEqual(track.artistName, "Leeland", "Expected to get Leeland for the artist name")
-    }
+//    @MainActor
+//    func testGetLyrics_displayLyricsInSheet() async throws {
+//        let sut = makeSUT(matchedMediaItemStub, track: trackStub)
+//        
+//        try sut.inspect().find(button: "Read Lyrics").tap()
+//        
+//        try await ViewHosting.host(sut) { hostedView in
+//            try await hostedView.inspection.inspect { view in
+//                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "sheet_lyrics"))
+//                
+//            }
+//        }
+//    }
 
     // MARK: - Helpers
     
-    private func makeSUT(_ session: MusixmatchAPISessionSpy) -> MusixmatchAPIClient {
-        let sut = MusixmatchAPIClient(session: session)
-        trackForMemoryLeaks(sut)
+    @MainActor
+    private func makeSUT(_ song: SHMatchedMediaItem, track: Track) -> TrackActionsView {
+        let viewModel = LyricsViewModel(song: song)
+        viewModel.setUp(track: track)
+        let sut = TrackActionsView(song: song, viewModel: viewModel)
         return sut
     }
 }

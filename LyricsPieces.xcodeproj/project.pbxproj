@@ -78,12 +78,12 @@
 		AA9D58912C81B90D008ABAEC /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		AA9D58932C81B92E008ABAEC /* FakeSHMatchCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSHMatchCoder.swift; sourceTree = "<group>"; };
 		AA9D58952C81C71C008ABAEC /* FakeSHManagedSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSHManagedSessionSpy.swift; sourceTree = "<group>"; };
-		AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LyricsPieces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9EEF732C7F1D86008F4B6D /* TuneSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuneSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9EEF762C7F1D86008F4B6D /* LyricsPiecesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPiecesApp.swift; sourceTree = "<group>"; };
 		AA9EEF782C7F1D86008F4B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA9EEF7A2C7F1D8B008F4B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA9EEF7D2C7F1D8B008F4B6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA9EEF832C7F1D8B008F4B6D /* LyricsPiecesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyricsPiecesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9EEF832C7F1D8B008F4B6D /* TuneSpotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuneSpotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9EEF872C7F1D8B008F4B6D /* ShazamMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamMatcherTests.swift; sourceTree = "<group>"; };
 		AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartView.swift; sourceTree = "<group>"; };
 		AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 		AA9EEF742C7F1D86008F4B6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */,
-				AA9EEF832C7F1D8B008F4B6D /* LyricsPiecesTests.xctest */,
+				AA9EEF732C7F1D86008F4B6D /* TuneSpotter.app */,
+				AA9EEF832C7F1D8B008F4B6D /* TuneSpotterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,9 +305,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA9EEF722C7F1D86008F4B6D /* LyricsPieces */ = {
+		AA9EEF722C7F1D86008F4B6D /* TuneSpotter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "LyricsPieces" */;
+			buildConfigurationList = AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotter" */;
 			buildPhases = (
 				AA9EEF6F2C7F1D86008F4B6D /* Sources */,
 				AA9EEF702C7F1D86008F4B6D /* Frameworks */,
@@ -317,17 +317,17 @@
 			);
 			dependencies = (
 			);
-			name = LyricsPieces;
+			name = TuneSpotter;
 			packageProductDependencies = (
 				AAA347F72C9295F50011A39D /* MusixmatchAPI */,
 			);
 			productName = LyricsPieces;
-			productReference = AA9EEF732C7F1D86008F4B6D /* LyricsPieces.app */;
+			productReference = AA9EEF732C7F1D86008F4B6D /* TuneSpotter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA9EEF822C7F1D8B008F4B6D /* LyricsPiecesTests */ = {
+		AA9EEF822C7F1D8B008F4B6D /* TuneSpotterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "LyricsPiecesTests" */;
+			buildConfigurationList = AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotterTests" */;
 			buildPhases = (
 				AA9EEF7F2C7F1D8B008F4B6D /* Sources */,
 				AA9EEF802C7F1D8B008F4B6D /* Frameworks */,
@@ -338,9 +338,9 @@
 			dependencies = (
 				AA9EEF852C7F1D8B008F4B6D /* PBXTargetDependency */,
 			);
-			name = LyricsPiecesTests;
+			name = TuneSpotterTests;
 			productName = LyricsPiecesTests;
-			productReference = AA9EEF832C7F1D8B008F4B6D /* LyricsPiecesTests.xctest */;
+			productReference = AA9EEF832C7F1D8B008F4B6D /* TuneSpotterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -379,8 +379,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA9EEF722C7F1D86008F4B6D /* LyricsPieces */,
-				AA9EEF822C7F1D8B008F4B6D /* LyricsPiecesTests */,
+				AA9EEF722C7F1D86008F4B6D /* TuneSpotter */,
+				AA9EEF822C7F1D8B008F4B6D /* TuneSpotterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -460,7 +460,7 @@
 /* Begin PBXTargetDependency section */
 		AA9EEF852C7F1D8B008F4B6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA9EEF722C7F1D86008F4B6D /* LyricsPieces */;
+			target = AA9EEF722C7F1D86008F4B6D /* TuneSpotter */;
 			targetProxy = AA9EEF842C7F1D8B008F4B6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -597,12 +597,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LyricsPieces/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "LyricsPieces requires permissions to listen to audio for appropriate songs";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TuneSpotter requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -628,12 +630,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LyricsPieces/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "LyricsPieces requires permissions to listen to audio for appropriate songs";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "TuneSpotter requires permissions to listen to audio for appropriate songs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,7 +666,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LyricsPieces.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LyricsPieces";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuneSpotter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuneSpotter";
 			};
 			name = Debug;
 		};
@@ -681,7 +685,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LyricsPieces.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LyricsPieces";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuneSpotter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuneSpotter";
 			};
 			name = Release;
 		};
@@ -697,7 +701,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "LyricsPieces" */ = {
+		AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9EEF982C7F1D8B008F4B6D /* Debug */,
@@ -706,7 +710,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "LyricsPiecesTests" */ = {
+		AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9EEF9B2C7F1D8B008F4B6D /* Debug */,

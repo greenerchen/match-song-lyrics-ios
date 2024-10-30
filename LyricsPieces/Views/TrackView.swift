@@ -56,7 +56,7 @@ struct TrackView: View {
         Spacer(minLength: 10)
         
         // MARK: Actions
-        TrackActionsView(song: song)
+        TrackActionsView(song: song, viewModel: LyricsViewModel(song: song))
         
         Spacer(minLength: 80)
     }

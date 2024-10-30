@@ -6,6 +6,6 @@
 //
 
 import ViewInspector
-@testable import LyricsPieces
+@testable import TuneSpotter
 
 extension Inspection: @retroactive InspectionEmissary { }

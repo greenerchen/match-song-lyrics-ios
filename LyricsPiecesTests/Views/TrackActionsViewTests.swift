@@ -8,10 +8,11 @@
 import XCTest
 import ViewInspector
 import ShazamKit
-@testable import LyricsPieces
+@testable import TuneSpotter
 
 final class TrackActionsViewTests: XCTestCase {
     
+    @MainActor
     func test_display_readLyrics() throws {
         let sut = makeSUT()
         
@@ -20,6 +21,7 @@ final class TrackActionsViewTests: XCTestCase {
         XCTAssertNoThrow(try sut.inspect().find(button: "Read Lyrics"), "Expected to find read lyrics")
     }
     
+    @MainActor
     func test_display_listenOnAppleMusic() throws {
         let sut = makeSUT()
         
@@ -29,8 +31,9 @@ final class TrackActionsViewTests: XCTestCase {
     
     // MARK: - Helpers
     
+    @MainActor
     private func makeSUT(song: SHMatchedMediaItem = matchedMediaItemStub) -> TrackActionsView {
-        let sut = TrackActionsView(song: song)
+        let sut = TrackActionsView(song: song, viewModel: LyricsViewModel(song: song))
         return sut
     }
     

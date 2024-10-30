@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import LyricsPieces
+@testable import TuneSpotter
 
 final class ShazamResultViewModelTests: XCTestCase {
 

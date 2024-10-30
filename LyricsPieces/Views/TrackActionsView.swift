@@ -13,13 +13,16 @@ struct TrackActionsView: View {
     @Environment(\.openURL) var openURL
     
     @State private var isPresented: Bool = false
+    
+    let inspection = Inspection<Self>()
+    
     let vm: LyricsViewModel
     
     let song: SHMatchedMediaItem
     
-    init(song: SHMatchedMediaItem) {
+    init(song: SHMatchedMediaItem, viewModel: LyricsViewModel) {
         self.song = song
-        self.vm = LyricsViewModel(song: song)
+        self.vm = viewModel
     }
     
     var body: some View {
@@ -44,12 +47,14 @@ struct TrackActionsView: View {
                 if let vm = vm {
                     if vm.hasLyrics, !vm.restricted {
                         WebView(url: nil, htmlString: vm.getMessage())
-                            .accessibilityIdentifier("sheet_lyrics")
                             .presentationDetents([.medium, .large])
+                            .accessibilityIdentifier("sheet_lyrics")
+                            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                     } else {
                         Text(vm.getMessage())
-                            .accessibilityIdentifier("sheet_error_message")
                             .presentationDetents([.medium, .large])
+                            .accessibilityIdentifier("sheet_error_message")
+                            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                     }
                 }
             })

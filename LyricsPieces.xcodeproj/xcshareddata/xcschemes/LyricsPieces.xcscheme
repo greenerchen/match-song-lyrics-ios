@@ -16,8 +16,22 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA9EEF722C7F1D86008F4B6D"
-               BuildableName = "LyricsPieces.app"
-               BlueprintName = "LyricsPieces"
+               BuildableName = "TuneSpotter.app"
+               BlueprintName = "TuneSpotter"
+               ReferencedContainer = "container:LyricsPieces.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AA9EEF8C2C7F1D8B008F4B6D"
+               BuildableName = "LyricsPiecesUITests.xctest"
+               BlueprintName = "LyricsPiecesUITests"
                ReferencedContainer = "container:LyricsPieces.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -41,19 +55,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA9EEF822C7F1D8B008F4B6D"
-               BuildableName = "LyricsPiecesTests.xctest"
-               BlueprintName = "LyricsPiecesTests"
-               ReferencedContainer = "container:LyricsPieces.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA9EEF8C2C7F1D8B008F4B6D"
-               BuildableName = "LyricsPiecesUITests.xctest"
-               BlueprintName = "LyricsPiecesUITests"
+               BuildableName = "TuneSpotterTests.xctest"
+               BlueprintName = "TuneSpotterTests"
                ReferencedContainer = "container:LyricsPieces.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -74,15 +77,15 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA9EEF722C7F1D86008F4B6D"
-            BuildableName = "LyricsPieces.app"
-            BlueprintName = "LyricsPieces"
+            BuildableName = "TuneSpotter.app"
+            BlueprintName = "TuneSpotter"
             ReferencedContainer = "container:LyricsPieces.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "MUSIXMATCH_APIKEY"
-            value = ""
+            value = "2263c5f62a9d7ee669f34aa21e3e460a"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -98,8 +101,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA9EEF722C7F1D86008F4B6D"
-            BuildableName = "LyricsPieces.app"
-            BlueprintName = "LyricsPieces"
+            BuildableName = "TuneSpotter.app"
+            BlueprintName = "TuneSpotter"
             ReferencedContainer = "container:LyricsPieces.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
