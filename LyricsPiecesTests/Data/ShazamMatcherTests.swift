@@ -73,7 +73,7 @@ final class ShazamMatcherTests: XCTestCase {
         XCTAssertEqual(matcher.state, .matched)
         XCTAssertNotNil(matcher.currentMatchResult?.match)
         
-        matcher.reset()
+        matcher.resetState()
         
         XCTAssertEqual(session.cancelCallCount, 2)
         XCTAssertEqual(matcher.state, .idle)
@@ -91,7 +91,7 @@ final class ShazamMatcherTests: XCTestCase {
         XCTAssertEqual(session.cancelCallCount, 0)
         XCTAssertEqual(matcher.state, .idle)
         
-        matcher.reset()
+        matcher.resetState()
         
         XCTAssertEqual(session.cancelCallCount, 1)
         XCTAssertEqual(matcher.state, .idle)
@@ -109,7 +109,7 @@ final class ShazamMatcherTests: XCTestCase {
         
         XCTAssertEqual(session.cancelCallCount, 0)
         
-        matcher.reset()
+        matcher.resetState()
         
         XCTAssertEqual(session.cancelCallCount, 1)
         XCTAssertEqual(matcher.state, .idle)

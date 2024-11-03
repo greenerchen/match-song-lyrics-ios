@@ -82,7 +82,7 @@ struct MatchView: View {
             .navigationDestination(isPresented: $isMatchedResultPresented, destination: {
                 ShazamResultView(vm: ShazamResultViewModel(result: matcher.currentMatchResult))
                     .onAppear(perform: {
-                        matcher.reset()
+                        matcher.resetState()
                     })
                     .accessibilityIdentifier("match_matched_state_view")
                     .onReceive(inspection.notice) { self.inspection.visit(self, $0) }

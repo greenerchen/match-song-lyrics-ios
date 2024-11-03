@@ -63,7 +63,7 @@ final class ShazamMatcher: ObservableObject {
         }
     }
     
-    func reset() {
+    func resetState() {
         session.cancel()
         state = .idle
     }
