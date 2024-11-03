@@ -25,6 +25,9 @@ class LyricsViewModel: ObservableObject {
     let client: MusixmatchAPIClient
     
     var error: Error?
+    var contentHTML: String {
+        getMessage()
+    }
     
     enum FetchError: Swift.Error {
         case noTrackFound
