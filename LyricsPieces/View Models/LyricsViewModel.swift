@@ -47,11 +47,11 @@ class LyricsViewModel: ObservableObject {
         if hasLyrics, !restricted {
             return makeHtmlString()
         } else if hasLyrics, restricted {
-            return "Lyrics Restricted in your country"
+            return makeErrorHtmlString(message: "Lyrics Restricted in your country")
         } else if let _ = error {
-            return "Ooops. Something wrong. Please try again later."
+            return makeErrorHtmlString(message: "Ooops. Something wrong. Please try again later.")
         } else {
-            return "Lyrics Not Found"
+            return makeErrorHtmlString(message: "Lyrics Not Found")
         }
     }
     
@@ -67,6 +67,10 @@ class LyricsViewModel: ObservableObject {
             .replacingOccurrences(of: "{{track_copyright}}", with: lyricsCopyright ?? "")
             .replacingOccurrences(of: "{{backlink_url}}", with: backlinkUrl ?? "")
         return html
+    }
+    
+    func makeErrorHtmlString(message: String) -> String {
+        errorHtmlTemplate.replacingOccurrences(of: "{{error_message}}", with: message)
     }
 }
 
@@ -186,4 +190,38 @@ h1, h2, h3, h4, h5, h6 {
 </html>
 """
 
+private let errorHtmlTemplate: String = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lyrics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="{{script_tracking_url}}"></script>
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+</head>
+<body>
 
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- Lyrics Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large">
+      <h2 class="w3-center">{{error_message}}</h2>
+    </div>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+</body>
+</html>
+"""

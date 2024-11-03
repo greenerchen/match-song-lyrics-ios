@@ -42,23 +42,15 @@ struct TrackActionsView: View {
             })
             .frame(height: 44)
             .buttonStyle(.borderedProminent)
-            .sheet(isPresented: $isPresented,
-                   content: { [weak vm] in
-                if let vm = vm {
-                    if vm.hasLyrics, !vm.restricted {
-                        WebView(url: nil, htmlString: vm.getMessage())
-                            .presentationDetents([.medium, .large])
-                            .accessibilityIdentifier("sheet_lyrics")
-                            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
-                    } else {
-                        Text(vm.getMessage())
-                            .presentationDetents([.medium, .large])
-                            .accessibilityIdentifier("sheet_error_message")
-                            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
-                    }
-                }
+            .accessibilityIdentifier("track_actions_read_lyrics")
+            .accessibilityLabel("Read Lyrics")
+            .sheet(isPresented: $isPresented, content: {
+                WebView(url: nil, htmlString: vm.getMessage())
+                    .presentationDetents([.medium, .large])
+                    .accessibilityIdentifier("sheet_lyrics")
+                    .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
             })
-            
+                        
             // MARK: Action: Listen on Apple Music
             Image("apple.music.badge")
                 .resizable()
