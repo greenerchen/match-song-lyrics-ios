@@ -18,7 +18,7 @@ struct TrackView: View {
         AsyncImage(url: song.artworkURL) { image in
             image.resizable()
         } placeholder: {
-            ProgressView()
+            EmptyView()
         }
         .scaledToFill()
         .edgesIgnoringSafeArea(.top)
