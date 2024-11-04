@@ -51,8 +51,8 @@ class LyricsViewModel: ObservableObject {
             return makeHtmlString()
         } else if hasLyrics, restricted {
             return makeErrorHtmlString(message: "Lyrics Restricted in your country")
-        } else if let _ = error {
-            return makeErrorHtmlString(message: "Ooops. Something wrong. Please try again later.")
+        } else if let error = error {
+            return makeErrorHtmlString(message: "Ooops. Something wrong. Please try again later. \(error.localizedDescription)")
         } else {
             return makeErrorHtmlString(message: "Lyrics Not Found")
         }
