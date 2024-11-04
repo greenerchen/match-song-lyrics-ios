@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA9EEF722C7F1D86008F4B6D"
-               BuildableName = "TuneSpotter.app"
-               BlueprintName = "TuneSpotter"
+               BuildableName = "ChordSync.app"
+               BlueprintName = "ChordSync"
                ReferencedContainer = "container:LyricsPieces.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -55,8 +55,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA9EEF822C7F1D8B008F4B6D"
-               BuildableName = "TuneSpotterTests.xctest"
-               BlueprintName = "TuneSpotterTests"
+               BuildableName = "ChordSyncTests.xctest"
+               BlueprintName = "ChordSyncTests"
                ReferencedContainer = "container:LyricsPieces.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA9EEF722C7F1D86008F4B6D"
-            BuildableName = "TuneSpotter.app"
-            BlueprintName = "TuneSpotter"
+            BuildableName = "ChordSync.app"
+            BlueprintName = "ChordSync"
             ReferencedContainer = "container:LyricsPieces.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -101,8 +101,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA9EEF722C7F1D86008F4B6D"
-            BuildableName = "TuneSpotter.app"
-            BlueprintName = "TuneSpotter"
+            BuildableName = "ChordSync.app"
+            BlueprintName = "ChordSync"
             ReferencedContainer = "container:LyricsPieces.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

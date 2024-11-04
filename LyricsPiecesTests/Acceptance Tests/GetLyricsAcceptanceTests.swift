@@ -9,7 +9,7 @@ import XCTest
 import ShazamKit
 import MusixmatchAPI
 import ViewInspector
-@testable import TuneSpotter
+@testable import ChordSync
 
 final class GetLyricsAcceptanceTests: XCTestCase {
 

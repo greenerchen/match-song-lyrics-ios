@@ -7,7 +7,7 @@
 
 import XCTest
 import ViewInspector
-@testable import TuneSpotter
+@testable import ChordSync
 
 final class MatchSongAcceptanceTests: XCTestCase {
 
@@ -26,7 +26,7 @@ final class MatchSongAcceptanceTests: XCTestCase {
                 XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
                 
-                ViewHosting.expel()
+//                ViewHosting.expel()
             }
         }
     }

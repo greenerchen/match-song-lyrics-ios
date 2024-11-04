@@ -6,6 +6,6 @@
 //
 
 import ViewInspector
-@testable import TuneSpotter
+@testable import ChordSync
 
 extension Inspection: @retroactive InspectionEmissary { }

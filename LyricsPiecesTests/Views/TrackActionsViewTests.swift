@@ -8,7 +8,7 @@
 import XCTest
 import ViewInspector
 import ShazamKit
-@testable import TuneSpotter
+@testable import ChordSync
 
 final class TrackActionsViewTests: XCTestCase {
     

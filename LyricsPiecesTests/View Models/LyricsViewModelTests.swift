@@ -7,7 +7,7 @@
 
 import XCTest
 import MusixmatchAPI
-@testable import TuneSpotter
+@testable import ChordSync
 
 final class LyricsViewModelTests: XCTestCase {
 

@@ -7,7 +7,7 @@
 
 import XCTest
 import ViewInspector
-@testable import TuneSpotter
+@testable import ChordSync
 
 final class PermissonRequestViewTests: XCTestCase {
 

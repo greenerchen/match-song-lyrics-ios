@@ -78,12 +78,12 @@
 		AA9D58912C81B90D008ABAEC /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
 		AA9D58932C81B92E008ABAEC /* FakeSHMatchCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSHMatchCoder.swift; sourceTree = "<group>"; };
 		AA9D58952C81C71C008ABAEC /* FakeSHManagedSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSHManagedSessionSpy.swift; sourceTree = "<group>"; };
-		AA9EEF732C7F1D86008F4B6D /* TuneSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuneSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9EEF732C7F1D86008F4B6D /* ChordSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9EEF762C7F1D86008F4B6D /* LyricsPiecesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPiecesApp.swift; sourceTree = "<group>"; };
 		AA9EEF782C7F1D86008F4B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA9EEF7A2C7F1D8B008F4B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA9EEF7D2C7F1D8B008F4B6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA9EEF832C7F1D8B008F4B6D /* TuneSpotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuneSpotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9EEF832C7F1D8B008F4B6D /* ChordSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChordSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9EEF872C7F1D8B008F4B6D /* ShazamMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamMatcherTests.swift; sourceTree = "<group>"; };
 		AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartView.swift; sourceTree = "<group>"; };
 		AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 		AA9EEF742C7F1D86008F4B6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA9EEF732C7F1D86008F4B6D /* TuneSpotter.app */,
-				AA9EEF832C7F1D8B008F4B6D /* TuneSpotterTests.xctest */,
+				AA9EEF732C7F1D86008F4B6D /* ChordSync.app */,
+				AA9EEF832C7F1D8B008F4B6D /* ChordSyncTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,9 +305,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA9EEF722C7F1D86008F4B6D /* TuneSpotter */ = {
+		AA9EEF722C7F1D86008F4B6D /* ChordSync */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotter" */;
+			buildConfigurationList = AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "ChordSync" */;
 			buildPhases = (
 				AA9EEF6F2C7F1D86008F4B6D /* Sources */,
 				AA9EEF702C7F1D86008F4B6D /* Frameworks */,
@@ -317,17 +317,17 @@
 			);
 			dependencies = (
 			);
-			name = TuneSpotter;
+			name = ChordSync;
 			packageProductDependencies = (
 				AAA347F72C9295F50011A39D /* MusixmatchAPI */,
 			);
 			productName = LyricsPieces;
-			productReference = AA9EEF732C7F1D86008F4B6D /* TuneSpotter.app */;
+			productReference = AA9EEF732C7F1D86008F4B6D /* ChordSync.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA9EEF822C7F1D8B008F4B6D /* TuneSpotterTests */ = {
+		AA9EEF822C7F1D8B008F4B6D /* ChordSyncTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotterTests" */;
+			buildConfigurationList = AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "ChordSyncTests" */;
 			buildPhases = (
 				AA9EEF7F2C7F1D8B008F4B6D /* Sources */,
 				AA9EEF802C7F1D8B008F4B6D /* Frameworks */,
@@ -338,9 +338,9 @@
 			dependencies = (
 				AA9EEF852C7F1D8B008F4B6D /* PBXTargetDependency */,
 			);
-			name = TuneSpotterTests;
+			name = ChordSyncTests;
 			productName = LyricsPiecesTests;
-			productReference = AA9EEF832C7F1D8B008F4B6D /* TuneSpotterTests.xctest */;
+			productReference = AA9EEF832C7F1D8B008F4B6D /* ChordSyncTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -379,8 +379,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA9EEF722C7F1D86008F4B6D /* TuneSpotter */,
-				AA9EEF822C7F1D8B008F4B6D /* TuneSpotterTests */,
+				AA9EEF722C7F1D86008F4B6D /* ChordSync */,
+				AA9EEF822C7F1D8B008F4B6D /* ChordSyncTests */,
 			);
 		};
 /* End PBXProject section */
@@ -460,7 +460,7 @@
 /* Begin PBXTargetDependency section */
 		AA9EEF852C7F1D8B008F4B6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA9EEF722C7F1D86008F4B6D /* TuneSpotter */;
+			target = AA9EEF722C7F1D86008F4B6D /* ChordSync */;
 			targetProxy = AA9EEF842C7F1D8B008F4B6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -591,7 +591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"LyricsPieces/Preview Content\"";
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
@@ -624,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"LyricsPieces/Preview Content\"";
 				DEVELOPMENT_TEAM = 6FQHBQB66L;
 				ENABLE_PREVIEWS = YES;
@@ -666,7 +666,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuneSpotter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuneSpotter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChordSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChordSync";
 			};
 			name = Debug;
 		};
@@ -685,7 +685,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuneSpotter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuneSpotter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChordSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChordSync";
 			};
 			name = Release;
 		};
@@ -701,7 +701,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotter" */ = {
+		AA9EEF972C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "ChordSync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9EEF982C7F1D8B008F4B6D /* Debug */,
@@ -710,7 +710,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "TuneSpotterTests" */ = {
+		AA9EEF9A2C7F1D8B008F4B6D /* Build configuration list for PBXNativeTarget "ChordSyncTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA9EEF9B2C7F1D8B008F4B6D /* Debug */,

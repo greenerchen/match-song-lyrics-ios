@@ -7,7 +7,7 @@
 
 import Foundation
 import ShazamKit
-@testable import TuneSpotter
+@testable import ChordSync
 
 final class FakeSHManagedSessionSpy: SHManagedSessionProtocol {
     
