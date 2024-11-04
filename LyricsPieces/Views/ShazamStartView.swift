@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ShazamStartView: View {
+    private var width: CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIScreen.main.bounds.width
+        } else {
+            return 380.0
+        }
+    }
+    
     var body: some View {
         Image("logo")
-            .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.width - 40)
+            .frame(width: width - 40, height: width - 40)
             .clipShape(Circle())
             .shadow(radius: 4)
             .accessibilityIdentifier("start_view_logo")
