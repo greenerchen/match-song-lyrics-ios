@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:greenerchen/musixmatch-api-ios.git",
       "state" : {
-        "revision" : "2df6b3b9f49f3a533a5fb9c8a868c2dcc04b246d",
-        "version" : "1.0.9"
+        "revision" : "13d848ca3b8fd8a5c1d8a9cfda5c4b856ec7718b",
+        "version" : "1.1.0"
       }
     },
     {
