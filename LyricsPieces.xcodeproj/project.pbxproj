@@ -615,6 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MUSIXMATCH_APIKEY = 2263c5f62a9d7ee669f34aa21e3e460a;
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenerchen.LyricsPieces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -649,6 +650,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MUSIXMATCH_APIKEY = 2263c5f62a9d7ee669f34aa21e3e460a;
 				PRODUCT_BUNDLE_IDENTIFIER = com.greenerchen.LyricsPieces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

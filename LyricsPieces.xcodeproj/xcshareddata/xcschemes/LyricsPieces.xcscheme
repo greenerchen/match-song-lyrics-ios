@@ -86,7 +86,7 @@
          <EnvironmentVariable
             key = "MUSIXMATCH_APIKEY"
             value = "2263c5f62a9d7ee669f34aa21e3e460a"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>

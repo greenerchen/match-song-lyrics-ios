@@ -36,7 +36,10 @@ class LyricsViewModel: ObservableObject {
     
     init(
         song: SHMatchedMediaItem,
-        client: MusixmatchAPIClient = MusixmatchAPIClient(apiLimitStrategy: RequestQueuesStrategy(limitPerSecond: 2))
+        client: MusixmatchAPIClient = MusixmatchAPIClient(
+            apiKey: "2263c5f62a9d7ee669f34aa21e3e460a",
+            apiLimitStrategy: RequestQueuesStrategy(limitPerSecond: 2)
+        )
     ) {
         isrc = song.isrc
         trackName = song.title ?? ""
