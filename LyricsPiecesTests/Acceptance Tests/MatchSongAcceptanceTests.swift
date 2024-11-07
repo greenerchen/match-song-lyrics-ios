@@ -23,10 +23,10 @@ final class MatchSongAcceptanceTests: XCTestCase {
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
-                XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
+//                XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
                 XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
                 
-//                ViewHosting.expel()
+                ViewHosting.expel()
             }
         }
     }

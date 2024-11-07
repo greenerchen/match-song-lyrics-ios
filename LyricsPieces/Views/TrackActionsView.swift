@@ -32,6 +32,7 @@ struct TrackActionsView: View {
     var body: some View {
         HStack {
             // MARK: Action: Read Lyrics
+            /*
             Button("Read Lyrics", systemImage: "music.note.list", action: {
                 isPresented.toggle()
             })
@@ -45,6 +46,7 @@ struct TrackActionsView: View {
                     .accessibilityIdentifier("sheet_lyrics")
                     .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
             }
+            */
             
             // MARK: Action: Listen on Apple Music
             Image("apple.music.badge")

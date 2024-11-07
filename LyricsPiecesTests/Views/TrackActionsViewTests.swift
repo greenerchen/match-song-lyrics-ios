@@ -12,14 +12,14 @@ import ShazamKit
 
 final class TrackActionsViewTests: XCTestCase {
     
-    @MainActor
-    func test_display_readLyrics() throws {
-        let sut = makeSUT()
-        
-        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "track_actions_read_lyrics"), "Expected to find read lyrics")
-        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityLabel: "Read Lyrics"), "Expected to find read lyrics")
-        XCTAssertNoThrow(try sut.inspect().find(button: "Read Lyrics"), "Expected to find read lyrics")
-    }
+//    @MainActor
+//    func test_display_readLyrics() throws {
+//        let sut = makeSUT()
+//        
+//        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "track_actions_read_lyrics"), "Expected to find read lyrics")
+//        XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityLabel: "Read Lyrics"), "Expected to find read lyrics")
+//        XCTAssertNoThrow(try sut.inspect().find(button: "Read Lyrics"), "Expected to find read lyrics")
+//    }
     
     @MainActor
     func test_display_listenOnAppleMusic() throws {
