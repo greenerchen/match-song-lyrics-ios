@@ -9,7 +9,7 @@ import SwiftUI
 import ShazamKit
 
 struct ShazamResultView: View {
-    @ObservedObject var vm: ShazamResultViewModel
+    var vm: ShazamResultViewModel
     
     var body: some View {
         VStack {
