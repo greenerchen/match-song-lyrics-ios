@@ -32,7 +32,7 @@
 		AA9EEFA62C7F24EE008F4B6D /* ShazamStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */; };
 		AA9EEFA82C7F25AE008F4B6D /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */; };
 		AA9EEFAB2C7F25E5008F4B6D /* ShazamMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFAA2C7F25E5008F4B6D /* ShazamMatcher.swift */; };
-		AA9EEFAE2C7F2A3F008F4B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9EEFAD2C7F2A3F008F4B6D /* Assets.xcassets */; };
+		AA9EEFAE2C7F2A3F008F4B6D /* Assets2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9EEFAD2C7F2A3F008F4B6D /* Assets2.xcassets */; };
 		AA9EEFB02C7F2C19008F4B6D /* MatchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFAF2C7F2C19008F4B6D /* MatchingView.swift */; };
 		AA9EEFB22C7F2C7F008F4B6D /* ShazamResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */; };
 		AA9EEFBA2C805F4F008F4B6D /* PermissonRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */; };
@@ -88,7 +88,7 @@
 		AA9EEFA52C7F24EE008F4B6D /* ShazamStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamStartView.swift; sourceTree = "<group>"; };
 		AA9EEFA72C7F25AE008F4B6D /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		AA9EEFAA2C7F25E5008F4B6D /* ShazamMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamMatcher.swift; sourceTree = "<group>"; };
-		AA9EEFAD2C7F2A3F008F4B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA9EEFAD2C7F2A3F008F4B6D /* Assets2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets2.xcassets; sourceTree = "<group>"; };
 		AA9EEFAF2C7F2C19008F4B6D /* MatchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingView.swift; sourceTree = "<group>"; };
 		AA9EEFB12C7F2C7F008F4B6D /* ShazamResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamResultView.swift; sourceTree = "<group>"; };
 		AA9EEFB92C805F4F008F4B6D /* PermissonRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissonRequestView.swift; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 		AA9EEFAC2C7F2A29008F4B6D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA9EEFAD2C7F2A3F008F4B6D /* Assets.xcassets */,
+				AA9EEFAD2C7F2A3F008F4B6D /* Assets2.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9EEF7E2C7F1D8B008F4B6D /* Preview Assets.xcassets in Resources */,
-				AA9EEFAE2C7F2A3F008F4B6D /* Assets.xcassets in Resources */,
+				AA9EEFAE2C7F2A3F008F4B6D /* Assets2.xcassets in Resources */,
 				AA9EEF7B2C7F1D8B008F4B6D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
