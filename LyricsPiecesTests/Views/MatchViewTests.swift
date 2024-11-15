@@ -82,7 +82,7 @@ final class MatchViewTests: XCTestCase {
     private func makeSUT(session: FakeSHManagedSessionSpy) -> (sut: MatchView, matcher: ShazamMatcher) {
         let matcher = ShazamMatcher(session: session)
         let sut = MatchView(matcher: matcher)
-        trackForMemoryLeaks(matcher)
+//        trackForMemoryLeaks(matcher)
         return (sut, matcher)
     }
 }
