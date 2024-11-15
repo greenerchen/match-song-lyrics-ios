@@ -8,11 +8,9 @@
 import SwiftUI
 import ShazamKit
 
-struct ContentView: View {
-    var matcher: ShazamMatcher = ShazamMatcher(session: SHManagedSession())
-    
+struct ContentView: View {    
     var body: some View {
-        MatchView(matcher: matcher)
+        MatchView(matcher: ShazamMatcher())
     }
 }
 
