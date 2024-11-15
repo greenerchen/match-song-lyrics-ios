@@ -10,7 +10,7 @@ import Combine
 import AVFoundation
 
 struct MatchView: View {
-    @ObservedObject var matcher: ShazamMatcher
+    @StateObject var matcher: ShazamMatcher
     @State private var needPermissions: Bool = false
     @State private var isMatchedResultPresented: Bool = false
     
@@ -83,6 +83,9 @@ struct MatchView: View {
                 ShazamResultView(vm: ShazamResultViewModel(result: matcher.currentMatchResult))
                     .onAppear(perform: {
                         matcher.resetState()
+                    })
+                    .onDisappear(perform: {
+                        matcher.reset()
                     })
                     .accessibilityIdentifier("match_matched_state_view")
                     .onReceive(inspection.notice) { self.inspection.visit(self, $0) }

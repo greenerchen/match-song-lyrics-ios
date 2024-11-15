@@ -18,17 +18,18 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        try await ViewHosting.host(sut) { hostedView in
-            try await hostedView.inspection.inspect { view in
-                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
-                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
-                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
-//                XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
-                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
-                
-                ViewHosting.expel()
-            }
+        let exp = sut.inspection.inspect(after: 0.1) { view in
+            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_matched_state_view"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Way Maker (Live)"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Leeland"))
+            //                XCTAssertNoThrow(try view.actualView().inspect().find(button: "Read Lyrics"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityLabel: "Listen On Apple Music"))
+            
         }
+        
+        ViewHosting.host(view: sut)
+        defer { ViewHosting.expel() }
+        await fulfillment(of: [exp])
     }
 
     @MainActor
@@ -38,14 +39,16 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        try await ViewHosting.host(sut) { hostedView in
-            try await hostedView.inspection.inspect { view in
-                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
-                XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
+        let exp = sut.inspection.inspect(after: 0.1) { view in
+            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_error_state_view"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(text: "Uh-oh, Something wrong"))
             
-                ViewHosting.expel()
-            }
+            ViewHosting.expel()
         }
+        
+        ViewHosting.host(view: sut)
+        defer { ViewHosting.expel() }
+        await fulfillment(of: [exp])
     }
     
     @MainActor
@@ -54,14 +57,16 @@ final class MatchSongAcceptanceTests: XCTestCase {
         
         try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view").callOnTapGesture()
         
-        try await ViewHosting.host(sut) { hostedView in
-            try await hostedView.inspection.inspect { view in
-                XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
-                XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
-                
-                ViewHosting.expel()
-            }
+        let exp = sut.inspection.inspect(after: 0.1) { view in
+            XCTAssertNoThrow(try view.actualView().inspect().find(viewWithAccessibilityIdentifier: "match_noMatch_state_view"))
+            XCTAssertNoThrow(try view.actualView().inspect().find(text: "No song matched"))
+            
+            ViewHosting.expel()
         }
+        
+        ViewHosting.host(view: sut)
+        defer { ViewHosting.expel() }
+        await fulfillment(of: [exp])
     }
     
     // MARK: - Helpers
