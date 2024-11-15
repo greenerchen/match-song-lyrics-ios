@@ -7,7 +7,7 @@
 
 import XCTest
 import ViewInspector
-@testable import LyricsPieces
+@testable import ChordSync
 
 final class MatchingViewTests: XCTestCase {
 

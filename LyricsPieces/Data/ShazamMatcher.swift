@@ -63,12 +63,17 @@ final class ShazamMatcher: ObservableObject {
         }
     }
     
-    func reset() {
+    func resetState() {
         session.cancel()
         state = .idle
     }
     
-    func endSession(with match: SHMatch?, state: State) {
+    func reset() {
+        resetState()
+        currentMatchResult = nil
+    }
+    
+    private func endSession(with match: SHMatch?, state: State) {
         session.cancel()
         currentMatchResult = ShazamMatchResult(match: match)
         self.state = state

@@ -7,7 +7,7 @@
 
 import XCTest
 import ShazamKit
-@testable import LyricsPieces
+@testable import ChordSync
 
 final class SHMatchedMediaItemMatchTimeTests: XCTestCase {
 

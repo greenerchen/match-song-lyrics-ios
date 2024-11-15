@@ -10,7 +10,7 @@ import Combine
 import AVFoundation
 
 struct MatchView: View {
-    @ObservedObject var matcher: ShazamMatcher
+    @StateObject var matcher: ShazamMatcher
     @State private var needPermissions: Bool = false
     @State private var isMatchedResultPresented: Bool = false
     
@@ -34,8 +34,8 @@ struct MatchView: View {
                     ShazamStartView()
                         .accessibilityIdentifier("match_idle_state_view")
                         .onTapGesture {
-                            Task { [weak matcher] in
-                                try await matcher?.match()
+                            Task {
+                                try await matcher.match()
                             }
                         }
                 case .matching:
@@ -51,8 +51,8 @@ struct MatchView: View {
                     ShazamStartView()
                         .accessibilityIdentifier("match_idle_state_view")
                         .onTapGesture {
-                            Task { [weak matcher] in
-                                try await matcher?.match()
+                            Task {
+                                try await matcher.match()
                             }
                         }
                         .onAppear {
@@ -61,16 +61,16 @@ struct MatchView: View {
                         
                 case .noMatched:
                     ErrorView(errorDescription: "No song matched", actionTitle: "Try again") {
-                        Task { [weak matcher] in
-                            try await matcher?.match()
+                        Task {
+                            try await matcher.match()
                         }
                     }
                     .accessibilityIdentifier("match_noMatch_state_view")
                     .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
                 case .error:
                     ErrorView(errorDescription: "Uh-oh, Something wrong", actionTitle: "Try again") {
-                        Task { [weak matcher] in
-                            try await matcher?.match()
+                        Task {
+                            try await matcher.match()
                         }
                     }
                     .accessibilityIdentifier("match_error_state_view")
@@ -81,8 +81,11 @@ struct MatchView: View {
             .background(.themeBackground)
             .navigationDestination(isPresented: $isMatchedResultPresented, destination: {
                 ShazamResultView(vm: ShazamResultViewModel(result: matcher.currentMatchResult))
-                    .onAppear(perform: { [weak matcher] in
-                        matcher?.reset()
+                    .onAppear(perform: {
+                        matcher.resetState()
+                    })
+                    .onDisappear(perform: {
+                        matcher.reset()
                     })
                     .accessibilityIdentifier("match_matched_state_view")
                     .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
@@ -94,6 +97,7 @@ struct MatchView: View {
             }
         }
         .accessibilityIdentifier("match_navigation_stack")
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
     }
 }
 

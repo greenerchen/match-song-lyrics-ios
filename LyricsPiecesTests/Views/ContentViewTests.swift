@@ -7,13 +7,13 @@
 
 import XCTest
 import ViewInspector
-@testable import LyricsPieces
+@testable import ChordSync
 
 final class ContentViewTests: XCTestCase {
 
     @MainActor
     func test_init_matchIdleViewDisplays() throws {
-        let sut = ContentView(matcher: ShazamMatcher(session: FakeSHManagedSessionSpy()))
+        let sut = ContentView()
         
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "match_idle_state_view"), "Expected to find the idle state view")
         XCTAssertNoThrow(try sut.inspect().find(viewWithAccessibilityIdentifier: "start_view_logo"), "Expected to find the logo")

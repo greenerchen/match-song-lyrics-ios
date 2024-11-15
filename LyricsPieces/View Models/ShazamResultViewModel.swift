@@ -9,7 +9,7 @@ import Foundation
 import ShazamKit
 import MusixmatchAPI
 
-class ShazamResultViewModel: ObservableObject {
+struct ShazamResultViewModel {
     enum TrackState: Equatable {
         case found
         case notFound
@@ -17,7 +17,7 @@ class ShazamResultViewModel: ObservableObject {
     
     var song: SHMatchedMediaItem?
     
-    @Published var trackState: TrackState
+    var trackState: TrackState
     
     private let result: ShazamMatchResult?
     

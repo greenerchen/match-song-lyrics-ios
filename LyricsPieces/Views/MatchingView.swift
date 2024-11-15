@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct MatchingView: View {
+    private var width: CGFloat {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIScreen.main.bounds.width
+        } else {
+            return 380.0
+        }
+    }
+    
     var title: String
     
     @State var degreesRotating = 0.0
@@ -15,7 +23,7 @@ struct MatchingView: View {
     var body: some View {
         VStack {
             Image("logo")
-                .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.width - 40)
+                .frame(width: width - 40, height: width - 40)
                 .clipShape(Circle())
                 .shadow(radius: 4)
                 .rotationEffect(.degrees(degreesRotating))

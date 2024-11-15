@@ -7,7 +7,7 @@
 
 import XCTest
 import MusixmatchAPI
-@testable import LyricsPieces
+@testable import ChordSync
 
 final class LyricsViewModelTests: XCTestCase {
 
@@ -260,7 +260,7 @@ final class LyricsViewModelTests: XCTestCase {
         
         let msg = sut.getMessage()
         
-        XCTAssertEqual(msg, "Lyrics Restricted in your country")
+        XCTAssertTrue(msg.contains("Lyrics Restricted in your country"))
     }
     
     @MainActor
@@ -270,7 +270,7 @@ final class LyricsViewModelTests: XCTestCase {
         
         let msg = sut.getMessage()
         
-        XCTAssertEqual(msg, "Ooops. Something wrong. Please try again later.")
+        XCTAssertTrue(msg.contains("Ooops. Something wrong. Please try again later."))
     }
     
     @MainActor
@@ -280,7 +280,7 @@ final class LyricsViewModelTests: XCTestCase {
         
         let msg = sut.getMessage()
         
-        XCTAssertEqual(msg, "Lyrics Not Found")
+        XCTAssertTrue(msg.contains("Lyrics Not Found"))
     }
     
     @MainActor

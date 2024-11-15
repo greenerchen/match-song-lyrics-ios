@@ -7,7 +7,7 @@
 
 import XCTest
 import ShazamKit
-@testable import LyricsPieces
+@testable import ChordSync
 
 final class ShazamResultViewTests: XCTestCase {
 
@@ -28,7 +28,6 @@ final class ShazamResultViewTests: XCTestCase {
     private func makeSUT(match: SHMatch? = matchStub) -> ShazamResultView {
         let vm = ShazamResultViewModel(result: ShazamMatchResult(match: match))
         let sut = ShazamResultView(vm: vm)
-        trackForMemoryLeaks(vm)
         return sut
     }
 }
